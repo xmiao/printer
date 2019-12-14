@@ -29,10 +29,24 @@ router.get('/', function (req, res, next) {
         path: 'sample.pdf',
         landscape: false,
         displayHeaderFooter: true,
-        headerTemplate: `<div>ok</div>`,
+        headerTemplate: `<div 
+style="
+font-size: 20px; 
+width: 100%; 
+height: 100px;
+text-align: center;
+color: red; 
+background-color: black; 
+border-bottom: 2px solid red;
+margin: 20px;"
+>人民医院门诊病历
+</div>`,
+        footerTemplate: `<span style="font-size: 30px; width: 50px; height: 50px; background-color: red; color:black; margin: 20px;">
+Footerooo
+</span>`,
         margin: {
             top: '100px',
-            bottom: '10px',
+            bottom: '100px',
             right: '20px',
             left: '20px'
         }
