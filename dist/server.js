@@ -18,4 +18,5 @@ app.use(express_1.default.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 module.exports = app;
+app.listen(3000);
 //# sourceMappingURL=server.js.map
