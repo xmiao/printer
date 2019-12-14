@@ -1,4 +1,5 @@
-let express = require('express');
+import express from "express";
+
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
