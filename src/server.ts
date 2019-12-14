@@ -1,11 +1,9 @@
 import express from "express";
-
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
-
-let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
+import path from 'path';
+import cookieParser from "cookie-parser";
+import logger from "morgan";
+import indexRouter from "./routes/index";
+import usersRouter from "./routes/users";
 
 let app = express();
 

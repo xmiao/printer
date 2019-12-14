@@ -22,6 +22,8 @@
     "ts-node": "^8.5.4"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/morgan": "^1.7.37",
     "nodemon": "^1.18.3",
     "tslint": "^5.11.0",
     "typescript": "^3.7.3"
