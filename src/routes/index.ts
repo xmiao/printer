@@ -1,5 +1,5 @@
 import express from "express";
-import convertHTMLToPDF from "pdf-puppeteer";
+import convertHTMLToPDF from "./cH2Pdf";
 import {readFileSync} from "fs";
 
 const router = express.Router();
@@ -31,19 +31,27 @@ router.get('/', function (req: any, res: any, next: any) {
         displayHeaderFooter: true,
         headerTemplate: `<div 
 style="
-font-size: 20px; 
+font-size: 12pt; 
 width: 100%; 
-height: 100px;
+height: 30px;
 text-align: center;
-color: red; 
 background-color: black; 
-border-bottom: 2px solid red;
-margin: 20px;"
->人民医院门诊病历
+border-bottom: 1px solid black;
+margin: 0 1cm;
+">人民医院门诊病历</div>`,
+
+        footerTemplate: `<div 
+style="
+font-size: 6pt;
+text-align: right; 
+width: 100%; 
+height: 20px; 
+border-top: 1px solid black; 
+color:black; 
+font-family: Arial,serif;
+margin: 0 1cm;">
+<span class="pageNumber"></span>/<span class="totalPages"></span> @ <span class="date"></span>
 </div>`,
-        footerTemplate: `<span style="font-size: 30px; width: 50px; height: 50px; background-color: red; color:black; margin: 20px;">
-Footerooo
-</span>`,
         margin: {
             top: '100px',
             bottom: '100px',
@@ -53,7 +61,6 @@ Footerooo
     };
 
     convertHTMLToPDF(text, callback, headerOption);
-
 });
 
 export default router;
