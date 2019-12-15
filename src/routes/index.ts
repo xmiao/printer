@@ -60,7 +60,12 @@ margin: 0 1cm;">
         }
     };
 
+    let curTime = new Date();
+    console.log(curTime);
     convertHTMLToPDF(text, callback, headerOption);
+    let endTime = new Date();
+    console.log(endTime);
+    console.log(`Total time spent: ${+endTime - +curTime}`);
 });
 
 export default router;

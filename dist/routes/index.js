@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const pdf_puppeteer_1 = __importDefault(require("pdf-puppeteer"));
+const cH2Pdf_1 = __importDefault(require("./cH2Pdf"));
 const fs_1 = require("fs");
 const router = express_1.default.Router();
 /* GET home page. */
@@ -31,19 +31,26 @@ router.get('/', function (req, res, next) {
         displayHeaderFooter: true,
         headerTemplate: `<div 
 style="
-font-size: 20px; 
+font-size: 12pt; 
 width: 100%; 
-height: 100px;
+height: 30px;
 text-align: center;
-color: red; 
 background-color: black; 
-border-bottom: 2px solid red;
-margin: 20px;"
->人民医院门诊病历
+border-bottom: 1px solid black;
+margin: 0 1cm;
+">人民医院门诊病历</div>`,
+        footerTemplate: `<div 
+style="
+font-size: 6pt;
+text-align: right; 
+width: 100%; 
+height: 20px; 
+border-top: 1px solid black; 
+color:black; 
+font-family: Arial,serif;
+margin: 0 1cm;">
+<span class="pageNumber"></span>/<span class="totalPages"></span> @ <span class="date"></span>
 </div>`,
-        footerTemplate: `<span style="font-size: 30px; width: 50px; height: 50px; background-color: red; color:black; margin: 20px;">
-Footerooo
-</span>`,
         margin: {
             top: '100px',
             bottom: '100px',
@@ -51,7 +58,12 @@ Footerooo
             left: '20px'
         }
     };
-    pdf_puppeteer_1.default(text, callback, headerOption);
+    let curTime = new Date();
+    console.log(curTime);
+    cH2Pdf_1.default(text, callback, headerOption);
+    let endTime = new Date();
+    console.log(endTime);
+    console.log(`Total time spent: ${+endTime - +curTime}`);
 });
 exports.default = router;
 //# sourceMappingURL=index.js.map
