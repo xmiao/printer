@@ -38,7 +38,9 @@ text-align: center;
 background-color: black; 
 border-bottom: 1px solid black;
 margin: 0 1cm;
-">人民医院门诊病历</div>`,
+">
+人民医院门诊病历
+</div>`,
 
         footerTemplate: `<div 
 style="
@@ -50,7 +52,7 @@ border-top: 1px solid black;
 color:black; 
 font-family: Arial,serif;
 margin: 0 1cm;">
-<span class="pageNumber"></span>/<span class="totalPages"></span> @ <span class="date"></span>
+第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span>
 </div>`,
         margin: {
             top: '100px',
