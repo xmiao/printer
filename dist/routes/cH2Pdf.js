@@ -5,6 +5,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             resolve(value);
         });
     }
+
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) {
             try {
