@@ -34,17 +34,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", {value: true});
 const puppeteer_1 = __importDefault(require("puppeteer"));
-let convertHTMLToPDF = (html, callback, options, puppeteerArgs, remoteContent) => __awaiter(void 0, void 0, void 0, function* () {
+let browser = null;
+let page = null;
+let convertHTMLToPDF = (html, options, puppeteerArgs, remoteContent) => __awaiter(void 0, void 0, void 0, function* () {
     if (typeof html !== 'string') {
         throw new Error('Invalid Argument: HTML expected as type of string and received a value of a different type. Check your request body and request headers.');
     }
-    let browser;
-    if (puppeteerArgs) {
-        browser = yield puppeteer_1.default.launch(puppeteerArgs);
-    } else {
-        browser = yield puppeteer_1.default.launch();
+    if (!browser) {
+        if (puppeteerArgs) {
+            browser = yield puppeteer_1.default.launch(puppeteerArgs);
+        } else {
+            browser = yield puppeteer_1.default.launch();
+        }
+        page = yield browser.newPage();
     }
-    const page = yield browser.newPage();
     if (!options) {
         options = {format: 'Letter'};
     }
@@ -57,10 +60,17 @@ let convertHTMLToPDF = (html, callback, options, puppeteerArgs, remoteContent) =
         //page.setContent will be faster than page.goto if html is a static
         yield page.setContent(html);
     }
-    yield page.pdf(options).then(callback, function (error) {
-        console.log(error);
-    });
-    yield browser.close();
+    let curTime = new Date();
+    console.log(curTime);
+    let pdf = yield page.pdf(options);
+    // .then(callback, function (error: any) {
+    //     console.log(error);
+    // });
+    let endTime = new Date();
+    console.log(endTime);
+    console.log(`Generating PDF: ${+endTime - +curTime}`);
+    // await browser.close();
+    return pdf;
 });
 exports.default = convertHTMLToPDF;
 //# sourceMappingURL=cH2Pdf.js.map

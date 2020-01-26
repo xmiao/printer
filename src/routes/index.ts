@@ -1,55 +1,37 @@
 import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {readFileSync} from "fs";
-import Ajv from "ajv";
 
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req: any, res: any, next: any) {
-    // res.render('index', {title: 'Express'});
-    // res.json({some: "test eee"});
+router.get('/', async function (req: any, res: any, next: any) {
+    // let callback = function (pdf: any) {
+    //     res.setHeader("Content-Type", "application/pdf");
+    //     res.send(pdf);
+    // };
 
-    let callback = function (pdf: any) {
-        // do something with the PDF like send it as the response
-        res.setHeader("Content-Type", "application/pdf");
-        res.send(pdf);
-    };
-
-    var ajv = new Ajv({allErrors: true});
-
-    var schema = {
-        "properties": {
-            "foo": {"type": "string"},
-            "bar": {"type": "number", "maximum": 3}
-        }
-    };
-
-    var validate = ajv.compile(schema);
-
-
-    test({"foo": "abc", "bar": 2});
-    test({"foo": 2, "bar": 4});
-
-    function test(data: any) {
-        var valid = validate(data);
-        if (valid) console.log('Valid!');
-        else console.log('Invalid: ' + ajv.errorsText(validate.errors));
-    }
-
+    // var ajv = new Ajv({allErrors: true});
+    // var schema = {
+    //     "properties": {
+    //         "foo": {"type": "string"},
+    //         "bar": {"type": "number", "maximum": 3}
+    //     }
+    // };
+    // var validate = ajv.compile(schema);
+    // test({"foo": "abc", "bar": 2});
+    // test({"foo": 2, "bar": 4});
+    //
+    // function test(data: any) {
+    //     var valid = validate(data);
+    //     if (valid) console.log('Valid!');
+    //     else console.log('Invalid: ' + ajv.errorsText(validate.errors));
+    // }
 
     let text = readFileSync("./public/xm.html", "utf-8");
 
-    /**
-     *    Usage
-     *    @param html - This is the html to be converted to a pdf
-     *    @param callback - Do something with the PDF
-     *    @param [options] - Optional parameter to pass in Puppeteer PDF options
-     *    @param [puppeteerArgs] - Optional parameter to pass in Puppeter arguments
-     *    @param [remoteContent] - Default true. Optional parameter to specify if there is no remote content. Performance will be opitmized for no remote content.
-     */
     let headerOption = {
-        path: 'sample.pdf',
+        path: 'optionally-saved.pdf',
         landscape: false,
         displayHeaderFooter: true,
         headerTemplate: `<div 
@@ -87,10 +69,20 @@ margin: 0 1cm;">
 
     let curTime = new Date();
     console.log(curTime);
-    convertHTMLToPDF(text, callback, headerOption);
+    let pdf = await convertHTMLToPDF(text, headerOption);
     let endTime = new Date();
     console.log(endTime);
     console.log(`Total time spent: ${+endTime - +curTime}`);
+
+    res.setHeader("Content-Type", "application/pdf");
+    res.send(pdf);
+});
+
+router.get('/a', function (req: any, res: any, next: any) {
+    let callback = function (pdf: any) {
+        res.setHeader("Content-Type", "application/pdf");
+        res.send(pdf);
+    };
 });
 
 export default router;

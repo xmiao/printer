@@ -1,6 +1,9 @@
 import puppeteer from "puppeteer";
 
-let convertHTMLToPDF = async (html: string, callback: any,
+let browser: any = null;
+let page: any = null;
+
+let convertHTMLToPDF = async (html: string,
                               options?: puppeteer.PDFOptions,
                               puppeteerArgs?: puppeteer.LaunchOptions,
                               remoteContent?: boolean) => {
@@ -9,14 +12,14 @@ let convertHTMLToPDF = async (html: string, callback: any,
             'Invalid Argument: HTML expected as type of string and received a value of a different type. Check your request body and request headers.'
         );
     }
-    let browser;
-    if (puppeteerArgs) {
-        browser = await puppeteer.launch(puppeteerArgs);
-    } else {
-        browser = await puppeteer.launch();
+    if (!browser) {
+        if (puppeteerArgs) {
+            browser = await puppeteer.launch(puppeteerArgs);
+        } else {
+            browser = await puppeteer.launch();
+        }
+        page = await browser.newPage();
     }
-
-    const page = await browser.newPage();
     if (!options) {
         options = {format: 'Letter'};
     }
@@ -31,10 +34,18 @@ let convertHTMLToPDF = async (html: string, callback: any,
         await page.setContent(html);
     }
 
-    await page.pdf(options).then(callback, function (error) {
-        console.log(error);
-    });
-    await browser.close();
+    let curTime = new Date();
+    console.log(curTime);
+    let pdf = await page.pdf(options);
+    // .then(callback, function (error: any) {
+    //     console.log(error);
+    // });
+    let endTime = new Date();
+    console.log(endTime);
+    console.log(`Generating PDF: ${+endTime - +curTime}`);
+
+    // await browser.close();
+    return pdf;
 };
 
 export default convertHTMLToPDF;
