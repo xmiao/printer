@@ -6,16 +6,34 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cH2Pdf_1 = __importDefault(require("./cH2Pdf"));
 const fs_1 = require("fs");
+const ajv_1 = __importDefault(require("ajv"));
 const router = express_1.default.Router();
 /* GET home page. */
 router.get('/', function (req, res, next) {
     // res.render('index', {title: 'Express'});
     // res.json({some: "test eee"});
-    var callback = function (pdf) {
+    let callback = function (pdf) {
         // do something with the PDF like send it as the response
         res.setHeader("Content-Type", "application/pdf");
         res.send(pdf);
     };
+    var ajv = new ajv_1.default({ allErrors: true });
+    var schema = {
+        "properties": {
+            "foo": { "type": "string" },
+            "bar": { "type": "number", "maximum": 3 }
+        }
+    };
+    var validate = ajv.compile(schema);
+    test({ "foo": "abc", "bar": 2 });
+    test({ "foo": 2, "bar": 4 });
+    function test(data) {
+        var valid = validate(data);
+        if (valid)
+            console.log('Valid!');
+        else
+            console.log('Invalid: ' + ajv.errorsText(validate.errors));
+    }
     let text = fs_1.readFileSync("./public/xm.html", "utf-8");
     /**
      *    Usage

@@ -9,17 +9,18 @@
     "watch-ts": "tsc -w"
   },
   "dependencies": {
+    "compression": "latest",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.17.1",
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
     "morgan": "~1.9.1",
+    "node-printer": "^1.0.4",
     "pdf-puppeteer": "^1.1.9",
     "pug": "^2.0.4",
     "puppeteer": "^2.0.0",
-    "ts-node": "^8.5.4",
-    "compression": "latest"
+    "ts-node": "^8.5.4"
   },
   "devDependencies": {
     "@types/compression": "^1.0.1",

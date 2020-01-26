@@ -1,6 +1,7 @@
 import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {readFileSync} from "fs";
+import Ajv from "ajv";
 
 const router = express.Router();
 
@@ -9,11 +10,33 @@ router.get('/', function (req: any, res: any, next: any) {
     // res.render('index', {title: 'Express'});
     // res.json({some: "test eee"});
 
-    var callback = function (pdf: any) {
+    let callback = function (pdf: any) {
         // do something with the PDF like send it as the response
         res.setHeader("Content-Type", "application/pdf");
         res.send(pdf);
     };
+
+    var ajv = new Ajv({allErrors: true});
+
+    var schema = {
+        "properties": {
+            "foo": {"type": "string"},
+            "bar": {"type": "number", "maximum": 3}
+        }
+    };
+
+    var validate = ajv.compile(schema);
+
+
+    test({"foo": "abc", "bar": 2});
+    test({"foo": 2, "bar": 4});
+
+    function test(data: any) {
+        var valid = validate(data);
+        if (valid) console.log('Valid!');
+        else console.log('Invalid: ' + ajv.errorsText(validate.errors));
+    }
+
 
     let text = readFileSync("./public/xm.html", "utf-8");
 
