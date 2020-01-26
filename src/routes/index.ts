@@ -35,11 +35,6 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', async function (req: any, res: any, next: any) {
-    // let callback = function (pdf: any) {
-    //     res.setHeader("Content-Type", "application/pdf");
-    //     res.send(pdf);
-    // };
-
     // var ajv = new Ajv({allErrors: true});
     // var schema = {
     //     "properties": {
@@ -74,10 +69,8 @@ router.get('/', async function (req: any, res: any, next: any) {
     };
 
     let curTime = new Date();
-    console.log(curTime);
     let pdf = await convertHTMLToPDF(text, headerOption);
     let endTime = new Date();
-    console.log(endTime);
     console.log(`Total time spent: ${+endTime - +curTime}`);
 
     res.setHeader("Content-Type", "application/pdf");
