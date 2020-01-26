@@ -5,16 +5,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
         function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+    return (mod && mod.__esModule) ? mod : {"default": mod};
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", {value: true});
 const express_1 = __importDefault(require("express"));
 const cH2Pdf_1 = __importDefault(require("./cH2Pdf"));
 const fs_1 = require("fs");
+// import printer from "node-printer";
+// let printer = require("node-printer");
+// import {} from "node-printer";
 const router = express_1.default.Router();
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -86,10 +90,9 @@ margin: 0 1cm;">
     });
 });
 router.get('/a', function (req, res, next) {
-    let callback = function (pdf) {
-        res.setHeader("Content-Type", "application/pdf");
-        res.send(pdf);
-    };
+    // let printer = new Printer();
+    let a = printer.getPrinters();
+    console.log(a);
 });
 exports.default = router;
 //# sourceMappingURL=index.js.map
