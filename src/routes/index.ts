@@ -2,7 +2,7 @@ import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {readFileSync} from "fs";
 // import printer from "node-printer";
-// let printer = require("node-printer");
+// let {printer} = require("node-printer");
 // import {} from "node-printer";
 
 const router = express.Router();
@@ -83,10 +83,9 @@ margin: 0 1cm;">
 
 router.get('/a', function (req: any, res: any, next: any) {
     // let printer = new Printer();
+    // console.log(printer);
     // let a = printer.getPrinters();
     // console.log(a);
-
-
 });
 
 export default router;

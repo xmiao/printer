@@ -5,7 +5,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
         function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -17,7 +16,7 @@ const express_1 = __importDefault(require("express"));
 const cH2Pdf_1 = __importDefault(require("./cH2Pdf"));
 const fs_1 = require("fs");
 // import printer from "node-printer";
-// let printer = require("node-printer");
+// let {printer} = require("node-printer");
 // import {} from "node-printer";
 const router = express_1.default.Router();
 /* GET home page. */
@@ -91,8 +90,9 @@ margin: 0 1cm;">
 });
 router.get('/a', function (req, res, next) {
     // let printer = new Printer();
-    let a = printer.getPrinters();
-    console.log(a);
+    // console.log(printer);
+    // let a = printer.getPrinters();
+    // console.log(a);
 });
 exports.default = router;
 //# sourceMappingURL=index.js.map
