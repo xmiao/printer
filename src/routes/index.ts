@@ -5,6 +5,32 @@ import {readFileSync} from "fs";
 // let {printer} = require("node-printer");
 // import {} from "node-printer";
 
+const footerTemplate = `<div 
+style="
+font-size: 6pt;
+text-align: right; 
+width: 100%; 
+height: 20px; 
+border-top: 1px solid black; 
+color:black; 
+font-family: Arial,serif;
+margin: 0 1cm;">
+第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span>
+</div>`;
+
+const headerTemplate = `<div 
+style="
+font-size: 12pt; 
+width: 100%; 
+height: 30px;
+text-align: center;
+background-color: black; 
+border-bottom: 1px solid black;
+margin: 0 1cm;
+">
+人民医院门诊病历
+</div>`;
+
 const router = express.Router();
 
 /* GET home page. */
@@ -37,31 +63,8 @@ router.get('/', async function (req: any, res: any, next: any) {
         path: 'optionally-saved.pdf',
         landscape: false,
         displayHeaderFooter: true,
-        headerTemplate: `<div 
-style="
-font-size: 12pt; 
-width: 100%; 
-height: 30px;
-text-align: center;
-background-color: black; 
-border-bottom: 1px solid black;
-margin: 0 1cm;
-">
-人民医院门诊病历
-</div>`,
-
-        footerTemplate: `<div 
-style="
-font-size: 6pt;
-text-align: right; 
-width: 100%; 
-height: 20px; 
-border-top: 1px solid black; 
-color:black; 
-font-family: Arial,serif;
-margin: 0 1cm;">
-第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span>
-</div>`,
+        headerTemplate,
+        footerTemplate,
         margin: {
             top: '100px',
             bottom: '100px',
