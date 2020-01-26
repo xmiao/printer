@@ -7,11 +7,10 @@ let convertHTMLToPDF = async (html: string,
                               options?: puppeteer.PDFOptions,
                               puppeteerArgs?: puppeteer.LaunchOptions,
                               remoteContent?: boolean) => {
-    if (typeof html !== 'string') {
-        throw new Error(
-            'Invalid Argument: HTML expected as type of string and received a value of a different type. Check your request body and request headers.'
-        );
-    }
+    if (typeof html !== 'string') throw new Error(
+        'Invalid Argument: HTML expected as type of string and received a value of a different type. Check your request body and request headers.'
+    );
+
     if (!browser) {
         if (puppeteerArgs) {
             browser = await puppeteer.launch(puppeteerArgs);

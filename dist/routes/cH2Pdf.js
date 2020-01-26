@@ -37,9 +37,8 @@ const puppeteer_1 = __importDefault(require("puppeteer"));
 let browser = null;
 let page = null;
 let convertHTMLToPDF = (html, options, puppeteerArgs, remoteContent) => __awaiter(void 0, void 0, void 0, function* () {
-    if (typeof html !== 'string') {
+    if (typeof html !== 'string')
         throw new Error('Invalid Argument: HTML expected as type of string and received a value of a different type. Check your request body and request headers.');
-    }
     if (!browser) {
         if (puppeteerArgs) {
             browser = yield puppeteer_1.default.launch(puppeteerArgs);
