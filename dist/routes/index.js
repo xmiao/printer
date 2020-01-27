@@ -5,7 +5,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
         function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -103,13 +102,12 @@ router.get('/', function (req, res, next) {
 router.get('/ls', function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         let a = yield printer.listPrinters();
-        let b = printer.setPrinter(a[5]);
+        let b = printer.setPrinter(a[4]);
         let c = yield printer.printerInfo();
         let d = yield printer.getCurrentPrinter();
         // await printer.printText("some test");
         yield printer.print("C:\\Users\\miaox\\Desktop\\process-2.pdf");
         res.setHeader("Content-Type", "text/plain");
-        //
         // res.json({a, c, d});
         res.send(JSON.stringify(c, null, "  "));
     });

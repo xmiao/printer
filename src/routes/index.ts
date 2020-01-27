@@ -96,14 +96,13 @@ router.get('/', async function (req: any, res: any, next: any) {
 
 router.get('/ls', async function (req: any, res, next: any) {
     let a = await printer.listPrinters();
-    let b = printer.setPrinter(a[5]);
+    let b = printer.setPrinter(a[4]);
     let c = await printer.printerInfo();
     let d = await printer.getCurrentPrinter();
     // await printer.printText("some test");
     await printer.print("C:\\Users\\miaox\\Desktop\\process-2.pdf");
 
     res.setHeader("Content-Type", "text/plain");
-    //
     // res.json({a, c, d});
     res.send(JSON.stringify(c, null, "  "));
 });
