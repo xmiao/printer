@@ -1,9 +1,9 @@
 import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {readFileSync} from "fs";
-// import printer from "node-printer";
-// let {printer} = require("node-printer");
-// import {} from "node-printer";
+
+const printer = require('node-native-printer');
+const edge = require(`edge-js`);
 
 const footerTemplate = `<div 
 style="
@@ -77,11 +77,35 @@ router.get('/', async function (req: any, res: any, next: any) {
     res.send(pdf);
 });
 
-router.get('/a', function (req: any, res: any, next: any) {
-    // let printer = new Printer();
-    // console.log(printer);
-    // let a = printer.getPrinters();
-    // console.log(a);
+// async function defaultPrinterName() {
+//     var defaultName = edge.func({
+//         assemblyFile: dllPath,
+//         typeName: 'windows_printer.API',
+//         methodName: 'DefaultPrinterName' // This must be Func<object,Task<object>>
+//     });
+//
+//     return new Promise((resolve, reject) => {
+//         defaultName('', function(error, response){
+//             if(error)
+//                 reject(error);
+//             else
+//                 resolve(response);
+//         })
+//     });
+// }
+
+router.get('/ls', async function (req: any, res, next: any) {
+    let a = await printer.listPrinters();
+    let b = printer.setPrinter(a[5]);
+    let c = await printer.printerInfo();
+    let d = await printer.getCurrentPrinter();
+    // await printer.printText("some test");
+    await printer.print("C:\\Users\\miaox\\Desktop\\process-2.pdf");
+
+    res.setHeader("Content-Type", "text/plain");
+    //
+    // res.json({a, c, d});
+    res.send(JSON.stringify(c, null, "  "));
 });
 
 export default router;

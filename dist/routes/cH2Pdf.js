@@ -60,10 +60,8 @@ let convertHTMLToPDF = (html, options, puppeteerArgs, remoteContent) => __awaite
         yield page.setContent(html);
     }
     let curTime = new Date();
-    console.log(curTime);
     let pdf = yield page.pdf(options);
     let endTime = new Date();
-    console.log(endTime);
     console.log(`Generating PDF: ${+endTime - +curTime}`);
     // await browser.close();
     return pdf;

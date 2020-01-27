@@ -1,0 +1,2912 @@
+[
+  {
+    "HostingPrintServer": {
+      "Name": "\\\\LAPTOP-GNJIS7BK",
+      "SubSystemVersion": "0",
+      "RestartJobOnPoolEnabled": true,
+      "RestartJobOnPoolTimeout": 600,
+      "MinorVersion": 0,
+      "MajorVersion": 3,
+      "EventLog": "LogPrintingErrorEvents",
+      "NetPopup": false,
+      "BeepEnabled": false,
+      "DefaultSchedulerPriority": "Normal",
+      "SchedulerPriority": "Normal",
+      "DefaultPortThreadPriority": "Normal",
+      "PortThreadPriority": "Normal",
+      "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+      "Parent": null,
+      "PropertiesCollection": {
+        "DefaultPortThreadPriority": {
+          "Value": "Normal",
+          "Name": "DefaultPortThreadPriority"
+        },
+        "EventLog": {
+          "Value": "LogPrintingErrorEvents",
+          "Name": "EventLog"
+        },
+        "Name": {
+          "Value": "\\\\LAPTOP-GNJIS7BK",
+          "Name": "Name"
+        },
+        "RestartJobOnPoolTimeout": {
+          "Value": 600,
+          "Name": "RestartJobOnPoolTimeout"
+        },
+        "DefaultSchedulerPriority": {
+          "Value": "Normal",
+          "Name": "DefaultSchedulerPriority"
+        },
+        "SchedulerPriority": {
+          "Value": "Normal",
+          "Name": "SchedulerPriority"
+        },
+        "MinorVersion": {
+          "Value": 0,
+          "Name": "MinorVersion"
+        },
+        "RestartJobOnPoolEnabled": {
+          "Value": true,
+          "Name": "RestartJobOnPoolEnabled"
+        },
+        "BeepEnabled": {
+          "Value": false,
+          "Name": "BeepEnabled"
+        },
+        "DefaultSpoolDirectory": {
+          "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+          "Name": "DefaultSpoolDirectory"
+        },
+        "NetPopup": {
+          "Value": false,
+          "Name": "NetPopup"
+        },
+        "PortThreadPriority": {
+          "Value": "Normal",
+          "Name": "PortThreadPriority"
+        },
+        "MajorVersion": {
+          "Value": 3,
+          "Name": "MajorVersion"
+        }
+      }
+    },
+    "HostingPrintQueue": {
+      "InPartialTrust": false,
+      "ClientPrintSchemaVersion": 1,
+      "IsXpsDevice": true,
+      "IsPublished": false,
+      "IsRawOnlyEnabled": false,
+      "IsBidiEnabled": true,
+      "ScheduleCompletedJobsFirst": true,
+      "KeepPrintedJobs": false,
+      "IsDevQueryEnabled": false,
+      "IsHidden": false,
+      "IsShared": false,
+      "IsDirect": false,
+      "IsQueued": false,
+      "IsPowerSaveOn": false,
+      "IsServerUnknown": false,
+      "IsDoorOpened": false,
+      "IsOutOfMemory": false,
+      "NeedUserIntervention": true,
+      "PagePunt": false,
+      "HasToner": true,
+      "IsTonerLow": false,
+      "IsWarmingUp": false,
+      "IsInitializing": false,
+      "IsProcessing": false,
+      "IsWaiting": false,
+      "IsNotAvailable": false,
+      "IsOutputBinFull": false,
+      "IsPrinting": false,
+      "IsBusy": false,
+      "IsIOActive": false,
+      "IsOffline": false,
+      "HasPaperProblem": false,
+      "IsManualFeedRequired": false,
+      "IsOutOfPaper": false,
+      "IsPaperJammed": false,
+      "IsPendingDeletion": false,
+      "IsInError": false,
+      "IsPaused": false,
+      "QueueAttributes": "2624",
+      "QueueStatus": "UserIntervention",
+      "FullName": "HP6AA541 (HP Deskjet 4640 series)",
+      "HostingPrintServer": {
+        "Name": "\\\\LAPTOP-GNJIS7BK",
+        "SubSystemVersion": "0",
+        "RestartJobOnPoolEnabled": true,
+        "RestartJobOnPoolTimeout": 600,
+        "MinorVersion": 0,
+        "MajorVersion": 3,
+        "EventLog": "LogPrintingErrorEvents",
+        "NetPopup": false,
+        "BeepEnabled": false,
+        "DefaultSchedulerPriority": "Normal",
+        "SchedulerPriority": "Normal",
+        "DefaultPortThreadPriority": "Normal",
+        "PortThreadPriority": "Normal",
+        "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+        "Parent": null,
+        "PropertiesCollection": {
+          "DefaultPortThreadPriority": {
+            "Value": "Normal",
+            "Name": "DefaultPortThreadPriority"
+          },
+          "EventLog": {
+            "Value": "LogPrintingErrorEvents",
+            "Name": "EventLog"
+          },
+          "Name": {
+            "Value": "\\\\LAPTOP-GNJIS7BK",
+            "Name": "Name"
+          },
+          "RestartJobOnPoolTimeout": {
+            "Value": 600,
+            "Name": "RestartJobOnPoolTimeout"
+          },
+          "DefaultSchedulerPriority": {
+            "Value": "Normal",
+            "Name": "DefaultSchedulerPriority"
+          },
+          "SchedulerPriority": {
+            "Value": "Normal",
+            "Name": "SchedulerPriority"
+          },
+          "MinorVersion": {
+            "Value": 0,
+            "Name": "MinorVersion"
+          },
+          "RestartJobOnPoolEnabled": {
+            "Value": true,
+            "Name": "RestartJobOnPoolEnabled"
+          },
+          "BeepEnabled": {
+            "Value": false,
+            "Name": "BeepEnabled"
+          },
+          "DefaultSpoolDirectory": {
+            "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+            "Name": "DefaultSpoolDirectory"
+          },
+          "NetPopup": {
+            "Value": false,
+            "Name": "NetPopup"
+          },
+          "PortThreadPriority": {
+            "Value": "Normal",
+            "Name": "PortThreadPriority"
+          },
+          "MajorVersion": {
+            "Value": 3,
+            "Name": "MajorVersion"
+          }
+        }
+      },
+      "QueuePrintProcessor": {
+        "Parent": null,
+        "Name": "winprint",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueuePort": {
+        "Parent": null,
+        "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueueDriver": {
+        "Parent": null,
+        "Name": "HP Deskjet 4640 series",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "DefaultPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "UserPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "SeparatorFile": "",
+      "Description": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+      "Location": "http://192.168.1.115:3911/",
+      "Comment": "",
+      "ShareName": "",
+      "NumberOfJobs": 5,
+      "AveragePagesPerMinute": 0,
+      "UntilTimeOfDay": 0,
+      "StartTimeOfDay": 0,
+      "DefaultPriority": 0,
+      "Name": "HP6AA541 (HP Deskjet 4640 series)",
+      "Priority": 1,
+      "CurrentJobSettings": {
+        "Description": null,
+        "CurrentPrintTicket": {
+          "Collation": "Collated",
+          "CopyCount": 1,
+          "DeviceFontSubstitution": null,
+          "Duplexing": "OneSided",
+          "InputBin": "Unknown",
+          "OutputColor": "Color",
+          "OutputQuality": "Normal",
+          "PageBorderless": "None",
+          "PageMediaSize": {
+            "PageMediaSizeName": "NorthAmericaLetter",
+            "Width": 816,
+            "Height": 1056
+          },
+          "PageMediaType": "Unknown",
+          "PageOrder": "Reverse",
+          "PageOrientation": "Portrait",
+          "PageResolution": {
+            "X": 600,
+            "Y": 600,
+            "QualitativeResolution": "Normal"
+          },
+          "PageScalingFactor": null,
+          "PagesPerSheet": null,
+          "PagesPerSheetDirection": null,
+          "PhotoPrintingIntent": null,
+          "Stapling": null,
+          "TrueTypeFontMode": null
+        }
+      },
+      "PrintingIsCancelled": false,
+      "Parent": null,
+      "PropertiesCollection": {
+        "UserPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "UserPrintTicket"
+        },
+        "IsXpsEnabled": {
+          "Value": true,
+          "Name": "IsXpsEnabled"
+        },
+        "Description": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+          "Name": "Description"
+        },
+        "Name": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series)",
+          "Name": "Name"
+        },
+        "Priority": {
+          "Value": 1,
+          "Name": "Priority"
+        },
+        "QueueDriver": {
+          "Value": {
+            "Parent": null,
+            "Name": "HP Deskjet 4640 series",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueueDriver"
+        },
+        "HostingPrintServer": {
+          "Value": null,
+          "Name": "HostingPrintServer"
+        },
+        "StartTimeOfDay": {
+          "Value": 0,
+          "Name": "StartTimeOfDay"
+        },
+        "SeparatorFile": {
+          "Value": "",
+          "Name": "SeparatorFile"
+        },
+        "QueuePort": {
+          "Value": {
+            "Parent": null,
+            "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePort"
+        },
+        "QueueStatus": {
+          "Value": "UserIntervention",
+          "Name": "QueueStatus"
+        },
+        "Comment": {
+          "Value": "",
+          "Name": "Comment"
+        },
+        "QueuePrintProcessor": {
+          "Value": {
+            "Parent": null,
+            "Name": "winprint",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePrintProcessor"
+        },
+        "DefaultPriority": {
+          "Value": 0,
+          "Name": "DefaultPriority"
+        },
+        "UntilTimeOfDay": {
+          "Value": 0,
+          "Name": "UntilTimeOfDay"
+        },
+        "NumberOfJobs": {
+          "Value": 5,
+          "Name": "NumberOfJobs"
+        },
+        "DefaultPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "DefaultPrintTicket"
+        },
+        "QueueAttributes": {
+          "Value": "2624",
+          "Name": "QueueAttributes"
+        },
+        "Location": {
+          "Value": "http://192.168.1.115:3911/",
+          "Name": "Location"
+        },
+        "ShareName": {
+          "Value": "",
+          "Name": "ShareName"
+        },
+        "AveragePagesPerMinute": {
+          "Value": 0,
+          "Name": "AveragePagesPerMinute"
+        }
+      }
+    },
+    "JobName": "Print System Document",
+    "IsRetained": false,
+    "IsUserInterventionRequired": false,
+    "IsBlocked": false,
+    "IsDeleted": false,
+    "IsPaperOut": false,
+    "IsOffline": false,
+    "IsPrinting": false,
+    "IsInError": false,
+    "IsSpooling": false,
+    "IsRestarted": false,
+    "IsPrinted": false,
+    "IsPaused": false,
+    "IsDeleting": false,
+    "IsCompleted": false,
+    "JobStatus": "None",
+    "TimeSinceStartedPrinting": 0,
+    "TimeJobSubmitted": "2020-01-27T04:26:07.000Z",
+    "JobSize": 35030,
+    "NumberOfPagesPrinted": 0,
+    "NumberOfPages": 1,
+    "UntilTimeOfDay": 0,
+    "StartTimeOfDay": 0,
+    "PositionInPrintQueue": 1,
+    "Priority": "Minimum",
+    "Submitter": "miaox",
+    "JobIdentifier": 2,
+    "JobStream": null,
+    "Parent": null,
+    "Name": "document",
+    "PropertiesCollection": {
+      "Submitter": {
+        "Value": "miaox",
+        "Name": "Submitter"
+      },
+      "PositionInQueue": {
+        "Value": 1,
+        "Name": "PositionInQueue"
+      },
+      "TimeSinceStartedPrinting": {
+        "Value": 0,
+        "Name": "TimeSinceStartedPrinting"
+      },
+      "Name": {
+        "Value": "document",
+        "Name": "Name"
+      },
+      "TimeJobSubmitted": {
+        "Value": "2020-01-27T04:26:07.000Z",
+        "Name": "TimeJobSubmitted"
+      },
+      "Priority": {
+        "Value": "Minimum",
+        "Name": "Priority"
+      },
+      "JobSize": {
+        "Value": 35030,
+        "Name": "JobSize"
+      },
+      "StartTimeOfDay": {
+        "Value": 0,
+        "Name": "StartTimeOfDay"
+      },
+      "NumberOfPages": {
+        "Value": 1,
+        "Name": "NumberOfPages"
+      },
+      "HostingPrintQueue": {
+        "Value": null,
+        "Name": "HostingPrintQueue"
+      },
+      "UntilTimeOfDay": {
+        "Value": 0,
+        "Name": "UntilTimeOfDay"
+      },
+      "HostingPrintServer": {
+        "Value": null,
+        "Name": "HostingPrintServer"
+      },
+      "JobIdentifier": {
+        "Value": 2,
+        "Name": "JobIdentifier"
+      },
+      "JobStatus": {
+        "Value": "None",
+        "Name": "JobStatus"
+      },
+      "NumberOfPagesPrinted": {
+        "Value": 0,
+        "Name": "NumberOfPagesPrinted"
+      }
+    }
+  },
+  {
+    "HostingPrintServer": {
+      "Name": "\\\\LAPTOP-GNJIS7BK",
+      "SubSystemVersion": "0",
+      "RestartJobOnPoolEnabled": true,
+      "RestartJobOnPoolTimeout": 600,
+      "MinorVersion": 0,
+      "MajorVersion": 3,
+      "EventLog": "LogPrintingErrorEvents",
+      "NetPopup": false,
+      "BeepEnabled": false,
+      "DefaultSchedulerPriority": "Normal",
+      "SchedulerPriority": "Normal",
+      "DefaultPortThreadPriority": "Normal",
+      "PortThreadPriority": "Normal",
+      "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+      "Parent": null,
+      "PropertiesCollection": {
+        "DefaultPortThreadPriority": {
+          "Value": "Normal",
+          "Name": "DefaultPortThreadPriority"
+        },
+        "EventLog": {
+          "Value": "LogPrintingErrorEvents",
+          "Name": "EventLog"
+        },
+        "Name": {
+          "Value": "\\\\LAPTOP-GNJIS7BK",
+          "Name": "Name"
+        },
+        "RestartJobOnPoolTimeout": {
+          "Value": 600,
+          "Name": "RestartJobOnPoolTimeout"
+        },
+        "DefaultSchedulerPriority": {
+          "Value": "Normal",
+          "Name": "DefaultSchedulerPriority"
+        },
+        "SchedulerPriority": {
+          "Value": "Normal",
+          "Name": "SchedulerPriority"
+        },
+        "MinorVersion": {
+          "Value": 0,
+          "Name": "MinorVersion"
+        },
+        "RestartJobOnPoolEnabled": {
+          "Value": true,
+          "Name": "RestartJobOnPoolEnabled"
+        },
+        "BeepEnabled": {
+          "Value": false,
+          "Name": "BeepEnabled"
+        },
+        "DefaultSpoolDirectory": {
+          "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+          "Name": "DefaultSpoolDirectory"
+        },
+        "NetPopup": {
+          "Value": false,
+          "Name": "NetPopup"
+        },
+        "PortThreadPriority": {
+          "Value": "Normal",
+          "Name": "PortThreadPriority"
+        },
+        "MajorVersion": {
+          "Value": 3,
+          "Name": "MajorVersion"
+        }
+      }
+    },
+    "HostingPrintQueue": {
+      "InPartialTrust": false,
+      "ClientPrintSchemaVersion": 1,
+      "IsXpsDevice": true,
+      "IsPublished": false,
+      "IsRawOnlyEnabled": false,
+      "IsBidiEnabled": true,
+      "ScheduleCompletedJobsFirst": true,
+      "KeepPrintedJobs": false,
+      "IsDevQueryEnabled": false,
+      "IsHidden": false,
+      "IsShared": false,
+      "IsDirect": false,
+      "IsQueued": false,
+      "IsPowerSaveOn": false,
+      "IsServerUnknown": false,
+      "IsDoorOpened": false,
+      "IsOutOfMemory": false,
+      "NeedUserIntervention": true,
+      "PagePunt": false,
+      "HasToner": true,
+      "IsTonerLow": false,
+      "IsWarmingUp": false,
+      "IsInitializing": false,
+      "IsProcessing": false,
+      "IsWaiting": false,
+      "IsNotAvailable": false,
+      "IsOutputBinFull": false,
+      "IsPrinting": false,
+      "IsBusy": false,
+      "IsIOActive": false,
+      "IsOffline": false,
+      "HasPaperProblem": false,
+      "IsManualFeedRequired": false,
+      "IsOutOfPaper": false,
+      "IsPaperJammed": false,
+      "IsPendingDeletion": false,
+      "IsInError": false,
+      "IsPaused": false,
+      "QueueAttributes": "2624",
+      "QueueStatus": "UserIntervention",
+      "FullName": "HP6AA541 (HP Deskjet 4640 series)",
+      "HostingPrintServer": {
+        "Name": "\\\\LAPTOP-GNJIS7BK",
+        "SubSystemVersion": "0",
+        "RestartJobOnPoolEnabled": true,
+        "RestartJobOnPoolTimeout": 600,
+        "MinorVersion": 0,
+        "MajorVersion": 3,
+        "EventLog": "LogPrintingErrorEvents",
+        "NetPopup": false,
+        "BeepEnabled": false,
+        "DefaultSchedulerPriority": "Normal",
+        "SchedulerPriority": "Normal",
+        "DefaultPortThreadPriority": "Normal",
+        "PortThreadPriority": "Normal",
+        "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+        "Parent": null,
+        "PropertiesCollection": {
+          "DefaultPortThreadPriority": {
+            "Value": "Normal",
+            "Name": "DefaultPortThreadPriority"
+          },
+          "EventLog": {
+            "Value": "LogPrintingErrorEvents",
+            "Name": "EventLog"
+          },
+          "Name": {
+            "Value": "\\\\LAPTOP-GNJIS7BK",
+            "Name": "Name"
+          },
+          "RestartJobOnPoolTimeout": {
+            "Value": 600,
+            "Name": "RestartJobOnPoolTimeout"
+          },
+          "DefaultSchedulerPriority": {
+            "Value": "Normal",
+            "Name": "DefaultSchedulerPriority"
+          },
+          "SchedulerPriority": {
+            "Value": "Normal",
+            "Name": "SchedulerPriority"
+          },
+          "MinorVersion": {
+            "Value": 0,
+            "Name": "MinorVersion"
+          },
+          "RestartJobOnPoolEnabled": {
+            "Value": true,
+            "Name": "RestartJobOnPoolEnabled"
+          },
+          "BeepEnabled": {
+            "Value": false,
+            "Name": "BeepEnabled"
+          },
+          "DefaultSpoolDirectory": {
+            "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+            "Name": "DefaultSpoolDirectory"
+          },
+          "NetPopup": {
+            "Value": false,
+            "Name": "NetPopup"
+          },
+          "PortThreadPriority": {
+            "Value": "Normal",
+            "Name": "PortThreadPriority"
+          },
+          "MajorVersion": {
+            "Value": 3,
+            "Name": "MajorVersion"
+          }
+        }
+      },
+      "QueuePrintProcessor": {
+        "Parent": null,
+        "Name": "winprint",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueuePort": {
+        "Parent": null,
+        "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueueDriver": {
+        "Parent": null,
+        "Name": "HP Deskjet 4640 series",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "DefaultPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "UserPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "SeparatorFile": "",
+      "Description": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+      "Location": "http://192.168.1.115:3911/",
+      "Comment": "",
+      "ShareName": "",
+      "NumberOfJobs": 5,
+      "AveragePagesPerMinute": 0,
+      "UntilTimeOfDay": 0,
+      "StartTimeOfDay": 0,
+      "DefaultPriority": 0,
+      "Name": "HP6AA541 (HP Deskjet 4640 series)",
+      "Priority": 1,
+      "CurrentJobSettings": {
+        "Description": null,
+        "CurrentPrintTicket": {
+          "Collation": "Collated",
+          "CopyCount": 1,
+          "DeviceFontSubstitution": null,
+          "Duplexing": "OneSided",
+          "InputBin": "Unknown",
+          "OutputColor": "Color",
+          "OutputQuality": "Normal",
+          "PageBorderless": "None",
+          "PageMediaSize": {
+            "PageMediaSizeName": "NorthAmericaLetter",
+            "Width": 816,
+            "Height": 1056
+          },
+          "PageMediaType": "Unknown",
+          "PageOrder": "Reverse",
+          "PageOrientation": "Portrait",
+          "PageResolution": {
+            "X": 600,
+            "Y": 600,
+            "QualitativeResolution": "Normal"
+          },
+          "PageScalingFactor": null,
+          "PagesPerSheet": null,
+          "PagesPerSheetDirection": null,
+          "PhotoPrintingIntent": null,
+          "Stapling": null,
+          "TrueTypeFontMode": null
+        }
+      },
+      "PrintingIsCancelled": false,
+      "Parent": null,
+      "PropertiesCollection": {
+        "UserPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "UserPrintTicket"
+        },
+        "IsXpsEnabled": {
+          "Value": true,
+          "Name": "IsXpsEnabled"
+        },
+        "Description": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+          "Name": "Description"
+        },
+        "Name": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series)",
+          "Name": "Name"
+        },
+        "Priority": {
+          "Value": 1,
+          "Name": "Priority"
+        },
+        "QueueDriver": {
+          "Value": {
+            "Parent": null,
+            "Name": "HP Deskjet 4640 series",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueueDriver"
+        },
+        "HostingPrintServer": {
+          "Value": null,
+          "Name": "HostingPrintServer"
+        },
+        "StartTimeOfDay": {
+          "Value": 0,
+          "Name": "StartTimeOfDay"
+        },
+        "SeparatorFile": {
+          "Value": "",
+          "Name": "SeparatorFile"
+        },
+        "QueuePort": {
+          "Value": {
+            "Parent": null,
+            "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePort"
+        },
+        "QueueStatus": {
+          "Value": "UserIntervention",
+          "Name": "QueueStatus"
+        },
+        "Comment": {
+          "Value": "",
+          "Name": "Comment"
+        },
+        "QueuePrintProcessor": {
+          "Value": {
+            "Parent": null,
+            "Name": "winprint",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePrintProcessor"
+        },
+        "DefaultPriority": {
+          "Value": 0,
+          "Name": "DefaultPriority"
+        },
+        "UntilTimeOfDay": {
+          "Value": 0,
+          "Name": "UntilTimeOfDay"
+        },
+        "NumberOfJobs": {
+          "Value": 5,
+          "Name": "NumberOfJobs"
+        },
+        "DefaultPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "DefaultPrintTicket"
+        },
+        "QueueAttributes": {
+          "Value": "2624",
+          "Name": "QueueAttributes"
+        },
+        "Location": {
+          "Value": "http://192.168.1.115:3911/",
+          "Name": "Location"
+        },
+        "ShareName": {
+          "Value": "",
+          "Name": "ShareName"
+        },
+        "AveragePagesPerMinute": {
+          "Value": 0,
+          "Name": "AveragePagesPerMinute"
+        }
+      }
+    },
+    "JobName": "Print System Document",
+    "IsRetained": false,
+    "IsUserInterventionRequired": false,
+    "IsBlocked": false,
+    "IsDeleted": false,
+    "IsPaperOut": false,
+    "IsOffline": false,
+    "IsPrinting": false,
+    "IsInError": false,
+    "IsSpooling": false,
+    "IsRestarted": false,
+    "IsPrinted": false,
+    "IsPaused": false,
+    "IsDeleting": false,
+    "IsCompleted": false,
+    "JobStatus": "None",
+    "TimeSinceStartedPrinting": 0,
+    "TimeJobSubmitted": "2020-01-27T04:26:25.000Z",
+    "JobSize": 35031,
+    "NumberOfPagesPrinted": 0,
+    "NumberOfPages": 1,
+    "UntilTimeOfDay": 0,
+    "StartTimeOfDay": 0,
+    "PositionInPrintQueue": 2,
+    "Priority": "Minimum",
+    "Submitter": "miaox",
+    "JobIdentifier": 3,
+    "JobStream": null,
+    "Parent": null,
+    "Name": "document",
+    "PropertiesCollection": {
+      "Submitter": {
+        "Value": "miaox",
+        "Name": "Submitter"
+      },
+      "PositionInQueue": {
+        "Value": 2,
+        "Name": "PositionInQueue"
+      },
+      "TimeSinceStartedPrinting": {
+        "Value": 0,
+        "Name": "TimeSinceStartedPrinting"
+      },
+      "Name": {
+        "Value": "document",
+        "Name": "Name"
+      },
+      "TimeJobSubmitted": {
+        "Value": "2020-01-27T04:26:25.000Z",
+        "Name": "TimeJobSubmitted"
+      },
+      "Priority": {
+        "Value": "Minimum",
+        "Name": "Priority"
+      },
+      "JobSize": {
+        "Value": 35031,
+        "Name": "JobSize"
+      },
+      "StartTimeOfDay": {
+        "Value": 0,
+        "Name": "StartTimeOfDay"
+      },
+      "NumberOfPages": {
+        "Value": 1,
+        "Name": "NumberOfPages"
+      },
+      "HostingPrintQueue": {
+        "Value": null,
+        "Name": "HostingPrintQueue"
+      },
+      "UntilTimeOfDay": {
+        "Value": 0,
+        "Name": "UntilTimeOfDay"
+      },
+      "HostingPrintServer": {
+        "Value": null,
+        "Name": "HostingPrintServer"
+      },
+      "JobIdentifier": {
+        "Value": 3,
+        "Name": "JobIdentifier"
+      },
+      "JobStatus": {
+        "Value": "None",
+        "Name": "JobStatus"
+      },
+      "NumberOfPagesPrinted": {
+        "Value": 0,
+        "Name": "NumberOfPagesPrinted"
+      }
+    }
+  },
+  {
+    "HostingPrintServer": {
+      "Name": "\\\\LAPTOP-GNJIS7BK",
+      "SubSystemVersion": "0",
+      "RestartJobOnPoolEnabled": true,
+      "RestartJobOnPoolTimeout": 600,
+      "MinorVersion": 0,
+      "MajorVersion": 3,
+      "EventLog": "LogPrintingErrorEvents",
+      "NetPopup": false,
+      "BeepEnabled": false,
+      "DefaultSchedulerPriority": "Normal",
+      "SchedulerPriority": "Normal",
+      "DefaultPortThreadPriority": "Normal",
+      "PortThreadPriority": "Normal",
+      "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+      "Parent": null,
+      "PropertiesCollection": {
+        "DefaultPortThreadPriority": {
+          "Value": "Normal",
+          "Name": "DefaultPortThreadPriority"
+        },
+        "EventLog": {
+          "Value": "LogPrintingErrorEvents",
+          "Name": "EventLog"
+        },
+        "Name": {
+          "Value": "\\\\LAPTOP-GNJIS7BK",
+          "Name": "Name"
+        },
+        "RestartJobOnPoolTimeout": {
+          "Value": 600,
+          "Name": "RestartJobOnPoolTimeout"
+        },
+        "DefaultSchedulerPriority": {
+          "Value": "Normal",
+          "Name": "DefaultSchedulerPriority"
+        },
+        "SchedulerPriority": {
+          "Value": "Normal",
+          "Name": "SchedulerPriority"
+        },
+        "MinorVersion": {
+          "Value": 0,
+          "Name": "MinorVersion"
+        },
+        "RestartJobOnPoolEnabled": {
+          "Value": true,
+          "Name": "RestartJobOnPoolEnabled"
+        },
+        "BeepEnabled": {
+          "Value": false,
+          "Name": "BeepEnabled"
+        },
+        "DefaultSpoolDirectory": {
+          "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+          "Name": "DefaultSpoolDirectory"
+        },
+        "NetPopup": {
+          "Value": false,
+          "Name": "NetPopup"
+        },
+        "PortThreadPriority": {
+          "Value": "Normal",
+          "Name": "PortThreadPriority"
+        },
+        "MajorVersion": {
+          "Value": 3,
+          "Name": "MajorVersion"
+        }
+      }
+    },
+    "HostingPrintQueue": {
+      "InPartialTrust": false,
+      "ClientPrintSchemaVersion": 1,
+      "IsXpsDevice": true,
+      "IsPublished": false,
+      "IsRawOnlyEnabled": false,
+      "IsBidiEnabled": true,
+      "ScheduleCompletedJobsFirst": true,
+      "KeepPrintedJobs": false,
+      "IsDevQueryEnabled": false,
+      "IsHidden": false,
+      "IsShared": false,
+      "IsDirect": false,
+      "IsQueued": false,
+      "IsPowerSaveOn": false,
+      "IsServerUnknown": false,
+      "IsDoorOpened": false,
+      "IsOutOfMemory": false,
+      "NeedUserIntervention": true,
+      "PagePunt": false,
+      "HasToner": true,
+      "IsTonerLow": false,
+      "IsWarmingUp": false,
+      "IsInitializing": false,
+      "IsProcessing": false,
+      "IsWaiting": false,
+      "IsNotAvailable": false,
+      "IsOutputBinFull": false,
+      "IsPrinting": false,
+      "IsBusy": false,
+      "IsIOActive": false,
+      "IsOffline": false,
+      "HasPaperProblem": false,
+      "IsManualFeedRequired": false,
+      "IsOutOfPaper": false,
+      "IsPaperJammed": false,
+      "IsPendingDeletion": false,
+      "IsInError": false,
+      "IsPaused": false,
+      "QueueAttributes": "2624",
+      "QueueStatus": "UserIntervention",
+      "FullName": "HP6AA541 (HP Deskjet 4640 series)",
+      "HostingPrintServer": {
+        "Name": "\\\\LAPTOP-GNJIS7BK",
+        "SubSystemVersion": "0",
+        "RestartJobOnPoolEnabled": true,
+        "RestartJobOnPoolTimeout": 600,
+        "MinorVersion": 0,
+        "MajorVersion": 3,
+        "EventLog": "LogPrintingErrorEvents",
+        "NetPopup": false,
+        "BeepEnabled": false,
+        "DefaultSchedulerPriority": "Normal",
+        "SchedulerPriority": "Normal",
+        "DefaultPortThreadPriority": "Normal",
+        "PortThreadPriority": "Normal",
+        "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+        "Parent": null,
+        "PropertiesCollection": {
+          "DefaultPortThreadPriority": {
+            "Value": "Normal",
+            "Name": "DefaultPortThreadPriority"
+          },
+          "EventLog": {
+            "Value": "LogPrintingErrorEvents",
+            "Name": "EventLog"
+          },
+          "Name": {
+            "Value": "\\\\LAPTOP-GNJIS7BK",
+            "Name": "Name"
+          },
+          "RestartJobOnPoolTimeout": {
+            "Value": 600,
+            "Name": "RestartJobOnPoolTimeout"
+          },
+          "DefaultSchedulerPriority": {
+            "Value": "Normal",
+            "Name": "DefaultSchedulerPriority"
+          },
+          "SchedulerPriority": {
+            "Value": "Normal",
+            "Name": "SchedulerPriority"
+          },
+          "MinorVersion": {
+            "Value": 0,
+            "Name": "MinorVersion"
+          },
+          "RestartJobOnPoolEnabled": {
+            "Value": true,
+            "Name": "RestartJobOnPoolEnabled"
+          },
+          "BeepEnabled": {
+            "Value": false,
+            "Name": "BeepEnabled"
+          },
+          "DefaultSpoolDirectory": {
+            "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+            "Name": "DefaultSpoolDirectory"
+          },
+          "NetPopup": {
+            "Value": false,
+            "Name": "NetPopup"
+          },
+          "PortThreadPriority": {
+            "Value": "Normal",
+            "Name": "PortThreadPriority"
+          },
+          "MajorVersion": {
+            "Value": 3,
+            "Name": "MajorVersion"
+          }
+        }
+      },
+      "QueuePrintProcessor": {
+        "Parent": null,
+        "Name": "winprint",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueuePort": {
+        "Parent": null,
+        "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueueDriver": {
+        "Parent": null,
+        "Name": "HP Deskjet 4640 series",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "DefaultPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "UserPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "SeparatorFile": "",
+      "Description": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+      "Location": "http://192.168.1.115:3911/",
+      "Comment": "",
+      "ShareName": "",
+      "NumberOfJobs": 5,
+      "AveragePagesPerMinute": 0,
+      "UntilTimeOfDay": 0,
+      "StartTimeOfDay": 0,
+      "DefaultPriority": 0,
+      "Name": "HP6AA541 (HP Deskjet 4640 series)",
+      "Priority": 1,
+      "CurrentJobSettings": {
+        "Description": null,
+        "CurrentPrintTicket": {
+          "Collation": "Collated",
+          "CopyCount": 1,
+          "DeviceFontSubstitution": null,
+          "Duplexing": "OneSided",
+          "InputBin": "Unknown",
+          "OutputColor": "Color",
+          "OutputQuality": "Normal",
+          "PageBorderless": "None",
+          "PageMediaSize": {
+            "PageMediaSizeName": "NorthAmericaLetter",
+            "Width": 816,
+            "Height": 1056
+          },
+          "PageMediaType": "Unknown",
+          "PageOrder": "Reverse",
+          "PageOrientation": "Portrait",
+          "PageResolution": {
+            "X": 600,
+            "Y": 600,
+            "QualitativeResolution": "Normal"
+          },
+          "PageScalingFactor": null,
+          "PagesPerSheet": null,
+          "PagesPerSheetDirection": null,
+          "PhotoPrintingIntent": null,
+          "Stapling": null,
+          "TrueTypeFontMode": null
+        }
+      },
+      "PrintingIsCancelled": false,
+      "Parent": null,
+      "PropertiesCollection": {
+        "UserPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "UserPrintTicket"
+        },
+        "IsXpsEnabled": {
+          "Value": true,
+          "Name": "IsXpsEnabled"
+        },
+        "Description": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+          "Name": "Description"
+        },
+        "Name": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series)",
+          "Name": "Name"
+        },
+        "Priority": {
+          "Value": 1,
+          "Name": "Priority"
+        },
+        "QueueDriver": {
+          "Value": {
+            "Parent": null,
+            "Name": "HP Deskjet 4640 series",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueueDriver"
+        },
+        "HostingPrintServer": {
+          "Value": null,
+          "Name": "HostingPrintServer"
+        },
+        "StartTimeOfDay": {
+          "Value": 0,
+          "Name": "StartTimeOfDay"
+        },
+        "SeparatorFile": {
+          "Value": "",
+          "Name": "SeparatorFile"
+        },
+        "QueuePort": {
+          "Value": {
+            "Parent": null,
+            "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePort"
+        },
+        "QueueStatus": {
+          "Value": "UserIntervention",
+          "Name": "QueueStatus"
+        },
+        "Comment": {
+          "Value": "",
+          "Name": "Comment"
+        },
+        "QueuePrintProcessor": {
+          "Value": {
+            "Parent": null,
+            "Name": "winprint",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePrintProcessor"
+        },
+        "DefaultPriority": {
+          "Value": 0,
+          "Name": "DefaultPriority"
+        },
+        "UntilTimeOfDay": {
+          "Value": 0,
+          "Name": "UntilTimeOfDay"
+        },
+        "NumberOfJobs": {
+          "Value": 5,
+          "Name": "NumberOfJobs"
+        },
+        "DefaultPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "DefaultPrintTicket"
+        },
+        "QueueAttributes": {
+          "Value": "2624",
+          "Name": "QueueAttributes"
+        },
+        "Location": {
+          "Value": "http://192.168.1.115:3911/",
+          "Name": "Location"
+        },
+        "ShareName": {
+          "Value": "",
+          "Name": "ShareName"
+        },
+        "AveragePagesPerMinute": {
+          "Value": 0,
+          "Name": "AveragePagesPerMinute"
+        }
+      }
+    },
+    "JobName": "Print System Document",
+    "IsRetained": false,
+    "IsUserInterventionRequired": false,
+    "IsBlocked": false,
+    "IsDeleted": false,
+    "IsPaperOut": false,
+    "IsOffline": false,
+    "IsPrinting": false,
+    "IsInError": false,
+    "IsSpooling": false,
+    "IsRestarted": false,
+    "IsPrinted": false,
+    "IsPaused": false,
+    "IsDeleting": false,
+    "IsCompleted": false,
+    "JobStatus": "None",
+    "TimeSinceStartedPrinting": 0,
+    "TimeJobSubmitted": "2020-01-27T04:47:23.000Z",
+    "JobSize": 35029,
+    "NumberOfPagesPrinted": 0,
+    "NumberOfPages": 1,
+    "UntilTimeOfDay": 0,
+    "StartTimeOfDay": 0,
+    "PositionInPrintQueue": 3,
+    "Priority": "Minimum",
+    "Submitter": "miaox",
+    "JobIdentifier": 4,
+    "JobStream": null,
+    "Parent": null,
+    "Name": "document",
+    "PropertiesCollection": {
+      "Submitter": {
+        "Value": "miaox",
+        "Name": "Submitter"
+      },
+      "PositionInQueue": {
+        "Value": 3,
+        "Name": "PositionInQueue"
+      },
+      "TimeSinceStartedPrinting": {
+        "Value": 0,
+        "Name": "TimeSinceStartedPrinting"
+      },
+      "Name": {
+        "Value": "document",
+        "Name": "Name"
+      },
+      "TimeJobSubmitted": {
+        "Value": "2020-01-27T04:47:23.000Z",
+        "Name": "TimeJobSubmitted"
+      },
+      "Priority": {
+        "Value": "Minimum",
+        "Name": "Priority"
+      },
+      "JobSize": {
+        "Value": 35029,
+        "Name": "JobSize"
+      },
+      "StartTimeOfDay": {
+        "Value": 0,
+        "Name": "StartTimeOfDay"
+      },
+      "NumberOfPages": {
+        "Value": 1,
+        "Name": "NumberOfPages"
+      },
+      "HostingPrintQueue": {
+        "Value": null,
+        "Name": "HostingPrintQueue"
+      },
+      "UntilTimeOfDay": {
+        "Value": 0,
+        "Name": "UntilTimeOfDay"
+      },
+      "HostingPrintServer": {
+        "Value": null,
+        "Name": "HostingPrintServer"
+      },
+      "JobIdentifier": {
+        "Value": 4,
+        "Name": "JobIdentifier"
+      },
+      "JobStatus": {
+        "Value": "None",
+        "Name": "JobStatus"
+      },
+      "NumberOfPagesPrinted": {
+        "Value": 0,
+        "Name": "NumberOfPagesPrinted"
+      }
+    }
+  },
+  {
+    "HostingPrintServer": {
+      "Name": "\\\\LAPTOP-GNJIS7BK",
+      "SubSystemVersion": "0",
+      "RestartJobOnPoolEnabled": true,
+      "RestartJobOnPoolTimeout": 600,
+      "MinorVersion": 0,
+      "MajorVersion": 3,
+      "EventLog": "LogPrintingErrorEvents",
+      "NetPopup": false,
+      "BeepEnabled": false,
+      "DefaultSchedulerPriority": "Normal",
+      "SchedulerPriority": "Normal",
+      "DefaultPortThreadPriority": "Normal",
+      "PortThreadPriority": "Normal",
+      "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+      "Parent": null,
+      "PropertiesCollection": {
+        "DefaultPortThreadPriority": {
+          "Value": "Normal",
+          "Name": "DefaultPortThreadPriority"
+        },
+        "EventLog": {
+          "Value": "LogPrintingErrorEvents",
+          "Name": "EventLog"
+        },
+        "Name": {
+          "Value": "\\\\LAPTOP-GNJIS7BK",
+          "Name": "Name"
+        },
+        "RestartJobOnPoolTimeout": {
+          "Value": 600,
+          "Name": "RestartJobOnPoolTimeout"
+        },
+        "DefaultSchedulerPriority": {
+          "Value": "Normal",
+          "Name": "DefaultSchedulerPriority"
+        },
+        "SchedulerPriority": {
+          "Value": "Normal",
+          "Name": "SchedulerPriority"
+        },
+        "MinorVersion": {
+          "Value": 0,
+          "Name": "MinorVersion"
+        },
+        "RestartJobOnPoolEnabled": {
+          "Value": true,
+          "Name": "RestartJobOnPoolEnabled"
+        },
+        "BeepEnabled": {
+          "Value": false,
+          "Name": "BeepEnabled"
+        },
+        "DefaultSpoolDirectory": {
+          "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+          "Name": "DefaultSpoolDirectory"
+        },
+        "NetPopup": {
+          "Value": false,
+          "Name": "NetPopup"
+        },
+        "PortThreadPriority": {
+          "Value": "Normal",
+          "Name": "PortThreadPriority"
+        },
+        "MajorVersion": {
+          "Value": 3,
+          "Name": "MajorVersion"
+        }
+      }
+    },
+    "HostingPrintQueue": {
+      "InPartialTrust": false,
+      "ClientPrintSchemaVersion": 1,
+      "IsXpsDevice": true,
+      "IsPublished": false,
+      "IsRawOnlyEnabled": false,
+      "IsBidiEnabled": true,
+      "ScheduleCompletedJobsFirst": true,
+      "KeepPrintedJobs": false,
+      "IsDevQueryEnabled": false,
+      "IsHidden": false,
+      "IsShared": false,
+      "IsDirect": false,
+      "IsQueued": false,
+      "IsPowerSaveOn": false,
+      "IsServerUnknown": false,
+      "IsDoorOpened": false,
+      "IsOutOfMemory": false,
+      "NeedUserIntervention": true,
+      "PagePunt": false,
+      "HasToner": true,
+      "IsTonerLow": false,
+      "IsWarmingUp": false,
+      "IsInitializing": false,
+      "IsProcessing": false,
+      "IsWaiting": false,
+      "IsNotAvailable": false,
+      "IsOutputBinFull": false,
+      "IsPrinting": false,
+      "IsBusy": false,
+      "IsIOActive": false,
+      "IsOffline": false,
+      "HasPaperProblem": false,
+      "IsManualFeedRequired": false,
+      "IsOutOfPaper": false,
+      "IsPaperJammed": false,
+      "IsPendingDeletion": false,
+      "IsInError": false,
+      "IsPaused": false,
+      "QueueAttributes": "2624",
+      "QueueStatus": "UserIntervention",
+      "FullName": "HP6AA541 (HP Deskjet 4640 series)",
+      "HostingPrintServer": {
+        "Name": "\\\\LAPTOP-GNJIS7BK",
+        "SubSystemVersion": "0",
+        "RestartJobOnPoolEnabled": true,
+        "RestartJobOnPoolTimeout": 600,
+        "MinorVersion": 0,
+        "MajorVersion": 3,
+        "EventLog": "LogPrintingErrorEvents",
+        "NetPopup": false,
+        "BeepEnabled": false,
+        "DefaultSchedulerPriority": "Normal",
+        "SchedulerPriority": "Normal",
+        "DefaultPortThreadPriority": "Normal",
+        "PortThreadPriority": "Normal",
+        "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+        "Parent": null,
+        "PropertiesCollection": {
+          "DefaultPortThreadPriority": {
+            "Value": "Normal",
+            "Name": "DefaultPortThreadPriority"
+          },
+          "EventLog": {
+            "Value": "LogPrintingErrorEvents",
+            "Name": "EventLog"
+          },
+          "Name": {
+            "Value": "\\\\LAPTOP-GNJIS7BK",
+            "Name": "Name"
+          },
+          "RestartJobOnPoolTimeout": {
+            "Value": 600,
+            "Name": "RestartJobOnPoolTimeout"
+          },
+          "DefaultSchedulerPriority": {
+            "Value": "Normal",
+            "Name": "DefaultSchedulerPriority"
+          },
+          "SchedulerPriority": {
+            "Value": "Normal",
+            "Name": "SchedulerPriority"
+          },
+          "MinorVersion": {
+            "Value": 0,
+            "Name": "MinorVersion"
+          },
+          "RestartJobOnPoolEnabled": {
+            "Value": true,
+            "Name": "RestartJobOnPoolEnabled"
+          },
+          "BeepEnabled": {
+            "Value": false,
+            "Name": "BeepEnabled"
+          },
+          "DefaultSpoolDirectory": {
+            "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+            "Name": "DefaultSpoolDirectory"
+          },
+          "NetPopup": {
+            "Value": false,
+            "Name": "NetPopup"
+          },
+          "PortThreadPriority": {
+            "Value": "Normal",
+            "Name": "PortThreadPriority"
+          },
+          "MajorVersion": {
+            "Value": 3,
+            "Name": "MajorVersion"
+          }
+        }
+      },
+      "QueuePrintProcessor": {
+        "Parent": null,
+        "Name": "winprint",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueuePort": {
+        "Parent": null,
+        "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueueDriver": {
+        "Parent": null,
+        "Name": "HP Deskjet 4640 series",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "DefaultPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "UserPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "SeparatorFile": "",
+      "Description": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+      "Location": "http://192.168.1.115:3911/",
+      "Comment": "",
+      "ShareName": "",
+      "NumberOfJobs": 5,
+      "AveragePagesPerMinute": 0,
+      "UntilTimeOfDay": 0,
+      "StartTimeOfDay": 0,
+      "DefaultPriority": 0,
+      "Name": "HP6AA541 (HP Deskjet 4640 series)",
+      "Priority": 1,
+      "CurrentJobSettings": {
+        "Description": null,
+        "CurrentPrintTicket": {
+          "Collation": "Collated",
+          "CopyCount": 1,
+          "DeviceFontSubstitution": null,
+          "Duplexing": "OneSided",
+          "InputBin": "Unknown",
+          "OutputColor": "Color",
+          "OutputQuality": "Normal",
+          "PageBorderless": "None",
+          "PageMediaSize": {
+            "PageMediaSizeName": "NorthAmericaLetter",
+            "Width": 816,
+            "Height": 1056
+          },
+          "PageMediaType": "Unknown",
+          "PageOrder": "Reverse",
+          "PageOrientation": "Portrait",
+          "PageResolution": {
+            "X": 600,
+            "Y": 600,
+            "QualitativeResolution": "Normal"
+          },
+          "PageScalingFactor": null,
+          "PagesPerSheet": null,
+          "PagesPerSheetDirection": null,
+          "PhotoPrintingIntent": null,
+          "Stapling": null,
+          "TrueTypeFontMode": null
+        }
+      },
+      "PrintingIsCancelled": false,
+      "Parent": null,
+      "PropertiesCollection": {
+        "UserPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "UserPrintTicket"
+        },
+        "IsXpsEnabled": {
+          "Value": true,
+          "Name": "IsXpsEnabled"
+        },
+        "Description": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+          "Name": "Description"
+        },
+        "Name": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series)",
+          "Name": "Name"
+        },
+        "Priority": {
+          "Value": 1,
+          "Name": "Priority"
+        },
+        "QueueDriver": {
+          "Value": {
+            "Parent": null,
+            "Name": "HP Deskjet 4640 series",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueueDriver"
+        },
+        "HostingPrintServer": {
+          "Value": null,
+          "Name": "HostingPrintServer"
+        },
+        "StartTimeOfDay": {
+          "Value": 0,
+          "Name": "StartTimeOfDay"
+        },
+        "SeparatorFile": {
+          "Value": "",
+          "Name": "SeparatorFile"
+        },
+        "QueuePort": {
+          "Value": {
+            "Parent": null,
+            "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePort"
+        },
+        "QueueStatus": {
+          "Value": "UserIntervention",
+          "Name": "QueueStatus"
+        },
+        "Comment": {
+          "Value": "",
+          "Name": "Comment"
+        },
+        "QueuePrintProcessor": {
+          "Value": {
+            "Parent": null,
+            "Name": "winprint",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePrintProcessor"
+        },
+        "DefaultPriority": {
+          "Value": 0,
+          "Name": "DefaultPriority"
+        },
+        "UntilTimeOfDay": {
+          "Value": 0,
+          "Name": "UntilTimeOfDay"
+        },
+        "NumberOfJobs": {
+          "Value": 5,
+          "Name": "NumberOfJobs"
+        },
+        "DefaultPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "DefaultPrintTicket"
+        },
+        "QueueAttributes": {
+          "Value": "2624",
+          "Name": "QueueAttributes"
+        },
+        "Location": {
+          "Value": "http://192.168.1.115:3911/",
+          "Name": "Location"
+        },
+        "ShareName": {
+          "Value": "",
+          "Name": "ShareName"
+        },
+        "AveragePagesPerMinute": {
+          "Value": 0,
+          "Name": "AveragePagesPerMinute"
+        }
+      }
+    },
+    "JobName": "Print System Document",
+    "IsRetained": false,
+    "IsUserInterventionRequired": false,
+    "IsBlocked": false,
+    "IsDeleted": false,
+    "IsPaperOut": false,
+    "IsOffline": false,
+    "IsPrinting": false,
+    "IsInError": false,
+    "IsSpooling": false,
+    "IsRestarted": false,
+    "IsPrinted": false,
+    "IsPaused": false,
+    "IsDeleting": false,
+    "IsCompleted": false,
+    "JobStatus": "None",
+    "TimeSinceStartedPrinting": 0,
+    "TimeJobSubmitted": "2020-01-27T04:48:31.000Z",
+    "JobSize": 35028,
+    "NumberOfPagesPrinted": 0,
+    "NumberOfPages": 1,
+    "UntilTimeOfDay": 0,
+    "StartTimeOfDay": 0,
+    "PositionInPrintQueue": 4,
+    "Priority": "Minimum",
+    "Submitter": "miaox",
+    "JobIdentifier": 5,
+    "JobStream": null,
+    "Parent": null,
+    "Name": "document",
+    "PropertiesCollection": {
+      "Submitter": {
+        "Value": "miaox",
+        "Name": "Submitter"
+      },
+      "PositionInQueue": {
+        "Value": 4,
+        "Name": "PositionInQueue"
+      },
+      "TimeSinceStartedPrinting": {
+        "Value": 0,
+        "Name": "TimeSinceStartedPrinting"
+      },
+      "Name": {
+        "Value": "document",
+        "Name": "Name"
+      },
+      "TimeJobSubmitted": {
+        "Value": "2020-01-27T04:48:31.000Z",
+        "Name": "TimeJobSubmitted"
+      },
+      "Priority": {
+        "Value": "Minimum",
+        "Name": "Priority"
+      },
+      "JobSize": {
+        "Value": 35028,
+        "Name": "JobSize"
+      },
+      "StartTimeOfDay": {
+        "Value": 0,
+        "Name": "StartTimeOfDay"
+      },
+      "NumberOfPages": {
+        "Value": 1,
+        "Name": "NumberOfPages"
+      },
+      "HostingPrintQueue": {
+        "Value": null,
+        "Name": "HostingPrintQueue"
+      },
+      "UntilTimeOfDay": {
+        "Value": 0,
+        "Name": "UntilTimeOfDay"
+      },
+      "HostingPrintServer": {
+        "Value": null,
+        "Name": "HostingPrintServer"
+      },
+      "JobIdentifier": {
+        "Value": 5,
+        "Name": "JobIdentifier"
+      },
+      "JobStatus": {
+        "Value": "None",
+        "Name": "JobStatus"
+      },
+      "NumberOfPagesPrinted": {
+        "Value": 0,
+        "Name": "NumberOfPagesPrinted"
+      }
+    }
+  },
+  {
+    "HostingPrintServer": {
+      "Name": "\\\\LAPTOP-GNJIS7BK",
+      "SubSystemVersion": "0",
+      "RestartJobOnPoolEnabled": true,
+      "RestartJobOnPoolTimeout": 600,
+      "MinorVersion": 0,
+      "MajorVersion": 3,
+      "EventLog": "LogPrintingErrorEvents",
+      "NetPopup": false,
+      "BeepEnabled": false,
+      "DefaultSchedulerPriority": "Normal",
+      "SchedulerPriority": "Normal",
+      "DefaultPortThreadPriority": "Normal",
+      "PortThreadPriority": "Normal",
+      "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+      "Parent": null,
+      "PropertiesCollection": {
+        "DefaultPortThreadPriority": {
+          "Value": "Normal",
+          "Name": "DefaultPortThreadPriority"
+        },
+        "EventLog": {
+          "Value": "LogPrintingErrorEvents",
+          "Name": "EventLog"
+        },
+        "Name": {
+          "Value": "\\\\LAPTOP-GNJIS7BK",
+          "Name": "Name"
+        },
+        "RestartJobOnPoolTimeout": {
+          "Value": 600,
+          "Name": "RestartJobOnPoolTimeout"
+        },
+        "DefaultSchedulerPriority": {
+          "Value": "Normal",
+          "Name": "DefaultSchedulerPriority"
+        },
+        "SchedulerPriority": {
+          "Value": "Normal",
+          "Name": "SchedulerPriority"
+        },
+        "MinorVersion": {
+          "Value": 0,
+          "Name": "MinorVersion"
+        },
+        "RestartJobOnPoolEnabled": {
+          "Value": true,
+          "Name": "RestartJobOnPoolEnabled"
+        },
+        "BeepEnabled": {
+          "Value": false,
+          "Name": "BeepEnabled"
+        },
+        "DefaultSpoolDirectory": {
+          "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+          "Name": "DefaultSpoolDirectory"
+        },
+        "NetPopup": {
+          "Value": false,
+          "Name": "NetPopup"
+        },
+        "PortThreadPriority": {
+          "Value": "Normal",
+          "Name": "PortThreadPriority"
+        },
+        "MajorVersion": {
+          "Value": 3,
+          "Name": "MajorVersion"
+        }
+      }
+    },
+    "HostingPrintQueue": {
+      "InPartialTrust": false,
+      "ClientPrintSchemaVersion": 1,
+      "IsXpsDevice": true,
+      "IsPublished": false,
+      "IsRawOnlyEnabled": false,
+      "IsBidiEnabled": true,
+      "ScheduleCompletedJobsFirst": true,
+      "KeepPrintedJobs": false,
+      "IsDevQueryEnabled": false,
+      "IsHidden": false,
+      "IsShared": false,
+      "IsDirect": false,
+      "IsQueued": false,
+      "IsPowerSaveOn": false,
+      "IsServerUnknown": false,
+      "IsDoorOpened": false,
+      "IsOutOfMemory": false,
+      "NeedUserIntervention": true,
+      "PagePunt": false,
+      "HasToner": true,
+      "IsTonerLow": false,
+      "IsWarmingUp": false,
+      "IsInitializing": false,
+      "IsProcessing": false,
+      "IsWaiting": false,
+      "IsNotAvailable": false,
+      "IsOutputBinFull": false,
+      "IsPrinting": false,
+      "IsBusy": false,
+      "IsIOActive": false,
+      "IsOffline": false,
+      "HasPaperProblem": false,
+      "IsManualFeedRequired": false,
+      "IsOutOfPaper": false,
+      "IsPaperJammed": false,
+      "IsPendingDeletion": false,
+      "IsInError": false,
+      "IsPaused": false,
+      "QueueAttributes": "2624",
+      "QueueStatus": "UserIntervention",
+      "FullName": "HP6AA541 (HP Deskjet 4640 series)",
+      "HostingPrintServer": {
+        "Name": "\\\\LAPTOP-GNJIS7BK",
+        "SubSystemVersion": "0",
+        "RestartJobOnPoolEnabled": true,
+        "RestartJobOnPoolTimeout": 600,
+        "MinorVersion": 0,
+        "MajorVersion": 3,
+        "EventLog": "LogPrintingErrorEvents",
+        "NetPopup": false,
+        "BeepEnabled": false,
+        "DefaultSchedulerPriority": "Normal",
+        "SchedulerPriority": "Normal",
+        "DefaultPortThreadPriority": "Normal",
+        "PortThreadPriority": "Normal",
+        "DefaultSpoolDirectory": "C:\\Windows\\system32\\spool\\PRINTERS",
+        "Parent": null,
+        "PropertiesCollection": {
+          "DefaultPortThreadPriority": {
+            "Value": "Normal",
+            "Name": "DefaultPortThreadPriority"
+          },
+          "EventLog": {
+            "Value": "LogPrintingErrorEvents",
+            "Name": "EventLog"
+          },
+          "Name": {
+            "Value": "\\\\LAPTOP-GNJIS7BK",
+            "Name": "Name"
+          },
+          "RestartJobOnPoolTimeout": {
+            "Value": 600,
+            "Name": "RestartJobOnPoolTimeout"
+          },
+          "DefaultSchedulerPriority": {
+            "Value": "Normal",
+            "Name": "DefaultSchedulerPriority"
+          },
+          "SchedulerPriority": {
+            "Value": "Normal",
+            "Name": "SchedulerPriority"
+          },
+          "MinorVersion": {
+            "Value": 0,
+            "Name": "MinorVersion"
+          },
+          "RestartJobOnPoolEnabled": {
+            "Value": true,
+            "Name": "RestartJobOnPoolEnabled"
+          },
+          "BeepEnabled": {
+            "Value": false,
+            "Name": "BeepEnabled"
+          },
+          "DefaultSpoolDirectory": {
+            "Value": "C:\\Windows\\system32\\spool\\PRINTERS",
+            "Name": "DefaultSpoolDirectory"
+          },
+          "NetPopup": {
+            "Value": false,
+            "Name": "NetPopup"
+          },
+          "PortThreadPriority": {
+            "Value": "Normal",
+            "Name": "PortThreadPriority"
+          },
+          "MajorVersion": {
+            "Value": 3,
+            "Name": "MajorVersion"
+          }
+        }
+      },
+      "QueuePrintProcessor": {
+        "Parent": null,
+        "Name": "winprint",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueuePort": {
+        "Parent": null,
+        "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "QueueDriver": {
+        "Parent": null,
+        "Name": "HP Deskjet 4640 series",
+        "PropertiesCollection": {
+          "Name": {
+            "Value": null,
+            "Name": "Name"
+          }
+        }
+      },
+      "DefaultPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "UserPrintTicket": {
+        "Collation": "Collated",
+        "CopyCount": 1,
+        "DeviceFontSubstitution": null,
+        "Duplexing": "OneSided",
+        "InputBin": "Unknown",
+        "OutputColor": "Color",
+        "OutputQuality": "Normal",
+        "PageBorderless": "None",
+        "PageMediaSize": {
+          "PageMediaSizeName": "NorthAmericaLetter",
+          "Width": 816,
+          "Height": 1056
+        },
+        "PageMediaType": "Unknown",
+        "PageOrder": "Reverse",
+        "PageOrientation": "Portrait",
+        "PageResolution": {
+          "X": 600,
+          "Y": 600,
+          "QualitativeResolution": "Normal"
+        },
+        "PageScalingFactor": null,
+        "PagesPerSheet": null,
+        "PagesPerSheetDirection": null,
+        "PhotoPrintingIntent": null,
+        "Stapling": null,
+        "TrueTypeFontMode": null
+      },
+      "SeparatorFile": "",
+      "Description": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+      "Location": "http://192.168.1.115:3911/",
+      "Comment": "",
+      "ShareName": "",
+      "NumberOfJobs": 5,
+      "AveragePagesPerMinute": 0,
+      "UntilTimeOfDay": 0,
+      "StartTimeOfDay": 0,
+      "DefaultPriority": 0,
+      "Name": "HP6AA541 (HP Deskjet 4640 series)",
+      "Priority": 1,
+      "CurrentJobSettings": {
+        "Description": null,
+        "CurrentPrintTicket": {
+          "Collation": "Collated",
+          "CopyCount": 1,
+          "DeviceFontSubstitution": null,
+          "Duplexing": "OneSided",
+          "InputBin": "Unknown",
+          "OutputColor": "Color",
+          "OutputQuality": "Normal",
+          "PageBorderless": "None",
+          "PageMediaSize": {
+            "PageMediaSizeName": "NorthAmericaLetter",
+            "Width": 816,
+            "Height": 1056
+          },
+          "PageMediaType": "Unknown",
+          "PageOrder": "Reverse",
+          "PageOrientation": "Portrait",
+          "PageResolution": {
+            "X": 600,
+            "Y": 600,
+            "QualitativeResolution": "Normal"
+          },
+          "PageScalingFactor": null,
+          "PagesPerSheet": null,
+          "PagesPerSheetDirection": null,
+          "PhotoPrintingIntent": null,
+          "Stapling": null,
+          "TrueTypeFontMode": null
+        }
+      },
+      "PrintingIsCancelled": false,
+      "Parent": null,
+      "PropertiesCollection": {
+        "UserPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "UserPrintTicket"
+        },
+        "IsXpsEnabled": {
+          "Value": true,
+          "Name": "IsXpsEnabled"
+        },
+        "Description": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series),HP Deskjet 4640 series,http://192.168.1.115:3911/",
+          "Name": "Description"
+        },
+        "Name": {
+          "Value": "HP6AA541 (HP Deskjet 4640 series)",
+          "Name": "Name"
+        },
+        "Priority": {
+          "Value": 1,
+          "Name": "Priority"
+        },
+        "QueueDriver": {
+          "Value": {
+            "Parent": null,
+            "Name": "HP Deskjet 4640 series",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueueDriver"
+        },
+        "HostingPrintServer": {
+          "Value": null,
+          "Name": "HostingPrintServer"
+        },
+        "StartTimeOfDay": {
+          "Value": 0,
+          "Name": "StartTimeOfDay"
+        },
+        "SeparatorFile": {
+          "Value": "",
+          "Name": "SeparatorFile"
+        },
+        "QueuePort": {
+          "Value": {
+            "Parent": null,
+            "Name": "WSD-09f2e84e-b3ad-4a4e-96e2-e37a6f015527",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePort"
+        },
+        "QueueStatus": {
+          "Value": "UserIntervention",
+          "Name": "QueueStatus"
+        },
+        "Comment": {
+          "Value": "",
+          "Name": "Comment"
+        },
+        "QueuePrintProcessor": {
+          "Value": {
+            "Parent": null,
+            "Name": "winprint",
+            "PropertiesCollection": {
+              "Name": {
+                "Value": null,
+                "Name": "Name"
+              }
+            }
+          },
+          "Name": "QueuePrintProcessor"
+        },
+        "DefaultPriority": {
+          "Value": 0,
+          "Name": "DefaultPriority"
+        },
+        "UntilTimeOfDay": {
+          "Value": 0,
+          "Name": "UntilTimeOfDay"
+        },
+        "NumberOfJobs": {
+          "Value": 5,
+          "Name": "NumberOfJobs"
+        },
+        "DefaultPrintTicket": {
+          "Value": {
+            "Collation": "Collated",
+            "CopyCount": 1,
+            "DeviceFontSubstitution": null,
+            "Duplexing": "OneSided",
+            "InputBin": "Unknown",
+            "OutputColor": "Color",
+            "OutputQuality": "Normal",
+            "PageBorderless": "None",
+            "PageMediaSize": {
+              "PageMediaSizeName": "NorthAmericaLetter",
+              "Width": 816,
+              "Height": 1056
+            },
+            "PageMediaType": "Unknown",
+            "PageOrder": "Reverse",
+            "PageOrientation": "Portrait",
+            "PageResolution": {
+              "X": 600,
+              "Y": 600,
+              "QualitativeResolution": "Normal"
+            },
+            "PageScalingFactor": null,
+            "PagesPerSheet": null,
+            "PagesPerSheetDirection": null,
+            "PhotoPrintingIntent": null,
+            "Stapling": null,
+            "TrueTypeFontMode": null
+          },
+          "Name": "DefaultPrintTicket"
+        },
+        "QueueAttributes": {
+          "Value": "2624",
+          "Name": "QueueAttributes"
+        },
+        "Location": {
+          "Value": "http://192.168.1.115:3911/",
+          "Name": "Location"
+        },
+        "ShareName": {
+          "Value": "",
+          "Name": "ShareName"
+        },
+        "AveragePagesPerMinute": {
+          "Value": 0,
+          "Name": "AveragePagesPerMinute"
+        }
+      }
+    },
+    "JobName": "Print System Document",
+    "IsRetained": false,
+    "IsUserInterventionRequired": false,
+    "IsBlocked": false,
+    "IsDeleted": false,
+    "IsPaperOut": false,
+    "IsOffline": false,
+    "IsPrinting": false,
+    "IsInError": false,
+    "IsSpooling": false,
+    "IsRestarted": false,
+    "IsPrinted": false,
+    "IsPaused": false,
+    "IsDeleting": false,
+    "IsCompleted": false,
+    "JobStatus": "None",
+    "TimeSinceStartedPrinting": 0,
+    "TimeJobSubmitted": "2020-01-27T04:49:27.000Z",
+    "JobSize": 35028,
+    "NumberOfPagesPrinted": 0,
+    "NumberOfPages": 1,
+    "UntilTimeOfDay": 0,
+    "StartTimeOfDay": 0,
+    "PositionInPrintQueue": 5,
+    "Priority": "Minimum",
+    "Submitter": "miaox",
+    "JobIdentifier": 6,
+    "JobStream": null,
+    "Parent": null,
+    "Name": "document",
+    "PropertiesCollection": {
+      "Submitter": {
+        "Value": "miaox",
+        "Name": "Submitter"
+      },
+      "PositionInQueue": {
+        "Value": 5,
+        "Name": "PositionInQueue"
+      },
+      "TimeSinceStartedPrinting": {
+        "Value": 0,
+        "Name": "TimeSinceStartedPrinting"
+      },
+      "Name": {
+        "Value": "document",
+        "Name": "Name"
+      },
+      "TimeJobSubmitted": {
+        "Value": "2020-01-27T04:49:27.000Z",
+        "Name": "TimeJobSubmitted"
+      },
+      "Priority": {
+        "Value": "Minimum",
+        "Name": "Priority"
+      },
+      "JobSize": {
+        "Value": 35028,
+        "Name": "JobSize"
+      },
+      "StartTimeOfDay": {
+        "Value": 0,
+        "Name": "StartTimeOfDay"
+      },
+      "NumberOfPages": {
+        "Value": 1,
+        "Name": "NumberOfPages"
+      },
+      "HostingPrintQueue": {
+        "Value": null,
+        "Name": "HostingPrintQueue"
+      },
+      "UntilTimeOfDay": {
+        "Value": 0,
+        "Name": "UntilTimeOfDay"
+      },
+      "HostingPrintServer": {
+        "Value": null,
+        "Name": "HostingPrintServer"
+      },
+      "JobIdentifier": {
+        "Value": 6,
+        "Name": "JobIdentifier"
+      },
+      "JobStatus": {
+        "Value": "None",
+        "Name": "JobStatus"
+      },
+      "NumberOfPagesPrinted": {
+        "Value": 0,
+        "Name": "NumberOfPagesPrinted"
+      }
+    }
+  }
+]
