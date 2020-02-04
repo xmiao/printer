@@ -99,17 +99,36 @@ router.get('/', function (req, res, next) {
 //         })
 //     });
 // }
-router.get('/ls', function (req, res, next) {
+router.get('/print', function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         let a = yield printer.listPrinters();
-        let b = printer.setPrinter(a[4]);
-        let c = yield printer.printerInfo();
-        let d = yield printer.getCurrentPrinter();
-        // await printer.printText("some test");
-        yield printer.print("C:\\Users\\miaox\\Desktop\\process-2.pdf");
-        res.setHeader("Content-Type", "text/plain");
-        // res.json({a, c, d});
-        res.send(JSON.stringify(c, null, "  "));
+        let printerName = a[0];
+        yield printer.setPrinter(printerName);
+        console.log(printerName);
+        yield printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
+        let e = yield printer.printerInfo();
+        res.setHeader("Content-Type", "application/json");
+        // res.json({status: "done"});
+        res.send(JSON.stringify({e}, null, "  "));
+    });
+});
+let hello = edge.func(`async (input) => {
+        return ".NET welcomes " + input.ToString();
+    }`);
+router.get('/status', function (req, res, next) {
+    return __awaiter(this, void 0, void 0, function* () {
+        hello('Node.js', function (error, result) {
+            if (error)
+                throw error;
+            console.log(result);
+        });
+        let a = yield printer.listPrinters();
+        let printerName = a[0];
+        let b = yield printer.setPrinter(printerName);
+        console.log(printerName);
+        let e = yield printer.printerInfo();
+        res.setHeader("Content-Type", "application/json");
+        res.send(JSON.stringify({e}, null, "  "));
     });
 });
 exports.default = router;
