@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JsonSchemaMappingsProjectConfiguration">
+    <state>
+      <map>
+        <entry key="JSON Schema version 7">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="JSON Schema version 7" />
+              <option name="relativePathToSchema" value="http://json-schema.org/draft-07/schema" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="applicationDefined" value="true" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="dist/routes/b.json" />
+                  </Item>
+                  <Item>
+                    <option name="path" value="dist/routes/test.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="hello_json_schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="hello_json_schema" />
+              <option name="relativePathToSchema" value="src/hello_json_schema.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/hell0_json_data.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="test">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="test" />
+              <option name="relativePathToSchema" value="dist/routes/test_jsonschema.json" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="dist/routes/test-data.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+      </map>
+    </state>
+  </component>
+</project>
