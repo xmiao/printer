@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1.0",
+  "service": {
+    "labels": {
+      "group": "external",
+      "balance_strategy": "roundrobin"
+    },
+    "ports": [
+      {
+        "name": "http8088",
+        "domain_name": "yyy.xxx.com",
+        "path": "/test/",
+        "port": 8088,
+        "protocol": "http"
+      },
+      {
+        "name": "tcp-00",
+        "port": 8800,
+        "protocol": "tcp"
+      }
+    ],
+    "runtime": "30007.xx7.abc",
+    "selector": {
+      "podname": "haha4-tester"
+    },
+    "name": "some"
+  }
+}　　

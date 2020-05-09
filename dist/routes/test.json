@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "orders": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "string"
+        },
+        "dose": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "ID"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "orders"
+  ],
+  "additionalProperties": false
+}

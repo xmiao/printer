@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", {value: true});
 const express_1 = __importDefault(require("express"));
 const cH2Pdf_1 = __importDefault(require("./cH2Pdf"));
 const fs_1 = require("fs");
+const tfs_1 = require("./tfs");
 const printer = require('node-native-printer');
 const edge = require(`edge-js`);
 const footerTemplate = `<div 
@@ -131,5 +132,30 @@ router.get('/status', function (req, res, next) {
         res.send(JSON.stringify({e}, null, "  "));
     });
 });
+router.get('/tfs', tfs_1.tfs);
+
+function gcd(a, b) {
+    if (a == b)
+        return a;
+    if (a < b) {
+        let c = a;
+        a = b; //
+        b = c;
+    }
+    if (b < 1)
+        return NaN;
+    while (1) {
+        if (b == 1)
+            return 1;
+        a = a % b;
+        if (a == 0)
+            return b;
+        let c = b;
+        b = a;
+        a = c;
+    }
+}
+
+console.log(gcd(10, 6));
 exports.default = router;
 //# sourceMappingURL=index.js.map

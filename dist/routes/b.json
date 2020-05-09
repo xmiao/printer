@@ -1,0 +1,22 @@
+{
+  "patient": {
+    "patID": "P0001"
+  },
+  "encounters": {
+    "ENC0001": {
+      "patID": "P0001"
+    }
+  },
+  "orders": {
+    "ORD0001": {}
+  },
+  "notes": {
+    "NTE0001": {
+      "encounterID": "ENC0001",
+      "noteType": 12,
+      "discreteData": {
+      },
+      "text": "text for display"
+    }
+  }
+}

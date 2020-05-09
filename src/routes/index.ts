@@ -1,6 +1,7 @@
 import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {readFileSync} from "fs";
+import {tfs} from "./tfs";
 
 const printer = require('node-native-printer');
 const edge = require(`edge-js`);
@@ -127,4 +128,29 @@ router.get('/status', async function (req: any, res, next: any) {
     res.send(JSON.stringify({e}, null, "  "));
 });
 
+router.get('/tfs', tfs);
+
+
+function gcd(a: number, b: number): number {
+    if (a == b) return a;
+
+    if (a < b) {
+        let c = a;
+        a = b; //
+        b = c;
+    }
+    if (b < 1) return NaN;
+
+    while (1) {
+        if (b == 1) return 1;
+        a = a % b;
+        if (a == 0) return b;
+
+        let c = b;
+        b = a;
+        a = c;
+    }
+}
+
+console.log(gcd(10, 6));
 export default router;
