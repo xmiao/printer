@@ -1,0 +1,90 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "x": {
+        "type": "number"
+      },
+      "y": {
+        "type": "number"
+      },
+      "w": {
+        "type": "number"
+      },
+      "h": {
+        "type": "number"
+      },
+      "i": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "id": {
+        "type": "string"
+      },
+      "jsonSetting": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "boolean"
+                },
+                "tooltip": {
+                  "type": "string"
+                },
+                "group": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        ]
+      },
+      "moved": {
+        "type": "boolean"
+      },
+      "module": {
+        "type": "string"
+      },
+      "jsonConfig": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "text": {
+              "type": "string"
+            },
+            "value": {
+              "type": "boolean"
+            },
+            "tooltip": {
+              "type": "string"
+            },
+            "group": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}

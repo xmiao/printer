@@ -18,6 +18,25 @@
                   <Item>
                     <option name="path" value="dist/routes/test.json" />
                   </Item>
+                  <Item>
+                    <option name="path" value="src/routes/funconfig.schema.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="funconfig.schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="funconfig.schema" />
+              <option name="relativePathToSchema" value="src/routes/funconfig.schema.json" />
+              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/routes/funconfig.json" />
+                  </Item>
                 </list>
               </option>
             </SchemaInfo>

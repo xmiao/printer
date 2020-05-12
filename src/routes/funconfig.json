@@ -1,0 +1,93 @@
+[
+  {
+    "x": 2,
+    "y": 0,
+    "w": 3,
+    "h": 6,
+    "i": "3",
+    "title": "我的日程",
+    "id": "4",
+    "jsonSetting": "[]",
+    "moved": false
+  },
+  {
+    "x": 5,
+    "y": 0,
+    "w": 7,
+    "h": 12,
+    "i": "5",
+    "title": "门诊统计分析",
+    "id": "6",
+    "jsonSetting": "[{\"name\":\"registeredAppointment\",\"text\":\"本周挂号\",\"value\":true,\"tooltip\":\"\",\"group\":\"可见性\"},{\"name\":\"seeDoctor\",\"text\":\"今日就诊\",\"value\":true,\"tooltip\":\"\",\"group\":\"可见性\"},{\"name\":\"diseaseTOP3\",\"text\":\"疾病Top3\",\"value\":true,\"tooltip\":\"\",\"group\":\"可见性\"},{\"name\":\"medicationStatistics\",\"text\":\"今日用药统计\",\"value\":true,\"tooltip\":\"\",\"group\":\"可见性\"},{\"name\":\"totalExpenses\",\"text\":\"今日费用统计\",\"value\":true,\"tooltip\":\"\",\"group\":\"可见性\"}]",
+    "moved": false
+  },
+  {
+    "x": 0,
+    "y": 0,
+    "w": 2,
+    "h": 12,
+    "i": "0",
+    "title": "入口中心",
+    "id": "1",
+    "module": "basicCon",
+    "jsonSetting": [
+      {
+        "name": "myPatient",
+        "text": "我的患者",
+        "value": true,
+        "tooltip": "",
+        "group": "可见性"
+      },
+      {
+        "name": "followThePatient",
+        "text": "关注患者",
+        "value": true,
+        "tooltip": "",
+        "group": "可见性"
+      },
+      {
+        "name": "todayIsClinic",
+        "text": "今日门诊",
+        "value": true,
+        "tooltip": "",
+        "group": "可见性"
+      },
+      {
+        "name": "headImg",
+        "text": "用户头像",
+        "value": true,
+        "tooltip": "",
+        "group": "可见性"
+      },
+      {
+        "name": "greetings",
+        "text": "问候语",
+        "value": true,
+        "tooltip": "",
+        "group": "可见性"
+      }
+    ],
+    "moved": false
+  },
+  {
+    "x": 2,
+    "y": 6,
+    "w": 3,
+    "h": 6,
+    "i": "4",
+    "title": "公告通知",
+    "id": "5",
+    "module": "news",
+    "jsonSetting": "[{\"name\":\"announcementEdit\",\"text\":\"管理公告\",\"value\":false,\"tooltip\":\"\",\"group\":\"可见性\"}]",
+    "moved": false,
+    "jsonConfig": [
+      {
+        "name": "announcementEdit",
+        "text": "管理公告",
+        "value": false,
+        "tooltip": "",
+        "group": "可见性"
+      }
+    ]
+  }
+]
