@@ -81,7 +81,8 @@
             "group": {
               "type": "string"
             }
-          }
+          },
+          "additionalProperties": false
         }
       }
     },
