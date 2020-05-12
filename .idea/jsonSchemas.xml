@@ -21,8 +21,37 @@
                   <Item>
                     <option name="path" value="src/routes/funconfig.schema.json" />
                   </Item>
+                  <Item>
+                    <option name="path" value="src/routes/funRegister.schema.json" />
+                  </Item>
+                  <Item>
+                    <option name="path" value="src/routes/funRegister.json" />
+                  </Item>
                 </list>
               </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="funRegister">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="funRegister" />
+              <option name="relativePathToSchema" value="src/routes/funRegister.json" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/routes/funRegisterData.json" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
+        <entry key="funRegister.schema">
+          <value>
+            <SchemaInfo>
+              <option name="name" value="funRegister.schema" />
+              <option name="relativePathToSchema" value="src/routes/funRegister.schema.json" />
             </SchemaInfo>
           </value>
         </entry>

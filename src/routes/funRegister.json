@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "properties": {
+    "seqNo": {
+      "type": "integer"
+    },
+    "x": {
+      "type": "integer"
+    },
+    "y": {
+      "type": "integer"
+    },
+    "w": {
+      "type": "integer"
+    },
+    "h": {
+      "type": "integer"
+    },
+    "moduleIdentifier": {
+      "type": "string",
+      "pattern": "^com\\.winning\\..*"
+    },
+    "title": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "patID": {
+          "type": "integer"
+        },
+        "userID": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "seqNo",
+    "x",
+    "y",
+    "w",
+    "h",
+    "moduleIdentifier",
+    "title",
+    "config"
+  ]
+}
