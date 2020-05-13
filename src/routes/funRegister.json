@@ -1,49 +1,78 @@
 {
-  "type": "object",
-  "properties": {
-    "seqNo": {
-      "type": "integer"
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "seqNo": {
+        "type": "integer"
+      },
+      "x": {
+        "type": "integer"
+      },
+      "y": {
+        "type": "integer"
+      },
+      "w": {
+        "type": "integer"
+      },
+      "h": {
+        "type": "integer"
+      },
+      "title": {
+        "type": "string"
+      }
     },
-    "x": {
-      "type": "integer"
-    },
-    "y": {
-      "type": "integer"
-    },
-    "w": {
-      "type": "integer"
-    },
-    "h": {
-      "type": "integer"
-    },
-    "moduleIdentifier": {
-      "type": "string",
-      "pattern": "^com\\.winning\\..*"
-    },
-    "title": {
-      "type": "string"
-    },
-    "config": {
-      "type": "object",
-      "properties": {
-        "patID": {
-          "type": "integer"
-        },
-        "userID": {
-          "type": "integer"
+    "anyOf": [
+      {
+        "title": "com.winning.patientPortal",
+        "properties": {
+          "moduleIdentifier": {
+            "const": "com.winning.patientPortal1"
+          },
+          "config": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "patID": {
+                "type": "integer"
+              },
+              "userID": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      {
+        "title": "com.winning.patientPortal2",
+        "properties": {
+          "moduleIdentifier": {
+            "const": "com.winning.patientPortal2"
+          },
+          "config": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "patID2": {
+                "type": "integer"
+              },
+              "userID2": {
+                "type": "integer"
+              }
+            }
+          }
         }
       }
-    }
-  },
-  "additionalProperties": false,
-  "required": [
-    "seqNo",
-    "x",
-    "y",
-    "w",
-    "h",
-    "moduleIdentifier",
-    "title",
-    "config"
-  ]
+    ],
+    "required": [
+      "seqNo",
+      "x",
+      "y",
+      "w",
+      "h",
+      "moduleIdentifier",
+      "title",
+      "config"
+    ]
+  }
 }

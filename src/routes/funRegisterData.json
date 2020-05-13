@@ -1,13 +1,28 @@
-{
-  "seqNo": 1,
-  "x": 1,
-  "y": 2,
-  "w": 3,
-  "h": 4,
-  "moduleIdentifier": "com.winning.patientPortal",
-  "title": "患者视图",
-  "config": {
-    "patID": 123,
-    "userID": 234
+[
+  {
+    "seqNo": 1,
+    "x": 1,
+    "y": 2,
+    "w": 3,
+    "h": 4,
+    "moduleIdentifier": "com.winning.patientPortal1",
+    "title": "患者视图",
+    "config": {
+      "patID": 123,
+      "userID": 234
+    }
+  },
+  {
+    "seqNo": 12,
+    "x": 12,
+    "y": 22,
+    "w": 32,
+    "h": 42,
+    "moduleIdentifier": "com.winning.patientPortal2",
+    "title": "患者视图-2",
+    "config": {
+      "patID2": 123,
+      "userID2": 234
+    }
   }
-}
+]
