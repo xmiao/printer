@@ -61,7 +61,7 @@
       "isDel": 0
     }
   ],
-  "sections": [
+  "entries": [
     {
       "tsId": "90795600008796163",
       "csId": "49387491747393537",
@@ -88,7 +88,7 @@
       "csDesc": null,
       "richTextEnabledFlag": "98175",
       "richTextConfigBlock": null,
-      "ontologies": [
+      "entries": [
         {
           "toId": "90795600008796185",
           "coId": "1582683426738",
