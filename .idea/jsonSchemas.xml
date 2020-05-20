@@ -36,7 +36,7 @@
           <value>
             <SchemaInfo>
               <option name="name" value="funRegister" />
-              <option name="relativePathToSchema" value="src/routes/funRegister.json" />
+              <option name="relativePathToSchema" value="data/funRegister.json" />
               <option name="patterns">
                 <list>
                   <Item>
@@ -51,7 +51,7 @@
           <value>
             <SchemaInfo>
               <option name="name" value="funRegister.schema" />
-              <option name="relativePathToSchema" value="src/routes/funRegister.schema.json" />
+              <option name="relativePathToSchema" value="data/funRegister.schema.json" />
             </SchemaInfo>
           </value>
         </entry>
@@ -59,7 +59,7 @@
           <value>
             <SchemaInfo>
               <option name="name" value="funconfig.schema" />
-              <option name="relativePathToSchema" value="src/routes/funconfig.schema.json" />
+              <option name="relativePathToSchema" value="data/funconfig.schema.json" />
               <option name="schemaVersion" value="JSON Schema version 7" />
               <option name="patterns">
                 <list>
@@ -75,7 +75,7 @@
           <value>
             <SchemaInfo>
               <option name="name" value="hello_json_schema" />
-              <option name="relativePathToSchema" value="src/hello_json_schema.json" />
+              <option name="relativePathToSchema" value="data/hello_json_schema.json" />
               <option name="schemaVersion" value="JSON Schema version 7" />
               <option name="patterns">
                 <list>
