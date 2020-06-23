@@ -37,7 +37,7 @@ const router = express.Router();
 router.get('/', async function (req: any, res: any, next: any) {
     let text = readFileSync("./public/xm.html", "utf-8");
     let headerOption = {
-        path: 'optionally-saved.pdf',
+        // path: 'optionally-saved.pdf',
         landscape: false,
         displayHeaderFooter: true,
         headerTemplate,
@@ -55,22 +55,24 @@ router.get('/', async function (req: any, res: any, next: any) {
     let endTime = new Date();
     console.log(`Total time spent: ${+endTime - +curTime}`);
 
+    await printer.print();
+
     res.setHeader("Content-Type", "application/pdf");
     res.send(pdf);
 });
 
-router.get('/print', async function (req: any, res, next: any) {
-    let a = await printer.listPrinters();
-    let printerName = a[0];
-    await printer.setPrinter(printerName);
-    console.log(printerName);
-    await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
-    let e = await printer.printerInfo();
+router
+    .get('/print', async function (req: any, res, next: any) {
+        let a = await printer.listPrinters();
+        // let printerName = a[0];
+        // await printer.setPrinter(printerName);
+        // console.log(printerName);
+        await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
+        let e = await printer.printerInfo();
 
-    res.setHeader("Content-Type", "application/json");
-    // res.json({status: "done"});
-    res.send(JSON.stringify({e}, null, "  "));
-});
+        res.setHeader("Content-Type", "application/json");
+        res.send(JSON.stringify({a}, null, "  "));
+    });
 
 let hello = edge.func(`async (input) => {
         return ".NET welcomes " + input.ToString();
@@ -78,17 +80,17 @@ let hello = edge.func(`async (input) => {
 
 router
     .get('/status', async function (req: any, res, next: any) {
-        hello('Node.js', function (error: any, result: any) {
-            if (error) throw error;
-            console.log(result);
-        });
+        // hello('Node.js', function (error: any, result: any) {
+        //     if (error) throw error;
+        //     console.log(result);
+        // });
 
         let a = await printer.listPrinters();
-        let printerName = a[0];
-        let b = await printer.setPrinter(printerName);
-        console.log(printerName);
-        let e = await printer.printerInfo();
+        // let printerName = a[0];
+        // let b = await printer.setPrinter(printerName);
+        // console.log(printerName);
+        // let e = await printer.printerInfo();
         res.setHeader("Content-Type", "application/json");
-        res.send(JSON.stringify({e}, null, "  "));
+        res.send(JSON.stringify({a}, null, "  "));
     });
 export default router;
