@@ -1,7 +1,6 @@
 import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {readFileSync} from "fs";
-import {tfs} from "./tfs";
 
 const printer = require('node-native-printer');
 const edge = require(`edge-js`);
@@ -78,79 +77,36 @@ router.get('/', async function (req: any, res: any, next: any) {
     res.send(pdf);
 });
 
-// async function defaultPrinterName() {
-//     var defaultName = edge.func({
-//         assemblyFile: dllPath,
-//         typeName: 'windows_printer.API',
-//         methodName: 'DefaultPrinterName' // This must be Func<object,Task<object>>
+// router.get('/print', async function (req: any, res, next: any) {
+//     let a = await printer.listPrinters();
+//     let printerName = a[0];
+//     await printer.setPrinter(printerName);
+//     console.log(printerName);
+//     await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
+//     let e = await printer.printerInfo();
+//
+//     res.setHeader("Content-Type", "application/json");
+//     // res.json({status: "done"});
+//     res.send(JSON.stringify({e}, null, "  "));
+// });
+//
+// let hello = edge.func(`async (input) => {
+//         return ".NET welcomes " + input.ToString();
+//     }`);
+//
+// router.get('/status', async function (req: any, res, next: any) {
+//
+//     hello('Node.js', function (error: any, result: any) {
+//         if (error) throw error;
+//         console.log(result);
 //     });
 //
-//     return new Promise((resolve, reject) => {
-//         defaultName('', function(error, response){
-//             if(error)
-//                 reject(error);
-//             else
-//                 resolve(response);
-//         })
-//     });
-// }
-
-router.get('/print', async function (req: any, res, next: any) {
-    let a = await printer.listPrinters();
-    let printerName = a[0];
-    await printer.setPrinter(printerName);
-    console.log(printerName);
-    await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
-    let e = await printer.printerInfo();
-
-    res.setHeader("Content-Type", "application/json");
-    // res.json({status: "done"});
-    res.send(JSON.stringify({e}, null, "  "));
-});
-
-let hello = edge.func(`async (input) => {
-        return ".NET welcomes " + input.ToString();
-    }`);
-
-router.get('/status', async function (req: any, res, next: any) {
-
-    hello('Node.js', function (error: any, result: any) {
-        if (error) throw error;
-        console.log(result);
-    });
-
-    let a = await printer.listPrinters();
-    let printerName = a[0];
-    let b = await printer.setPrinter(printerName);
-    console.log(printerName);
-    let e = await printer.printerInfo();
-    res.setHeader("Content-Type", "application/json");
-    res.send(JSON.stringify({e}, null, "  "));
-});
-
-router.get('/tfs', tfs);
-
-
-function gcd(a: number, b: number): number {
-    if (a == b) return a;
-
-    if (a < b) {
-        let c = a;
-        a = b; //
-        b = c;
-    }
-    if (b < 1) return NaN;
-
-    while (1) {
-        if (b == 1) return 1;
-        a = a % b;
-        if (a == 0) return b;
-
-        let c = b;
-        b = a;
-        a = c;
-    }
-}
-
-console.log(gcd(10, 6));
+//     let a = await printer.listPrinters();
+//     let printerName = a[0];
+//     let b = await printer.setPrinter(printerName);
+//     console.log(printerName);
+//     let e = await printer.printerInfo();
+//     res.setHeader("Content-Type", "application/json");
+//     res.send(JSON.stringify({e}, null, "  "));
+// });
 export default router;
