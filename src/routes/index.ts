@@ -35,25 +35,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', async function (req: any, res: any, next: any) {
-    // var ajv = new Ajv({allErrors: true});
-    // var schema = {
-    //     "properties": {
-    //         "foo": {"type": "string"},
-    //         "bar": {"type": "number", "maximum": 3}
-    //     }
-    // };
-    // var validate = ajv.compile(schema);
-    // test({"foo": "abc", "bar": 2});
-    // test({"foo": 2, "bar": 4});
-    //
-    // function test(data: any) {
-    //     var valid = validate(data);
-    //     if (valid) console.log('Valid!');
-    //     else console.log('Invalid: ' + ajv.errorsText(validate.errors));
-    // }
-
     let text = readFileSync("./public/xm.html", "utf-8");
-
     let headerOption = {
         path: 'optionally-saved.pdf',
         landscape: false,
@@ -77,36 +59,36 @@ router.get('/', async function (req: any, res: any, next: any) {
     res.send(pdf);
 });
 
-// router.get('/print', async function (req: any, res, next: any) {
-//     let a = await printer.listPrinters();
-//     let printerName = a[0];
-//     await printer.setPrinter(printerName);
-//     console.log(printerName);
-//     await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
-//     let e = await printer.printerInfo();
-//
-//     res.setHeader("Content-Type", "application/json");
-//     // res.json({status: "done"});
-//     res.send(JSON.stringify({e}, null, "  "));
-// });
-//
-// let hello = edge.func(`async (input) => {
-//         return ".NET welcomes " + input.ToString();
-//     }`);
-//
-// router.get('/status', async function (req: any, res, next: any) {
-//
-//     hello('Node.js', function (error: any, result: any) {
-//         if (error) throw error;
-//         console.log(result);
-//     });
-//
-//     let a = await printer.listPrinters();
-//     let printerName = a[0];
-//     let b = await printer.setPrinter(printerName);
-//     console.log(printerName);
-//     let e = await printer.printerInfo();
-//     res.setHeader("Content-Type", "application/json");
-//     res.send(JSON.stringify({e}, null, "  "));
-// });
+router.get('/print', async function (req: any, res, next: any) {
+    let a = await printer.listPrinters();
+    let printerName = a[0];
+    await printer.setPrinter(printerName);
+    console.log(printerName);
+    await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
+    let e = await printer.printerInfo();
+
+    res.setHeader("Content-Type", "application/json");
+    // res.json({status: "done"});
+    res.send(JSON.stringify({e}, null, "  "));
+});
+
+let hello = edge.func(`async (input) => {
+        return ".NET welcomes " + input.ToString();
+    }`);
+
+router
+    .get('/status', async function (req: any, res, next: any) {
+        hello('Node.js', function (error: any, result: any) {
+            if (error) throw error;
+            console.log(result);
+        });
+
+        let a = await printer.listPrinters();
+        let printerName = a[0];
+        let b = await printer.setPrinter(printerName);
+        console.log(printerName);
+        let e = await printer.printerInfo();
+        res.setHeader("Content-Type", "application/json");
+        res.send(JSON.stringify({e}, null, "  "));
+    });
 export default router;
