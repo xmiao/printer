@@ -2,14 +2,23 @@ import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {writeFileSync} from "fs";
 // import {PDFDocument} from 'pdf-lib';
-
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
 // Puppeteer generate PDF from HTML
-
 // https://github.com/Hopding/pdf-lib
 // https://stackoverflow.com/questions/55470714/trying-to-hide-first-footer-header-on-pdf-generated-with-puppeteer
 const printer = require('node-native-printer');
+
 // const edge = require(`edge-js`);
+// let printerName = a[0];
+// await printer.setPrinter(printerName);
+// console.log(printerName);
+// let hello = edge.func(`async (input) => {
+//         return ".NET welcomes " + input.ToString();
+//     }`);
+// hello('Node.js', function (error: any, result: any) {
+//     if (error) throw error;
+//     console.log(result);
+// });
 
 const router = express.Router();
 
@@ -43,7 +52,7 @@ router
             if (doPrint) {
                 let tmpFileForPrint = `C:\\Users\\miaox\\Desktop\\tmpFileForPrint-${+curTime}.pdf`;
                 writeFileSync(tmpFileForPrint, pdf)
-                // await printer.print(tmpFileForPrint);
+                await printer.print(tmpFileForPrint);
             }
             res.status(200);
             res.setHeader("Content-Type", "application/pdf");
@@ -53,12 +62,10 @@ router
             res.setHeader("Content-Type", "application/json")
             res.json({error: e});
         }
-
     });
 
 router
     .post('/genRequest', async function (req: any, res: any, next: any) {
-
         res.send("ok");
     });
 
@@ -66,9 +73,6 @@ router
     .get('/print', async function (req: any, res, next: any) {
         let a = await printer.listPrinters();
 
-        // let printerName = a[0];
-        // await printer.setPrinter(printerName);
-        // console.log(printerName);
         await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
         let e = await printer.printerInfo();
 
@@ -76,24 +80,25 @@ router
         res.send(JSON.stringify({a}, null, "  "));
     });
 
-// let hello = edge.func(`async (input) => {
-//         return ".NET welcomes " + input.ToString();
-//     }`);
-
+/*
+sample result.
+{
+  "defaultPrinterName": "Canon TS3300 series",
+  "QueueStatus": "PaperOut"
+}
+ */
 router
     .get('/status', async function (req: any, res, next: any) {
-        // hello('Node.js', function (error: any, result: any) {
-        //     if (error) throw error;
-        //     console.log(result);
-        // });
-
         let printers = await printer.listPrinters();
-        let defaultPrinter = await printer.defaultPrinterName();
-        let curPrinter = await printer.getCurrentPrinter();
-        let curPrinterInfo = await printer.printerInfo(curPrinter);
-        res.setHeader("Content-Type", "application/json");
-        res.json({defaultPrinter, curPrinter, printers});
-    });
+        let defaultPrinterName = await printer.defaultPrinterName();
+        let info = await printer.printerInfo(defaultPrinterName);
+        // let curPrinter = await printer.getCurrentPrinter();
+        // let prt = await printer.setPrinter(defaultPrinterName);
+        // let curPrinterInfo = await printer.printerInfo(curPrinter);
 
+        let [{HostingPrintQueue: {QueueStatus = ""} = {}} = {}] = info || {};
+        res.setHeader("Content-Type", "application/json");
+        res.json({defaultPrinterName, QueueStatus});
+    });
 
 export default router;
