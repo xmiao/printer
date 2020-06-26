@@ -16,5 +16,21 @@ app.use(compression());
 
 app.use('/', indexRouter);
 
+process
+    .on('unhandledRejection', (reason, p) => {
+        console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
+        // application specific logging, throwing an error, or other logic here
+    });
+
+app
+    .use(function (err: any, req: any, res: any, next: any) {
+        res
+            .status(400)
+            .json({
+                errorMsg: err.message
+            });
+    });
+
+
 app.listen(3000);
 

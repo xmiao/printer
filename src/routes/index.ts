@@ -33,13 +33,22 @@ router
             footerTemplate: footer
         });
 
-        let curTime = new Date();
-        let pdf = await convertHTMLToPDF(htmlFile, headerOption);
-        let endTime = new Date();
-        console.log(`Total time spent: ${+endTime - +curTime}`);
 
-        res.setHeader("Content-Type", "application/pdf");
-        res.send(pdf);
+        try {
+            let curTime = new Date();
+            console.log(`cur time: ${+curTime}`);
+            let pdf = await convertHTMLToPDF(htmlFile, headerOption);
+            let endTime = new Date();
+            console.log(`Total time spent: ${+endTime - +curTime}`);
+            res.status(200);
+            res.setHeader("Content-Type", "application/pdf");
+            res.send(pdf);
+        } catch (e) {
+            res.status(500);
+            res.setHeader("Content-Type", "application/json")
+            res.json({error: e});
+        }
+
     });
 
 router
