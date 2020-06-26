@@ -13,16 +13,9 @@ const printer = require('node-native-printer');
 const uuid = require("uuid-v4");
 
 // const edge = require(`edge-js`);
-// let printerName = a[0];
-// await printer.setPrinter(printerName);
-// console.log(printerName);
 // let hello = edge.func(`async (input) => {
 //         return ".NET welcomes " + input.ToString();
 //     }`);
-// hello('Node.js', function (error: any, result: any) {
-//     if (error) throw error;
-//     console.log(result);
-// });
 
 const router = express.Router();
 
@@ -86,10 +79,6 @@ router
         let printers = await printer.listPrinters();
         let defaultPrinterName = await printer.defaultPrinterName();
         let info = await printer.printerInfo(defaultPrinterName);
-        // let curPrinter = await printer.getCurrentPrinter();
-        // let prt = await printer.setPrinter(defaultPrinterName);
-        // let curPrinterInfo = await printer.printerInfo(curPrinter);
-
         let [{HostingPrintQueue: {QueueStatus = ""} = {}} = {}] = info || {};
         res.setHeader("Content-Type", "application/json");
         res.json({defaultPrinterName, QueueStatus});
