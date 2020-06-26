@@ -1,6 +1,5 @@
 import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
-import {readFileSync} from "fs";
 // import {PDFDocument} from 'pdf-lib';
 
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
@@ -11,44 +10,16 @@ import {readFileSync} from "fs";
 // const printer = require('node-native-printer');
 // const edge = require(`edge-js`);
 
-const footerTemplate = `<div 
-style="
-font-size: 6pt;
-text-align: right; 
-width: 100%; 
-height: 20px; 
-border-top: 1px solid black; 
-color:black; 
-font-family: Arial,serif;
-margin: 0 1cm;">
-第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span>
-</div>`;
-
-const headerTemplate = `<div 
-style="
-font-size: 12pt; 
-width: 100%; 
-height: 30px;
-text-align: center;
-background-color: black; 
-border-bottom: 1px solid black;
-margin: 0 1cm;
-">
-人民医院门诊病历
-</div>`;
-
 const router = express.Router();
 
 /* GET home page. */
 router
-    .post('/getPdf', async function (req: any, res: any, next: any) {
-        let text = readFileSync("./public/xm.html", "utf-8");
-        let headerOption = {
-            // path: 'optionally-saved.pdf',
+    .post('/getPDF', async function (req: any, res: any, next: any) {
+        let {body: {header, footer, htmlFile} = {} as any} = req || {};
+        let headerOptionDefault = {
+            path: 'optionally-saved-test-result.pdf',
             landscape: false,
             displayHeaderFooter: true,
-            headerTemplate,
-            footerTemplate,
             margin: {
                 top: '100px',
                 bottom: '100px',
@@ -57,13 +28,24 @@ router
             }
         };
 
+        let headerOption = Object.assign(headerOptionDefault, {
+            headerTemplate: header,
+            footerTemplate: footer
+        });
+
         let curTime = new Date();
-        let pdf = await convertHTMLToPDF(text, headerOption);
+        let pdf = await convertHTMLToPDF(htmlFile, headerOption);
         let endTime = new Date();
         console.log(`Total time spent: ${+endTime - +curTime}`);
 
         res.setHeader("Content-Type", "application/pdf");
         res.send(pdf);
+    });
+
+router
+    .post('/genRequest', async function (req: any, res: any, next: any) {
+
+        res.send("ok");
     });
 
 // router
