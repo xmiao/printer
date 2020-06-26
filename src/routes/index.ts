@@ -7,7 +7,7 @@ import {readFileSync} from "fs";
 // Puppeteer generate PDF from HTML
 
 // https://github.com/Hopding/pdf-lib
-
+// https://stackoverflow.com/questions/55470714/trying-to-hide-first-footer-header-on-pdf-generated-with-puppeteer
 // const printer = require('node-native-printer');
 // const edge = require(`edge-js`);
 
@@ -40,30 +40,31 @@ margin: 0 1cm;
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', async function (req: any, res: any, next: any) {
-    let text = readFileSync("./public/xm.html", "utf-8");
-    let headerOption = {
-        // path: 'optionally-saved.pdf',
-        landscape: false,
-        displayHeaderFooter: true,
-        headerTemplate,
-        footerTemplate,
-        margin: {
-            top: '100px',
-            bottom: '100px',
-            right: '20px',
-            left: '20px'
-        }
-    };
+router
+    .post('/getPdf', async function (req: any, res: any, next: any) {
+        let text = readFileSync("./public/xm.html", "utf-8");
+        let headerOption = {
+            // path: 'optionally-saved.pdf',
+            landscape: false,
+            displayHeaderFooter: true,
+            headerTemplate,
+            footerTemplate,
+            margin: {
+                top: '100px',
+                bottom: '100px',
+                right: '20px',
+                left: '20px'
+            }
+        };
 
-    let curTime = new Date();
-    let pdf = await convertHTMLToPDF(text, headerOption);
-    let endTime = new Date();
-    console.log(`Total time spent: ${+endTime - +curTime}`);
+        let curTime = new Date();
+        let pdf = await convertHTMLToPDF(text, headerOption);
+        let endTime = new Date();
+        console.log(`Total time spent: ${+endTime - +curTime}`);
 
-    res.setHeader("Content-Type", "application/pdf");
-    res.send(pdf);
-});
+        res.setHeader("Content-Type", "application/pdf");
+        res.send(pdf);
+    });
 
 // router
 //     .get('/print', async function (req: any, res, next: any) {
