@@ -16,13 +16,16 @@
     "express": "^4.17.1",
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
+    "moment": "^2.27.0",
     "morgan": "~1.9.1",
     "node-printer": "^1.0.4",
     "pdf-lib": "^1.8.0",
     "pdf-puppeteer": "^1.1.9",
     "pug": "^2.0.4",
     "puppeteer": "^2.0.0",
-    "ts-node": "^8.5.4"
+    "ts-node": "^8.5.4",
+    "uuid-v4": "^0.1.0",
+    "uuid4": "^2.0.2"
   },
   "devDependencies": {
     "@types/compression": "^1.0.1",

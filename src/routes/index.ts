@@ -1,12 +1,14 @@
 import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {writeFileSync} from "fs";
+import moment from "moment";
 // import {PDFDocument} from 'pdf-lib';
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
 // Puppeteer generate PDF from HTML
 // https://github.com/Hopding/pdf-lib
 // https://stackoverflow.com/questions/55470714/trying-to-hide-first-footer-header-on-pdf-generated-with-puppeteer
 const printer = require('node-native-printer');
+const uuid = require("uuid-v4");
 
 // const edge = require(`edge-js`);
 // let printerName = a[0];
@@ -50,7 +52,7 @@ router
             console.log(`Total time spent: ${+endTime - +curTime}`);
 
             if (doPrint) {
-                let tmpFileForPrint = `C:\\Users\\miaox\\Desktop\\tmpFileForPrint-${+curTime}.pdf`;
+                let tmpFileForPrint = `C:\\Users\\miaox\\Desktop\\tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
                 writeFileSync(tmpFileForPrint, pdf)
                 await printer.print(tmpFileForPrint);
             }
@@ -73,8 +75,8 @@ router
     .get('/print', async function (req: any, res, next: any) {
         let a = await printer.listPrinters();
 
-        await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
-        let e = await printer.printerInfo();
+        // await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
+        // let e = await printer.printerInfo();
 
         res.setHeader("Content-Type", "application/json");
         res.send(JSON.stringify({a}, null, "  "));
