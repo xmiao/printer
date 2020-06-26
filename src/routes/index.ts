@@ -36,7 +36,6 @@ router
 
         try {
             let curTime = new Date();
-            console.log(`cur time: ${+curTime}`);
             let pdf = await convertHTMLToPDF(htmlFile, headerOption);
             let endTime = new Date();
             console.log(`Total time spent: ${+endTime - +curTime}`);

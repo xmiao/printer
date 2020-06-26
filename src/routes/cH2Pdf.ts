@@ -36,7 +36,7 @@ let convertHTMLToPDF = async (html: string,
     let curTime = new Date();
     let pdf = await page.pdf(options);
     let endTime = new Date();
-    console.log(`Generating PDF: ${+endTime - +curTime}`);
+    console.log(`Generating PDF in ${+endTime - +curTime} ms`);
 
     // await browser.close();
     return pdf;
