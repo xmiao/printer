@@ -2,6 +2,8 @@ import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
 import {writeFileSync} from "fs";
 import moment from "moment";
+import os from "os";
+
 // import {PDFDocument} from 'pdf-lib';
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
 // Puppeteer generate PDF from HTML
@@ -29,7 +31,7 @@ router
     .post('/getPDF', async function (req: any, res: any, next: any) {
         let {body: {header, footer, htmlFile, doPrint} = {} as any} = req || {};
         let headerOptionDefault = {
-            path: 'optionally-saved-test-result.pdf',
+            // path: 'optionally-saved-test-result.pdf',
             landscape: false,
             displayHeaderFooter: true,
             margin: {
@@ -52,7 +54,8 @@ router
             console.log(`Total time spent: ${+endTime - +curTime}`);
 
             if (doPrint) {
-                let tmpFileForPrint = `C:\\Users\\miaox\\Desktop\\tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
+                let home = os.homedir();
+                let tmpFileForPrint = `${home}\\Desktop\\tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
                 writeFileSync(tmpFileForPrint, pdf)
                 await printer.print(tmpFileForPrint);
             }
@@ -69,17 +72,6 @@ router
 router
     .post('/genRequest', async function (req: any, res: any, next: any) {
         res.send("ok");
-    });
-
-router
-    .get('/print', async function (req: any, res, next: any) {
-        let a = await printer.listPrinters();
-
-        // await printer.print("C:\\Users\\miaox\\Desktop\\dbmail-a3.pdf");
-        // let e = await printer.printerInfo();
-
-        res.setHeader("Content-Type", "application/json");
-        res.send(JSON.stringify({a}, null, "  "));
     });
 
 /*
