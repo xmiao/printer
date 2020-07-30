@@ -19,7 +19,6 @@ const uuid = require("uuid-v4");
 
 const router = express.Router();
 
-/* GET home page. */
 router
     .post('/getPDF', async function (req: any, res: any, next: any) {
         let {body: {header, footer, htmlFile, doPrint} = {} as any} = req || {};
@@ -46,10 +45,13 @@ router
             let endTime = new Date();
             console.log(`Total time spent: ${+endTime - +curTime}`);
 
+            // let home = os.homedir();
+            let home = "C:\\Users\\miaox\\Desktop\\tmp";
+            let tmpFileForPrint = `${home}\\tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
+            console.log(tmpFileForPrint);
+            writeFileSync(tmpFileForPrint, pdf)
+
             if (doPrint) {
-                let home = os.homedir();
-                let tmpFileForPrint = `${home}\\Desktop\\tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
-                writeFileSync(tmpFileForPrint, pdf)
                 await printer.print(tmpFileForPrint);
             }
             res.status(200);
@@ -60,11 +62,6 @@ router
             res.setHeader("Content-Type", "application/json")
             res.json({error: e});
         }
-    });
-
-router
-    .post('/genRequest', async function (req: any, res: any, next: any) {
-        res.send("ok");
     });
 
 /*
