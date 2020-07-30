@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <title>Winning remote print service</title>
     <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+    <script src="./javascripts/app.js"></script>
 </head>
 <body>
 
 <div class="main">
     <div class="input-panel">
-        <input type="file">
+        <h4>
+            Remote Printing Service
+        </h4>
+        <input accept="text/html" type="file" onchange="processFile(this)">
 
     </div>
     <div class="pdf-panel">
-        <iframe src="./全国医院信息化建设标准与规范-2018.pdf" height="100%" width="100%"></iframe>
+        <iframe id="pdfviewer" src="" height="100%" width="100%"></iframe>
     </div>
 
 </div>
