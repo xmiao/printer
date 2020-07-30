@@ -3,61 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Winning remote print service</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
 </head>
 <body>
 
-<h1>'Hello, world!' example</h1>
+<div class="main">
+    <div class="input-panel">
+        <input type="file">
 
-<canvas id="the-canvas" style="border: 1px solid black; direction: ltr;"></canvas>
+    </div>
+    <div class="pdf-panel">
+        <iframe src="./全国医院信息化建设标准与规范-2018.pdf" height="100%" width="100%"></iframe>
+    </div>
 
-<script src="./javascripts/pdf.js"></script>
+</div>
 
-<script id="script">
-    //
-    // If absolute URL from the remote server is provided, configure the CORS
-    // header on that server.
-    //
-    var url = './helloworld.pdf';
-
-    //
-    // The workerSrc property shall be specified.
-    //
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-        './javascripts/pdf.worker.js';
-
-    //
-    // Asynchronous download PDF
-    //
-    var loadingTask = pdfjsLib.getDocument(url);
-    loadingTask.promise.then(function (pdf) {
-        //
-        // Fetch the first page
-        //
-        pdf.getPage(1).then(function (page) {
-            var scale = 1.5;
-            var viewport = page.getViewport({scale: scale,});
-
-            //
-            // Prepare canvas using PDF page dimensions
-            //
-            var canvas = document.getElementById('the-canvas');
-            var context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-
-            //
-            // Render PDF page into canvas context
-            //
-            var renderContext = {
-                canvasContext: context,
-                viewport: viewport,
-            };
-            page.render(renderContext);
-        });
-    });
-</script>
-
-<hr>
-<h2>JavaScript code:</h2>
 </body>
 </html>
