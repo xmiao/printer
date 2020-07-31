@@ -53,7 +53,10 @@ router
             writeFileSync(tmpFileForPrint, pdf)
 
             if (doPrint) {
-                await printer.print(tmpFileForPrint);
+                await printer.print(tmpFileForPrint, {
+                    landscape,
+                    paperSize: format
+                });
             }
             res.status(200);
             res.setHeader("Content-Type", "application/json");
