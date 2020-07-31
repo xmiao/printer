@@ -20,11 +20,11 @@ const router = express.Router();
 
 router
     .post('/getPDF', async function (req: any, res: any, next: any) {
-        let {body: {header, footer, htmlFile, doPrint} = {} as any} = req || {};
+        let {body: {header, footer, htmlFile, format = 'A4', landscape = false, doPrint} = {} as any} = req || {};
         let headerOptionDefault = {
             // path: 'optionally-saved-test-result.pdf',
-            landscape: true,
-            format: 'A5',
+            landscape,
+            format,
             displayHeaderFooter: true,
             margin: {
                 top: '100px',
