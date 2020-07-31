@@ -23,7 +23,8 @@ router
         let {body: {header, footer, htmlFile, doPrint} = {} as any} = req || {};
         let headerOptionDefault = {
             // path: 'optionally-saved-test-result.pdf',
-            landscape: false,
+            landscape: true,
+            format: 'A5',
             displayHeaderFooter: true,
             margin: {
                 top: '100px',
