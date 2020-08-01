@@ -12,6 +12,7 @@ function processFile(fileList = [], rootData = {}) {
 }
 
 async function printFile(data) {
+
     let response = await fetch("./getPDF", {
         body: JSON.stringify(data), // must match 'Content-Type' header
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -25,5 +26,12 @@ async function printFile(data) {
     let {pdf, path} = await response.json();
 
     let elem = document.getElementById("pdfviewer");
+
+    // debugger;
+
+    // debugger;
+    // elem.src = `./全国医院信息化建设标准与规范-2018.pdf`;
+    // elem.src = `data:application/pdf;base64,${btoa(encodeURIComponent(pdf))}`;
     elem.src = path;
+
 }
