@@ -36,7 +36,16 @@
 </head>
 <body>
 <style>
+    body {
+        font-family: STSong sans-serif;
+    }
+
     .page {
+        /*border: 10px solid red;*/
+    }
+
+    .page * {
+        word-break: break-all;
         /*border: 10px solid red;*/
     }
 
@@ -65,12 +74,19 @@
         height: 1.3em;
     }
 
+    /*.page th div {*/
+    /*    display: inline-block;*/
+    /*    text-align: center;*/
+    /*    width: 1em;*/
+    /*    border: 1px solid #e1b42b;*/
+    /*}*/
+
     .page .lb span:nth-child(2):after {
         content: " ";
         white-space: pre;
     }
 
-    .page tr:nth-child(3) *{
+    .page tr:nth-child(3) * {
         border: 1px solid transparent;
         color: transparent;
     }
@@ -95,6 +111,17 @@
         display: table-header-group;
         page-break-inside: avoid;
     }
+
+    .signature {
+        float: right;
+        display: inline-block;
+    }
+
+    .signature:before {
+        content: " ";
+        white-space: pre;
+    }
+
 </style>
 <div class="page">
     <div class="title">疼痛评估单</div>
@@ -108,7 +135,17 @@
     <div class="lb"><span>科室：</span><span></span></div>
     <div class="lb"><span>科室：</span><span></span></div>
     <div class="lb"><span>科室：</span><span></span></div>
-    <div class="cb"><span>疼痛分类：</span><span></span></div>
+
+    <p>
+        <span class="cb"><span>疼痛分类：</span><span></span></span>
+    </p>
+
+    <p>
+        功能测试：1：常规可输入内容，字符串 数字 转义字符，特殊字符2：非常规有一定含义的：html css java script url等3：输入内容的边界 ：空字符
+        超长文本.
+        <span class="signature">医师签名：张三</span>
+    </p>
+
     <table>
         <thead>
         <tr>
@@ -119,7 +156,7 @@
                 疼痛
             </th>
             <th colspan=12>
-                护理措施
+                <div>护理措施</div>
             </th>
         </tr>
         <tr>
@@ -8762,6 +8799,11 @@
         </tr>
         </tbody>
     </table>
+    <p>
+        功能测试：1：常规可输入内容，字符串 数字 转义字符，特殊字符2：非常规有一定含义的：html css java script url等3：输入内容的边界 ：空字符
+        超长文本.
+        <span class="signature">医师签名：张三</span>
+    </p>
 </div>
 </body>
 </html>
