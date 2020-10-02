@@ -1,4 +1,4 @@
-function processFile(fileList = [], rootData = {}) {
+function processFile(fileList: any[] = [], rootData: any = {}) {
     let [file] = fileList;
     if (!file) return;
 
@@ -11,7 +11,7 @@ function processFile(fileList = [], rootData = {}) {
     }
 }
 
-async function printFile(data) {
+async function printFile(data: any) {
 
     let response = await fetch("./getPDF", {
         body: JSON.stringify(data), // must match 'Content-Type' header
@@ -25,7 +25,7 @@ async function printFile(data) {
 
     let {pdf, path} = await response.json();
 
-    let elem = document.getElementById("pdfviewer");
+    let elem: any = document.getElementById("pdfviewer");
 
     // debugger;
 
