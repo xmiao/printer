@@ -1,24 +1,20 @@
 <template>
   <div class="main">
-    <div id="input-panel" class="input-panel">
-      <h4>
-        Remote Printing Service
-      </h4>
-
-      <input accept="text/html" type="file" @change="processFile($event.target.files, $data)">
+    <el-card header="打印设置">
+      <el-input accept="text/html" type="file" @change="processFile($event.target.files, $data)"></el-input>
 
       <label>
-        纸张：
-        <input v-model="format" type="text">
+        <span>纸张：</span>
+        <el-input v-model="format" type="text"></el-input>
       </label>
 
       <label>
-        横向：
+        <span>横向：</span>
         <input v-model="landscape" type="checkbox">
       </label>
 
       <label>
-        触发打印：
+        <span>触发打印：</span>
         <input v-model="doPrint" type="checkbox">
       </label>
 
@@ -27,17 +23,23 @@
       <!--        <div>-->
       <!--            {{$data}}-->
       <!--        </div>-->
-    </div>
 
-    <div class="pdf-panel">
-      <iframe id="pdfviewer" height="100%" src="" width="100%"></iframe>
-    </div>
 
+      <div class="pdf-panel">
+        <iframe id="pdfviewer" height="100%" src="" width="100%"></iframe>
+      </div>
+    </el-card>
   </div>
 </template>
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
+// import { Button } from 'element-ui';
+import ElementUI from 'element-ui';
+
+Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
+// Vue.use(Button);
+Vue.use(ElementUI);
 
 @Component
 export default class HelloWorld extends Vue {
@@ -110,21 +112,21 @@ async function printFile(data: any) {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-h3 {
-  margin: 40px 0 0;
-}
+.main {
+  label {
+    display: block;
+    text-align: left;
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+    span:nth-child(1) {
+      display: inline-block;
+      min-width: 8em;
+      text-align: right;
+    }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+    :nth-child(2) {
+      display: inline-block;
+      max-width: 8em;
+    }
+  }
 }
 </style>
