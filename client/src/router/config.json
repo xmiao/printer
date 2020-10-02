@@ -1,0 +1,14 @@
+{
+  "routeList": [
+    {
+      "path": "/",
+      "name": "Home",
+      "module": "home"
+    },
+    {
+      "path": "/about",
+      "name": "About",
+      "module": "about"
+    }
+  ]
+}
