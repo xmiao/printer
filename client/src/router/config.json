@@ -2,6 +2,11 @@
   "routeList": [
     {
       "path": "/",
+      "name": "Print",
+      "module": "print"
+    },
+    {
+      "path": "/home",
       "name": "Home",
       "module": "home"
     },
