@@ -73,6 +73,39 @@ const data = {
   doPrint: false
 };
 
+function processFile(fileList = [], rootData: any = {}) {
+  const [file] = fileList;
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.readAsText(file, "utf-8"); //gbk
+  reader.onload = async function () {
+    const {result} = this;
+    rootData.htmlFile = result;
+  }
+}
+
+async function printFile(data: any) {
+
+  const response = await fetch("./getPDF", {
+    body: JSON.stringify(data), // must match 'Content-Type' header
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    headers: {
+      'content-type': 'application/json'
+    },
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+  });
+
+  if (!response) return;
+
+  const {pdf, path} = await response.json();
+
+  const elem: any = document.getElementById("pdfviewer");
+
+  // elem.src = `data:application/pdf;base64,${btoa(encodeURIComponent(pdf))}`;
+  elem.src = path;
+}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
