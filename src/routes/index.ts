@@ -8,7 +8,7 @@ import moment from "moment";
 // Puppeteer generate PDF from HTML
 // https://github.com/Hopding/pdf-lib
 // https://stackoverflow.com/questions/55470714/trying-to-hide-first-footer-header-on-pdf-generated-with-puppeteer
-const printer = require('node-native-printer');
+// const printer = require('node-native-printer');
 const uuid = require("uuid-v4");
 
 // const edge = require(`edge-js`);
@@ -53,10 +53,10 @@ router
             writeFileSync(tmpFileForPrint, pdf)
 
             if (doPrint) {
-                await printer.print(tmpFileForPrint, {
-                    landscape,
-                    paperSize: format
-                });
+                // await printer.print(tmpFileForPrint, {
+                //     landscape,
+                //     paperSize: format
+                // });
             }
             res.status(200);
             res.setHeader("Content-Type", "application/json");
@@ -79,12 +79,12 @@ sample result.
  */
 router
     .get('/status', async function (req: any, res, next: any) {
-        let printers = await printer.listPrinters();
-        let defaultPrinterName = await printer.defaultPrinterName();
-        let info = await printer.printerInfo(defaultPrinterName);
-        let [{HostingPrintQueue: {QueueStatus = ""} = {}} = {}] = info || {};
-        res.setHeader("Content-Type", "application/json");
-        res.json({defaultPrinterName, QueueStatus});
+        // let printers = await printer.listPrinters();
+        // let defaultPrinterName = await printer.defaultPrinterName();
+        // let info = await printer.printerInfo(defaultPrinterName);
+        // let [{HostingPrintQueue: {QueueStatus = ""} = {}} = {}] = info || {};
+        // res.setHeader("Content-Type", "application/json");
+        // res.json({defaultPrinterName, QueueStatus});
     });
 
 export default router;
