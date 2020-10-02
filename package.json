@@ -13,6 +13,7 @@
     "compression": "latest",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "element-ui": "^2.13.2",
     "express": "^4.17.1",
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
@@ -25,7 +26,8 @@
     "puppeteer": "^2.0.0",
     "ts-node": "^8.5.4",
     "uuid-v4": "^0.1.0",
-    "uuid4": "^2.0.2"
+    "uuid4": "^2.0.2",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@types/compression": "^1.0.1",

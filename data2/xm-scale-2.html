@@ -92,6 +92,14 @@
         white-space: pre;
     }
 
+    .page .cell {
+        display: inline-block;
+        overflow: hidden;
+        height: 1em;
+        /*width: 1em;*/
+        text-overflow: ellipsis;
+    }
+
     .page .lb span:nth-child(1) {
         text-align: right;
         min-width: 5em;
@@ -121,10 +129,6 @@
     .signature:before {
         content: " ";
         white-space: pre;
-    }
-
-    .page .cell {
-        display: inline-block;
     }
 
 </style>
