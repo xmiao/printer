@@ -6,7 +6,15 @@
         <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
       </div>
 
-      <el-input accept="text/html" type="file" @change="processFile($event.target.files, $data)"></el-input>
+      <el-upload ref="upload"
+                 :file-list="fileList"
+                 :http-request="upload"
+                 :on-change="handleChange"
+                 action="#">
+        <el-button size="small" type="primary">
+          点击上传
+        </el-button>
+      </el-upload>
 
       <label>
         <span>纸张：</span>
@@ -43,17 +51,37 @@ Vue.use(ElementUI);
 export default class Print extends Vue {
   @Prop() private msg!: string;
 
-  processFile(fileList = [], rootData: any = {}) {
-    const [file] = fileList;
-    if (!file) return;
+  fileList = [];
 
-    const reader = new FileReader();
-    reader.readAsText(file, "utf-8"); //gbk
-    reader.onload = async function () {
-      const {result} = this;
-      rootData.htmlFile = result;
-    }
+  ok() {
+    debugger;
   }
+
+  handleChange() {
+    const {uploadFiles} = this.$refs.upload as any;
+  }
+
+  upload() {
+    const {uploadFiles} = this.$refs.upload as any;
+    if (uploadFiles.length > 1)
+      uploadFiles.shift();
+    const [{name}] = uploadFiles;
+    console.log(name);
+  }
+
+  // processFile(fileList = [], rootData: any = {}) {
+  //   debugger;
+  //
+  //   const [file] = fileList;
+  //   if (!file) return;
+  //
+  //   const reader = new FileReader();
+  //   reader.readAsText(file, "utf-8"); //gbk
+  //   reader.onload = async function () {
+  //     const {result} = this;
+  //     rootData.htmlFile = result;
+  //   }
+  // }
 
   async printFile(data: any) {
     const response = await fetch("./getPDF", {
@@ -97,14 +125,6 @@ const footer = `<div style="
     color:black;
     font-family: Arial,serif;
     margin: 0 1cm;">第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span></div>`;
-
-const data = {
-  header,
-  footer, htmlFile: "",
-  format: "A4",
-  landscape: false,
-  doPrint: false
-};
 
 
 </script>
