@@ -1,29 +1,27 @@
 <template>
   <div class="main">
-    <el-card header="打印设置">
+    <el-card class="printer" header="打印设置">
+      <div slot="header" class="ok">
+        <span>打印设置</span>
+        <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+      </div>
+
       <el-input accept="text/html" type="file" @change="processFile($event.target.files, $data)"></el-input>
 
       <label>
         <span>纸张：</span>
-        <el-input v-model="format" type="text"></el-input>
+        <!--        <el-input v-model="format" type="text"></el-input>-->
       </label>
 
       <label>
         <span>横向：</span>
-        <input v-model="landscape" type="checkbox">
+        <!--        <input v-model="landscape" type="checkbox">-->
       </label>
 
-      <label>
-        <span>触发打印：</span>
-        <input v-model="doPrint" type="checkbox">
-      </label>
-
-      <button @click="printFile($data)">打印</button>
-
-      <!--        <div>-->
-      <!--            {{$data}}-->
-      <!--        </div>-->
-
+      <div>
+        <el-button @click="printFile($data)">预览</el-button>
+        <el-button @click="printFile($data)">打印</el-button>
+      </div>
 
       <div class="pdf-panel">
         <iframe id="pdfviewer" height="100%" src="" width="100%"></iframe>
@@ -42,8 +40,41 @@ Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
 
 @Component
-export default class HelloWorld extends Vue {
+export default class Print extends Vue {
   @Prop() private msg!: string;
+
+  processFile(fileList = [], rootData: any = {}) {
+    const [file] = fileList;
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.readAsText(file, "utf-8"); //gbk
+    reader.onload = async function () {
+      const {result} = this;
+      rootData.htmlFile = result;
+    }
+  }
+
+  async printFile(data: any) {
+    const response = await fetch("./getPDF", {
+      body: JSON.stringify(data), // must match 'Content-Type' header
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    });
+
+    if (!response) return;
+
+    const {pdf, path} = await response.json();
+
+    const elem: any = document.getElementById("pdfviewer");
+
+    // elem.src = `data:application/pdf;base64,${btoa(encodeURIComponent(pdf))}`;
+    elem.src = path;
+  }
+
 }
 
 const header = `
@@ -75,44 +106,16 @@ const data = {
   doPrint: false
 };
 
-function processFile(fileList = [], rootData: any = {}) {
-  const [file] = fileList;
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.readAsText(file, "utf-8"); //gbk
-  reader.onload = async function () {
-    const {result} = this;
-    rootData.htmlFile = result;
-  }
-}
-
-async function printFile(data: any) {
-
-  const response = await fetch("./getPDF", {
-    body: JSON.stringify(data), // must match 'Content-Type' header
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    headers: {
-      'content-type': 'application/json'
-    },
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-  });
-
-  if (!response) return;
-
-  const {pdf, path} = await response.json();
-
-  const elem: any = document.getElementById("pdfviewer");
-
-  // elem.src = `data:application/pdf;base64,${btoa(encodeURIComponent(pdf))}`;
-  elem.src = path;
-}
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .main {
+  .el-card__header {
+    background-color: yellowgreen;
+  }
+
   label {
     display: block;
     text-align: left;
@@ -129,4 +132,5 @@ async function printFile(data: any) {
     }
   }
 }
+
 </style>
