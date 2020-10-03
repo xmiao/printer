@@ -6,11 +6,11 @@
         <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
       </div>
 
-      <el-upload ref="upload"
-                 :file-list="fileList"
-                 :http-request="upload"
-                 :on-change="handleChange"
-                 action="#">
+      <el-upload
+          ref="upload"
+          :http-request="upload"
+          :on-change="handleChange"
+          action="#">
         <el-button size="small" type="primary">
           点击上传
         </el-button>
@@ -18,6 +18,15 @@
 
       <label>
         <span>纸张：</span>
+
+        <el-select v-model="format" placeholder="请选择">
+          <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+          </el-option>
+        </el-select>
         <!--        <el-input v-model="format" type="text"></el-input>-->
       </label>
 
@@ -51,14 +60,38 @@ Vue.use(ElementUI);
 export default class Print extends Vue {
   @Prop() private msg!: string;
 
-  fileList = [];
-
-  ok() {
-    debugger;
-  }
-
   handleChange() {
     const {uploadFiles} = this.$refs.upload as any;
+  }
+
+  data: any = {
+    header: "",
+    footer: "",
+    htmlFile: "",
+    format: "A4",
+    landscape: false,
+    doPrint: false
+  };
+  options = [{
+    value: '选项1',
+    label: '黄金糕'
+  }, {
+    value: '选项2',
+    label: '双皮奶'
+  }, {
+    value: '选项3',
+    label: '蚵仔煎'
+  }, {
+    value: '选项4',
+    label: '龙须面'
+  }, {
+    value: '选项5',
+    label: '北京烤鸭'
+  }];
+  format = '';
+
+  handleClick() {
+    console.log("ok");
   }
 
   upload() {
