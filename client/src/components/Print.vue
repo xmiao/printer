@@ -18,7 +18,19 @@
 
       <label>
         <span>纸张：</span>
+        <el-radio-group v-model="format" size="medium">
+          <el-radio-button
+              v-for="item in formSch"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+          >
+          </el-radio-button>
+        </el-radio-group>
+      </label>
 
+      <label>
+        <span>纸张：</span>
         <el-select v-model="format" placeholder="请选择">
           <el-option
               v-for="item in options"
@@ -27,11 +39,11 @@
               :value="item.value">
           </el-option>
         </el-select>
-        <!--        <el-input v-model="format" type="text"></el-input>-->
       </label>
 
       <label>
         <span>横向：</span>
+        <el-switch v-model="landscape">ok</el-switch>
         <!--        <input v-model="landscape" type="checkbox">-->
       </label>
 
@@ -51,9 +63,9 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 // import { Button } from 'element-ui';
 import ElementUI from 'element-ui';
+import * as formSch2 from './form-sch.json';
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
-// Vue.use(Button);
 Vue.use(ElementUI);
 
 @Component
@@ -72,23 +84,10 @@ export default class Print extends Vue {
     landscape: false,
     doPrint: false
   };
-  options = [{
-    value: '选项1',
-    label: '黄金糕'
-  }, {
-    value: '选项2',
-    label: '双皮奶'
-  }, {
-    value: '选项3',
-    label: '蚵仔煎'
-  }, {
-    value: '选项4',
-    label: '龙须面'
-  }, {
-    value: '选项5',
-    label: '北京烤鸭'
-  }];
+
   format = '';
+  formSch = formSch2;
+  landscape = "";
 
   handleClick() {
     console.log("ok");
@@ -101,20 +100,6 @@ export default class Print extends Vue {
     const [{name}] = uploadFiles;
     console.log(name);
   }
-
-  // processFile(fileList = [], rootData: any = {}) {
-  //   debugger;
-  //
-  //   const [file] = fileList;
-  //   if (!file) return;
-  //
-  //   const reader = new FileReader();
-  //   reader.readAsText(file, "utf-8"); //gbk
-  //   reader.onload = async function () {
-  //     const {result} = this;
-  //     rootData.htmlFile = result;
-  //   }
-  // }
 
   async printFile(data: any) {
     const response = await fetch("./getPDF", {
@@ -170,8 +155,7 @@ const footer = `<div style="
   }
 
   label {
-    display: block;
-    text-align: left;
+    display: inline-block;
 
     span:nth-child(1) {
       display: inline-block;
@@ -181,7 +165,7 @@ const footer = `<div style="
 
     :nth-child(2) {
       display: inline-block;
-      max-width: 8em;
+      //max-width: 8em;
     }
   }
 }
