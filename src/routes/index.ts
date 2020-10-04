@@ -10,19 +10,16 @@ import moment from "moment";
 // https://stackoverflow.com/questions/55470714/trying-to-hide-first-footer-header-on-pdf-generated-with-puppeteer
 // const printer = require('node-native-printer');
 const uuid = require("uuid-v4");
-const cors = require("cors");
 
 // const edge = require(`edge-js`);
 // let hello = edge.func(`async (input) => {
 //         return ".NET welcomes " + input.ToString();
 //     }`);
 
-const app = express();
-app.use(cors());
-// const router = app..Router();
+const router = express.Router();
 // router.use(cors());
 
-app
+router
     .post('/getPDF', async function (req: any, res: any, next: any) {
         let {body: {header, footer, htmlFile, format = 'A4', landscape = false, doPrint} = {} as any} = req || {};
         let headerOptionDefault = {
@@ -81,7 +78,7 @@ sample result.
   "QueueStatus": "PaperOut"
 }
  */
-app
+router
     .get('/status', async function (req: any, res, next: any) {
         // let printers = await printer.listPrinters();
         // let defaultPrinterName = await printer.defaultPrinterName();
