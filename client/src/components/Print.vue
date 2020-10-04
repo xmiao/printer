@@ -96,8 +96,6 @@ export default class Print extends Vue {
   }
 
   async printFile(data: any) {
-    debugger;
-
     const data2: any = {
       header: "",
       footer: "",
