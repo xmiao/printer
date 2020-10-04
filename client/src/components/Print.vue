@@ -108,11 +108,10 @@ export default class Print extends Vue {
     };
 
     const response = await fetch("http://localhost:3000/getPDF", {
-      body: JSON.stringify(data), // must match 'Content-Type' header
+      body: JSON.stringify(data2), // must match 'Content-Type' header
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       headers: {
-        'content-type': 'application/json',
-        '': 'no-cors'
+        'content-type': 'application/json'
       },
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
     });

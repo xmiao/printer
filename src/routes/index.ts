@@ -17,7 +17,6 @@ const uuid = require("uuid-v4");
 //     }`);
 
 const router = express.Router();
-// router.use(cors());
 
 router
     .post('/getPDF', async function (req: any, res: any, next: any) {
@@ -59,15 +58,18 @@ router
                 //     paperSize: format
                 // });
             }
-            res.status(200);
-            res.setHeader("Content-Type", "application/json");
-            res.json({pdf: pdf.toString(), path: `./images/${fn}`});
+            res
+                .status(200)
+                .setHeader("Content-Type", "application/json")
+                .json({pdf: pdf.toString(), path: `./images/${fn}`});
+
             // res.setHeader("Content-Type", "application/pdf");
             // res.send(pdf);
         } catch (e) {
-            res.status(500);
-            res.setHeader("Content-Type", "application/json")
-            res.json({error: e});
+            res
+                .status(500)
+                .setHeader("Content-Type", "application/json")
+                .json({error: e});
         }
     });
 
@@ -86,6 +88,7 @@ router
         // let [{HostingPrintQueue: {QueueStatus = ""} = {}} = {}] = info || {};
         // res.setHeader("Content-Type", "application/json");
         // res.json({defaultPrinterName, QueueStatus});
+        res.json({some: "some"});
     });
 
 export default router;
