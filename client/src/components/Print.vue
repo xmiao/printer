@@ -33,7 +33,7 @@
         <span>纸张：</span>
         <el-select v-model="format" placeholder="请选择">
           <el-option
-              v-for="item in options"
+              v-for="item in formSch()"
               :key="item.value"
               :label="item.label"
               :value="item.value">
@@ -48,8 +48,8 @@
       </label>
 
       <div>
-        <el-button @click="printFile($data)">预览</el-button>
-        <el-button @click="printFile($data)">打印</el-button>
+        <el-button @click="printFile">预览</el-button>
+        <el-button @click="printFile">打印</el-button>
       </div>
 
       <div class="pdf-panel">
@@ -76,15 +76,6 @@ export default class Print extends Vue {
     const {uploadFiles} = this.$refs.upload as any;
   }
 
-  data: any = {
-    header: "",
-    footer: "",
-    htmlFile: "",
-    format: "A4",
-    landscape: false,
-    doPrint: false
-  };
-
   format = '';
   landscape = "";
 
@@ -105,11 +96,23 @@ export default class Print extends Vue {
   }
 
   async printFile(data: any) {
-    const response = await fetch("./getPDF", {
+    debugger;
+
+    const data2: any = {
+      header: "",
+      footer: "",
+      htmlFile: "",
+      format: "A4",
+      landscape: false,
+      doPrint: false
+    };
+
+    const response = await fetch("http://localhost:3000/getPDF", {
       body: JSON.stringify(data), // must match 'Content-Type' header
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        '': 'no-cors'
       },
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
     });

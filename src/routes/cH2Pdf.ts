@@ -12,13 +12,13 @@ let convertHTMLToPDF = async (html: string,
     );
 
     if (!browser) {
-        if (puppeteerArgs) {
-            browser = await puppeteer.launch(puppeteerArgs);
-        } else {
-            browser = await puppeteer.launch();
-        }
-        page = await browser.newPage();
+        browser = puppeteerArgs ?
+            await puppeteer.launch(puppeteerArgs) :
+            await puppeteer.launch();
     }
+    if (!page)
+        page = await browser.newPage();
+
     if (!options) {
         options = {format: 'Letter'};
     }
