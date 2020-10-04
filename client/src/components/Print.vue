@@ -20,7 +20,7 @@
         <span>纸张：</span>
         <el-radio-group v-model="format" size="medium">
           <el-radio-button
-              v-for="item in formSch"
+              v-for="item in formSch()"
               :key="item.value"
               :label="item.label"
               :value="item.value"
@@ -86,8 +86,11 @@ export default class Print extends Vue {
   };
 
   format = '';
-  formSch = formSch2;
   landscape = "";
+
+  formSch(idx: string): any {
+    return formSch2['options'];
+  }
 
   handleClick() {
     console.log("ok");
@@ -114,13 +117,11 @@ export default class Print extends Vue {
     if (!response) return;
 
     const {pdf, path} = await response.json();
-
     const elem: any = document.getElementById("pdfviewer");
 
     // elem.src = `data:application/pdf;base64,${btoa(encodeURIComponent(pdf))}`;
     elem.src = path;
   }
-
 }
 
 const header = `
