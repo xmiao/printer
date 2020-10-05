@@ -16,27 +16,22 @@
         </el-button>
       </el-upload>
 
-      <label>
-        <span>纸张：</span>
-        <el-radio-group v-model="format" disable-transitions size="small">
-          <el-radio-button
-              v-for="item in formSch()"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-          >
-          </el-radio-button>
-        </el-radio-group>
-      </label>
+      <choice :enum-data="cd"></choice>
+      <choice :enum-data="or"></choice>
 
-      <label>
-        <span>横向：</span>
-        <el-switch v-model="landscape">ok</el-switch>
-        <!--        <input v-model="landscape" type="checkbox">-->
-      </label>
+      <!--      <label>-->
+      <!--        <span>横向：</span>-->
+      <!--        <el-switch v-model="landscape">ok</el-switch>-->
+      <!--        &lt;!&ndash;        <input v-model="landscape" type="checkbox">&ndash;&gt;-->
+      <!--      </label>-->
 
       <div>
-        <AFrame>aaa</AFrame>
+        <div>
+          <!--          <AFrame eeetype="ok">aaa</AFrame>-->
+        </div>
+        <div>
+          <!--          <AFrame eeetype="">aaa</AFrame>-->
+        </div>
         <el-button @click="printFile">预览</el-button>
         <el-button @click="printFile">打印</el-button>
       </div>
@@ -54,11 +49,12 @@ import ElementUI from 'element-ui';
 
 import * as formSch2 from './form-sch.json';
 import AFrame from "@/components/AFrame.vue";
+import Choice from "@/components/Choice.vue";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
 @Component({
-  components: {AFrame}
+  components: {Choice, AFrame}
 })
 export default class Print extends Vue {
   @Prop() private msg!: string;
@@ -66,6 +62,28 @@ export default class Print extends Vue {
   handleChange() {
     const {uploadFiles} = this.$refs.upload as any;
   }
+
+  cd = [
+    {
+      "value": "A4",
+      "label": "A4"
+    },
+    {
+      "value": "A5",
+      "label": "A5"
+    }
+  ];
+
+  or = [
+    {
+      "value": "A4",
+      "label": "A4"
+    },
+    {
+      "value": "A5",
+      "label": "A5"
+    }
+  ];
 
   format = '';
   landscape = "";

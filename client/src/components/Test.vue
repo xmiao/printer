@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>{{ message }}</h1>
+    <h1>afefewa {{ message }}</h1>
   </div>
 </template>
 
@@ -8,11 +8,11 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 
 @Component({
-  components: {AFrame}
+  // components: {AFrame}
 })
 
 @Component
-export default class AFrame extends Vue {
+export default class Test extends Vue {
   data = {}
   @Prop() private message!: string;
 

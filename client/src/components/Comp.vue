@@ -6,16 +6,15 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 
 @Component
-export default class AFrame extends Vue {
+export default class Comp extends Vue {
   data = {}
   compType = true;
 
-  @Prop() private eeetype !: string;
+  @Prop() private type !: string;
 
   component(id: string) {
-    console.log("this is a test", this.eeetype);
     let idx = 0;
-    if (this.eeetype === "ok") {
+    if (this.type === "ok") {
       idx = 1;
     }
     if (idx === 0) {

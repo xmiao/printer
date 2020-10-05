@@ -23,10 +23,6 @@
       </label>
 
       <button @click="printFile($data)">打印</button>
-
-      <!--        <div>-->
-      <!--            {{$data}}-->
-      <!--        </div>-->
     </div>
 
     <div class="pdf-panel">
