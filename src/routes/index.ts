@@ -1,7 +1,7 @@
 import express from "express";
 import convertHTMLToPDF from "./cH2Pdf";
-import {writeFileSync} from "fs";
 import moment from "moment";
+import {PDFDocument} from 'pdf-lib';
 
 // import {PDFDocument} from 'pdf-lib';
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
@@ -49,8 +49,15 @@ router
 
             let home = "C:\\Users\\miaox\\WebstormProjects\\WinningpPrinter\\public\\images";
             let fn = `tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
-            let tmpFileForPrint = `${home}\\${fn}`;
-            writeFileSync(tmpFileForPrint, pdf)
+            // let tmpFileForPrint = `${home}\\${fn}`;
+            // writeFileSync(tmpFileForPrint, pdf)
+
+            const pdfDoc = await PDFDocument.load(pdf);
+            for (let n = 0; n < pdfDoc.getPageCount(); n += 2) {
+                pdfDoc.removePage(n);
+            }
+            const pdf64 = await pdfDoc.saveAsBase64();
+            console.log(pdf64);
 
             if (doPrint) {
                 // await printer.print(tmpFileForPrint, {
@@ -62,7 +69,7 @@ router
                 .status(200)
                 .setHeader("Content-Type", "application/json");
             res
-                .json({pdf: pdf.toString(), path: `/images/${fn}`});
+                .json({pdf: pdf64, path: `/images/${fn}`});
 
             // res.setHeader("Content-Type", "application/pdf");
             // res.send(pdf);

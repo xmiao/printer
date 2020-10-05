@@ -126,8 +126,9 @@ export default class Print extends Vue {
     const {pdf, path} = await response.json();
     const elem: any = document.getElementById("pdfviewer");
 
-    // elem.src = `data:application/pdf;base64,${btoa(encodeURIComponent(pdf))}`;
-    elem.src = `http://localhost:3000/${path}`;
+    debugger;
+    elem.src = `data:application/pdf;base64,${pdf}`;
+    // elem.src = `http://localhost:3000/${path}`;
   }
 }
 
