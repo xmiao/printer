@@ -62,7 +62,7 @@ router
                 .status(200)
                 .setHeader("Content-Type", "application/json");
             res
-                .json({pdf: pdf.toString(), path: `./images/${fn}`});
+                .json({pdf: pdf.toString(), path: `/images/${fn}`});
 
             // res.setHeader("Content-Type", "application/pdf");
             // res.send(pdf);

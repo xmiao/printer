@@ -127,13 +127,12 @@ export default class Print extends Vue {
     const elem: any = document.getElementById("pdfviewer");
 
     // elem.src = `data:application/pdf;base64,${btoa(encodeURIComponent(pdf))}`;
-    elem.src = path;
+    elem.src = `http://localhost:3000/${path}`;
   }
 }
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .main {
 
@@ -159,6 +158,14 @@ export default class Print extends Vue {
     :nth-child(2) {
       display: inline-block;
       //max-width: 8em;
+    }
+  }
+
+  .pdf-panel {
+    height: 100%;
+
+    iframe {
+      border: none;
     }
   }
 }
