@@ -7,7 +7,6 @@ Vue.use(VueRouter);
 const {routeList}: any = config;
 const modules: any = {
     about: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-    // home: () => import(/* webpackChunkName: "home" */ '../views/Home.vue'),
     print: () => import(/* webpackChunkName: "print" */ '../components/Print.vue')
 };
 

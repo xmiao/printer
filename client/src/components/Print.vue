@@ -18,7 +18,7 @@
 
       <label>
         <span>纸张：</span>
-        <el-radio-group v-model="format" size="medium">
+        <el-radio-group v-model="format" disable-transitions size="small">
           <el-radio-button
               v-for="item in formSch()"
               :key="item.value"
@@ -27,18 +27,6 @@
           >
           </el-radio-button>
         </el-radio-group>
-      </label>
-
-      <label>
-        <span>纸张：</span>
-        <el-select v-model="format" placeholder="请选择">
-          <el-option
-              v-for="item in formSch()"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-          </el-option>
-        </el-select>
       </label>
 
       <label>
@@ -80,7 +68,7 @@ export default class Print extends Vue {
   landscape = "";
 
   formSch(idx: string): any {
-    return formSch2['options'];
+    return formSch2.format.enum;
   }
 
   handleClick() {
