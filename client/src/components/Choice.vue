@@ -1,12 +1,13 @@
 <template>
-  <div>
+  <div style="margin: 5px">
     <label>
       <span>{{ label() }}</span>
       <el-radio-group
-          v-model="format"
+          v-model="innerValue"
+          @input="change"
           disable-transitions size="small">
         <el-radio-button
-            v-for="item in enumData2()"
+            v-for="item in options()"
             :key="item.value"
             :label="item.label"
             :value="item.value"
@@ -22,20 +23,21 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 
 @Component
 export default class Choice extends Vue {
-  @Prop() props = {
-    label: "label",
-    options: []
-  };
+  @Prop() props !: any;
+  @Prop() value !: any;
 
-  @Prop() private type !: string;
-  @Prop() private enumData !: object[];
+  innerValue = "";
+
+  change() {
+    this.$emit('input', this.ppp);
+  }
 
   label() {
     return this.props.label;
   }
 
-  enumData2() {
-    return this.enumData;
+  options() {
+    return this.props.options;
   }
 }
 </script>

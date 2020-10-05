@@ -16,14 +16,8 @@
         </el-button>
       </el-upload>
 
-      <choice :props="cd"></choice>
-      <choice :props="or"></choice>
-
-      <!--      <label>-->
-      <!--        <span>横向：</span>-->
-      <!--        <el-switch v-model="landscape">ok</el-switch>-->
-      <!--        &lt;!&ndash;        <input v-model="landscape" type="checkbox">&ndash;&gt;-->
-      <!--      </label>-->
+      <choice v-model="ok1" :props="cd"></choice>
+      <choice v-model="ok2" :props="or"></choice>
 
       <div>
         <div>
@@ -40,6 +34,8 @@
         <iframe id="pdfviewer" height="100%" src="" width="100%"></iframe>
       </div>
     </el-card>
+    "{{ ok1 }}",
+    "{{ ok2 }}"
   </div>
 </template>
 
@@ -62,6 +58,9 @@ export default class Print extends Vue {
   handleChange() {
     const {uploadFiles} = this.$refs.upload as any;
   }
+
+  ok1 = "";
+  ok2 = "";
 
   cd = {
     label: "测试",
@@ -159,7 +158,6 @@ const footer = `<div style="
     color:black;
     font-family: Arial,serif;
     margin: 0 1cm;">第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span></div>`;
-
 
 </script>
 
