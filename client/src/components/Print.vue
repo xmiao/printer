@@ -6,7 +6,7 @@
         <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
       </div>
 
-      <wn-file v-model="htmlFile" :props="fl"></wn-file>
+      <wn-file v-model="fileToPrint" :props="fl"></wn-file>
       <choice v-model="format" :props="cd"></choice>
       <choice v-model="orientation" :props="or"></choice>
 
@@ -41,7 +41,7 @@ export default class Print extends Vue {
 
   format = "";
   orientation = "";
-  htmlFile = "";
+  fileToPrint = {};
 
   header = `
 <div style="
@@ -105,7 +105,7 @@ export default class Print extends Vue {
   }
 
   async printFile(data: any) {
-    const {header, footer, format, htmlFile, orientation} = this;
+    const {header, footer, format, fileToPrint: {text: htmlFile = ""} = {}, orientation} = this;
     const data2: any = {
       header,
       footer,
