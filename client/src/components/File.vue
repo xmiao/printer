@@ -4,8 +4,8 @@
       <span>{{ label() }}</span>
       <el-radio-group
           v-model="innerValue"
-          @input="input"
-          disable-transitions size="small">
+          disable-transitions
+          size="small" @input="input">
         <el-radio-button
             v-for="item in options()"
             :key="item.value"

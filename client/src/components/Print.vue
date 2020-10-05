@@ -11,7 +11,7 @@
           :http-request="upload"
           :on-change="handleChange"
           action="#">
-        <el-button size="small" type="primary">
+        <el-button size="small">
           点击上传
         </el-button>
       </el-upload>
@@ -20,12 +20,6 @@
       <choice v-model="ok2" :props="or"></choice>
 
       <div>
-        <div>
-          <!--          <AFrame eeetype="ok">aaa</AFrame>-->
-        </div>
-        <div>
-          <!--          <AFrame eeetype="">aaa</AFrame>-->
-        </div>
         <el-button @click="printFile">预览</el-button>
         <el-button @click="printFile">打印</el-button>
       </div>
@@ -34,8 +28,7 @@
         <iframe id="pdfviewer" height="100%" src="" width="100%"></iframe>
       </div>
     </el-card>
-    "{{ ok1 }}",
-    "{{ ok2 }}"
+    {{ JSON.stringify({ok1, ok2, htmlFile}) }}
   </div>
 </template>
 
@@ -44,13 +37,12 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 import ElementUI from 'element-ui';
 
 import * as formSch2 from './form-sch.json';
-import AFrame from "@/components/AFrame.vue";
 import Choice from "@/components/Choice.vue";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
 @Component({
-  components: {Choice, AFrame}
+  components: {Choice}
 })
 export default class Print extends Vue {
   @Prop() private msg!: string;
@@ -61,9 +53,10 @@ export default class Print extends Vue {
 
   ok1 = "";
   ok2 = "";
+  htmlFile = "";
 
   cd = {
-    label: "测试",
+    label: "纸张",
     options: [
       {
         "value": "A4",
@@ -103,13 +96,14 @@ export default class Print extends Vue {
 
   upload() {
     const {uploadFiles} = this.$refs.upload as any;
+    debugger;
     if (uploadFiles.length > 1)
       uploadFiles.shift();
     const [{name}] = uploadFiles;
-    console.log(name);
   }
 
   async printFile(data: any) {
+    debugger;
     const data2: any = {
       header: "",
       footer: "",
