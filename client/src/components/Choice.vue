@@ -4,7 +4,7 @@
       <span>{{ label() }}</span>
       <el-radio-group
           v-model="innerValue"
-          @input="change"
+          @input="input"
           disable-transitions size="small">
         <el-radio-button
             v-for="item in options()"
@@ -28,8 +28,8 @@ export default class Choice extends Vue {
 
   innerValue = "";
 
-  change() {
-    this.$emit('input', this.ppp);
+  input() {
+    this.$emit('input', this.innerValue);
   }
 
   label() {
