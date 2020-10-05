@@ -44,17 +44,7 @@ export default class Print extends Vue {
   htmlFile = "";
 
   fl = {
-    label: "文件",
-    options: [
-      {
-        "value": "A4",
-        "label": "A4"
-      },
-      {
-        "value": "A5",
-        "label": "A5"
-      }
-    ]
+    label: "文件"
   };
 
   cd = {

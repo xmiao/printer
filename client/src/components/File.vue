@@ -3,6 +3,7 @@
     <label>
       <span>{{ label() }}</span>
       <el-upload
+          class="wn-fileuploader"
           ref="upload"
           :http-request="upload"
           :on-change="handleChange"
@@ -33,16 +34,20 @@ export default class WnFile extends Vue {
     return this.props.label;
   }
 
-  handleChange() {
-    const {uploadFiles} = this.$refs.upload as any;
+  async handleChange() {
+    const {uploadFiles = []} = this.$refs.upload as any;
   }
 
-  upload() {
+  async upload() {
     const {uploadFiles} = this.$refs.upload as any;
-    debugger;
     if (uploadFiles.length > 1)
       uploadFiles.shift();
-    const [{name}] = uploadFiles;
+    const [{name, raw}] = uploadFiles;
+
+    this.$emit("input", {
+      text: await raw.text()
+    });
+
   }
 }
 </script>
@@ -62,6 +67,14 @@ export default class WnFile extends Vue {
     content: ": ";
     display: inline-block;
     margin-right: 0.5rem;
+  }
+
+  * {
+    display: inline;
+  }
+
+  .wn-fileuploader {
+    display: inline-block;
   }
 }
 </style>
