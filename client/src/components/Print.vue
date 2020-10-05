@@ -36,6 +36,7 @@
       </label>
 
       <div>
+        <AFrame>aaa</AFrame>
         <el-button @click="printFile">预览</el-button>
         <el-button @click="printFile">打印</el-button>
       </div>
@@ -49,14 +50,16 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
-// import { Button } from 'element-ui';
 import ElementUI from 'element-ui';
+
 import * as formSch2 from './form-sch.json';
+import AFrame from "@/components/AFrame.vue";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
-
-@Component
+@Component({
+  components: {AFrame}
+})
 export default class Print extends Vue {
   @Prop() private msg!: string;
 
