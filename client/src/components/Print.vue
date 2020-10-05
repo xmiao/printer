@@ -16,8 +16,8 @@
         </el-button>
       </el-upload>
 
-      <choice :enum-data="cd"></choice>
-      <choice :enum-data="or"></choice>
+      <choice :props="cd"></choice>
+      <choice :props="or"></choice>
 
       <!--      <label>-->
       <!--        <span>横向：</span>-->
@@ -63,27 +63,33 @@ export default class Print extends Vue {
     const {uploadFiles} = this.$refs.upload as any;
   }
 
-  cd = [
-    {
-      "value": "A4",
-      "label": "A4"
-    },
-    {
-      "value": "A5",
-      "label": "A5"
-    }
-  ];
+  cd = {
+    label: "测试",
+    options: [
+      {
+        "value": "A4",
+        "label": "A4"
+      },
+      {
+        "value": "A5",
+        "label": "A5"
+      }
+    ]
+  };
 
-  or = [
-    {
-      "value": "A4",
-      "label": "A4"
-    },
-    {
-      "value": "A5",
-      "label": "A5"
-    }
-  ];
+  or = {
+    label: "方向",
+    options: [
+      {
+        "label": "横向",
+        "value": "1"
+      },
+      {
+        "label": "纵向",
+        "value": "2"
+      }
+    ]
+  };
 
   format = '';
   landscape = "";
