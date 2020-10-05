@@ -1,19 +1,16 @@
 <template>
-  <div class="wn-choice">
+  <div class="wn-container">
     <label>
       <span>{{ label() }}</span>
-      <el-radio-group
-          v-model="innerValue"
-          disable-transitions
-          size="small" @input="input">
-        <el-radio-button
-            v-for="item in options()"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        >
-        </el-radio-button>
-      </el-radio-group>
+      <el-upload
+          ref="upload"
+          :http-request="upload"
+          :on-change="handleChange"
+          action="#">
+        <el-button size="small">
+          点击上传
+        </el-button>
+      </el-upload>
     </label>
   </div>
 </template>
@@ -22,7 +19,7 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 
 @Component
-export default class Choice extends Vue {
+export default class WnFile extends Vue {
   @Prop() props !: any;
   @Prop() value !: any;
 
@@ -36,14 +33,22 @@ export default class Choice extends Vue {
     return this.props.label;
   }
 
-  options() {
-    return this.props.options;
+  handleChange() {
+    const {uploadFiles} = this.$refs.upload as any;
+  }
+
+  upload() {
+    const {uploadFiles} = this.$refs.upload as any;
+    debugger;
+    if (uploadFiles.length > 1)
+      uploadFiles.shift();
+    const [{name}] = uploadFiles;
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.wn-choice {
+.wn-container {
   text-align: left;
   margin: 3px 1em;
 

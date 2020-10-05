@@ -6,16 +6,7 @@
         <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
       </div>
 
-      <el-upload
-          ref="upload"
-          :http-request="upload"
-          :on-change="handleChange"
-          action="#">
-        <el-button size="small">
-          点击上传
-        </el-button>
-      </el-upload>
-
+      <wn-file v-model="htmlFile" :props="fl"></wn-file>
       <choice v-model="ok1" :props="cd"></choice>
       <choice v-model="ok2" :props="or"></choice>
 
@@ -38,22 +29,33 @@ import ElementUI from 'element-ui';
 
 import * as formSch2 from './form-sch.json';
 import Choice from "@/components/Choice.vue";
+import WnFile from "@/components/File.vue";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
 @Component({
-  components: {Choice}
+  components: {Choice, WnFile}
 })
 export default class Print extends Vue {
   @Prop() private msg!: string;
 
-  handleChange() {
-    const {uploadFiles} = this.$refs.upload as any;
-  }
-
   ok1 = "";
   ok2 = "";
   htmlFile = "";
+
+  fl = {
+    label: "文件",
+    options: [
+      {
+        "value": "A4",
+        "label": "A4"
+      },
+      {
+        "value": "A5",
+        "label": "A5"
+      }
+    ]
+  };
 
   cd = {
     label: "纸张",
@@ -92,14 +94,6 @@ export default class Print extends Vue {
 
   handleClick() {
     console.log("ok");
-  }
-
-  upload() {
-    const {uploadFiles} = this.$refs.upload as any;
-    debugger;
-    if (uploadFiles.length > 1)
-      uploadFiles.shift();
-    const [{name}] = uploadFiles;
   }
 
   async printFile(data: any) {
