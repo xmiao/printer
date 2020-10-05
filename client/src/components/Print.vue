@@ -7,8 +7,8 @@
       </div>
 
       <wn-file v-model="htmlFile" :props="fl"></wn-file>
-      <choice v-model="ok1" :props="cd"></choice>
-      <choice v-model="ok2" :props="or"></choice>
+      <choice v-model="format" :props="cd"></choice>
+      <choice v-model="orientation" :props="or"></choice>
 
       <div>
         <el-button @click="printFile">预览</el-button>
@@ -19,7 +19,7 @@
         <iframe id="pdfviewer" height="100%" src="" width="100%"></iframe>
       </div>
     </el-card>
-    {{ JSON.stringify({ok1, ok2, htmlFile}) }}
+    {{ JSON.stringify({format, orientation}) }}
   </div>
 </template>
 
@@ -39,9 +39,30 @@ Vue.use(ElementUI);
 export default class Print extends Vue {
   @Prop() private msg!: string;
 
-  ok1 = "";
-  ok2 = "";
+  format = "";
+  orientation = "";
   htmlFile = "";
+
+  header = `
+<div style="
+    font-size: 12pt;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: black;
+    border-bottom: 1px solid black;
+    margin: 0 1cm;">
+    人民医院门诊病历
+</div>`;
+  footer = `<div style="
+    font-size: 6pt;
+    text-align: right;
+    width: 100%;
+    height: 20px;
+    border-top: 1px solid black;
+    color:black;
+    font-family: Arial,serif;
+    margin: 0 1cm;">第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span></div>`;
 
   fl = {
     label: "文件"
@@ -75,9 +96,6 @@ export default class Print extends Vue {
     ]
   };
 
-  format = '';
-  landscape = "";
-
   formSch(idx: string): any {
     return formSch2.format.enum;
   }
@@ -87,13 +105,13 @@ export default class Print extends Vue {
   }
 
   async printFile(data: any) {
-    debugger;
+    const {header, footer, format, htmlFile, orientation} = this;
     const data2: any = {
-      header: "",
-      footer: "",
-      htmlFile: "",
-      format: "A4",
-      landscape: false,
+      header,
+      footer,
+      htmlFile,
+      format,
+      orientation,
       doPrint: false
     };
 
@@ -115,27 +133,6 @@ export default class Print extends Vue {
     elem.src = path;
   }
 }
-
-const header = `
-<div style="
-    font-size: 12pt;
-    width: 100%;
-    height: 30px;
-    text-align: center;
-    background-color: black;
-    border-bottom: 1px solid black;
-    margin: 0 1cm;">
-    人民医院门诊病历
-</div>`;
-const footer = `<div style="
-    font-size: 6pt;
-    text-align: right;
-    width: 100%;
-    height: 20px;
-    border-top: 1px solid black;
-    color:black;
-    font-family: Arial,serif;
-    margin: 0 1cm;">第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span></div>`;
 
 </script>
 

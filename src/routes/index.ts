@@ -20,10 +20,10 @@ const router = express.Router();
 
 router
     .post('/getPDF', async function (req: any, res: any, next: any) {
-        let {body: {header, footer, htmlFile, format = 'A4', landscape = false, doPrint} = {} as any} = req || {};
+        let {body: {header, footer, htmlFile, format = 'A4', orientation = "", doPrint} = {} as any} = req || {};
         let headerOptionDefault = {
             // path: 'optionally-saved-test-result.pdf',
-            landscape,
+            landscape: orientation !== "纵向",
             format,
             displayHeaderFooter: true,
             margin: {
@@ -60,7 +60,8 @@ router
             }
             res
                 .status(200)
-                .setHeader("Content-Type", "application/json")
+                .setHeader("Content-Type", "application/json");
+            res
                 .json({pdf: pdf.toString(), path: `./images/${fn}`});
 
             // res.setHeader("Content-Type", "application/pdf");
@@ -68,7 +69,8 @@ router
         } catch (e) {
             res
                 .status(500)
-                .setHeader("Content-Type", "application/json")
+                .setHeader("Content-Type", "application/json");
+            res
                 .json({error: e});
         }
     });
