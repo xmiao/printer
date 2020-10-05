@@ -1,33 +1,38 @@
 <template>
   <div class="main">
-    <el-card class="printer" header="打印设置">
-      <div slot="header" class="ok">
-        <span>打印设置</span>
-        <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
-      </div>
+    <el-container style="height: 100%; border: 1px solid #eee">
+      <el-aside style="background-color: rgb(238, 241, 246)" width="400px">
+        <el-card class="printer" header="打印设置">
+          <div slot="header">
+            <span>打印设置</span>
+            <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+          </div>
 
-      <wn-file v-model="fileToPrint" :props="fl"></wn-file>
-      <choice v-model="format" :props="cd"></choice>
-      <choice v-model="orientation" :props="or"></choice>
+          <wn-file v-model="fileToPrint" :props="fl"></wn-file>
+          <choice v-model="format" :props="cd"></choice>
+          <choice v-model="orientation" :props="or"></choice>
 
-      <div>
-        <el-button @click="printFile">预览</el-button>
-        <el-button @click="printFile">打印</el-button>
-      </div>
+          <div>
+            <el-button @click="printFile">预览</el-button>
+            <el-button @click="printFile">打印</el-button>
+          </div>
+        </el-card>
+      </el-aside>
 
-      <div class="pdf-panel">
-        <iframe id="pdfviewer" height="100%" src="" width="100%"></iframe>
-      </div>
-    </el-card>
-    {{ JSON.stringify({format, orientation}) }}
+      <el-container>
+        <el-main>
+          <div class="pdf-panel">
+            <iframe id="pdfviewer" height="100%" src="" width="100%"></iframe>
+          </div>
+        </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import ElementUI from 'element-ui';
-
-import * as formSch2 from './form-sch.json';
 import Choice from "@/components/Choice.vue";
 import WnFile from "@/components/File.vue";
 
@@ -96,14 +101,6 @@ export default class Print extends Vue {
     ]
   };
 
-  formSch(idx: string): any {
-    return formSch2.format.enum;
-  }
-
-  handleClick() {
-    console.log("ok");
-  }
-
   async printFile(data: any) {
     const {header, footer, format, fileToPrint: {text: htmlFile = ""} = {}, orientation} = this;
     const data2: any = {
@@ -139,8 +136,15 @@ export default class Print extends Vue {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .main {
-  .el-card__header {
-    background-color: yellowgreen;
+
+  position: absolute;
+  top: 3em;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .el-card {
+    margin: 10px;
   }
 
   label {
