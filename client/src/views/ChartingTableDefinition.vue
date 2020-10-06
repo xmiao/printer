@@ -15,7 +15,7 @@
 
       <el-container>
         <el-main>
-          this is a testa
+          <div v-html="html()"/>
         </el-main>
       </el-container>
     </el-container>
@@ -27,19 +27,82 @@ import {Component, Prop, Vue} from 'vue-property-decorator';
 import ElementUI from 'element-ui';
 import Choice from "@/components/Choice.vue";
 import WnFile from "@/components/File.vue";
+import chartingDef from "./charting.definition.json";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
+
+class HandleDef {
+  private readonly def = [];
+
+  constructor(def: any) {
+    this.def = def;
+  }
+
+  psLabel(article: any) {
+    let {text, html} = article;
+    if (html) return html;
+  }
+
+  psPanel(t: any) {
+    let {tag, article, form} = t;
+    if (tag !== "panel") {
+      return `<div>should be panel.</div>`
+    }
+    if (article) {
+      return this.psLabel(article);
+    }
+
+    if (form) {
+      return this.psForm(form);
+    }
+    return `<div style="border: 1px solid red">${JSON.stringify(t)}</div>`;
+  }
+
+  psForm(form: any) {
+    let {fields = []} = form;
+    return fields
+        .map(({label, text, template}: any) => {
+          return `<div><div>${label}</div><div>${text}</div></div>`
+        })
+        .join("");
+  }
+
+  psCharting() {
+
+  }
+
+  psChartingItems() {
+
+  }
+
+  psMetaData() {
+
+  }
+
+  html() {
+    let l = this
+        .def
+        .map(t => {
+          let {tag, article, panel, charting, form} = t;
+          return this.psPanel(t);
+        });
+    return `<div>${l.join("")}</div>`;
+  }
+}
+
 @Component({
   components: {Choice, WnFile}
 })
 export default class Print extends Vue {
   @Prop() private msg!: string;
 
-  format = "";
-  orientation = "";
-  fileToPrint = {};
-  pageToPrint = "";
+  chartingDef = chartingDef;
+
+  html() {
+    const hd = new HandleDef(chartingDef);
+    return hd.html();
+  }
 }
 
 </script>

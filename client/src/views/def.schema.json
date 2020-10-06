@@ -36,9 +36,6 @@
         "panel": {
           "$ref": "#/definitions/panel"
         },
-        "label": {
-          "$ref": "#/definitions/label"
-        },
         "charting": {
           "$ref": "#/definitions/charting"
         },
