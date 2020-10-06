@@ -1,8 +1,9 @@
 [
   {
     "tag": "panel",
-    "title": {
-      "text": "护理记录单"
+    "article": {
+      "text": "护理记录单",
+      "html": "<h1>护理记录单</h1>"
     }
   },
   {
@@ -35,13 +36,37 @@
   {
     "tag": "panel",
     "charting": {
-      "l1": [
+      "items": [
         {
-          "displayName": "aaa",
-          "l2": [
+          "displayName": "日期/时间",
+          "html": "",
+          "metaData": {
+            "id": "123"
+          }
+        },
+        {
+          "displayName": "T",
+          "html": "T C",
+          "metaData": {
+            "id": "123"
+          }
+        },
+        {
+          "displayName": "",
+          "html": "吸氧",
+          "items": [
             {
-              "data": {
-                "displayName": "aaa"
+              "displayName": "流量",
+              "html": "",
+              "metaData": {
+                "id": "123"
+              }
+            },
+            {
+              "displayName": "方式",
+              "html": "T C",
+              "metaData": {
+                "id": "123"
               }
             }
           ]

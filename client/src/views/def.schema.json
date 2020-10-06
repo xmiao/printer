@@ -1,7 +1,9 @@
 {
   "type": "array",
+  "additionalItems": false,
   "items": {
     "type": "object",
+    "additionalProperties": false,
     "anyOf": [
       {
         "$ref": "#/definitions/panel"
@@ -9,26 +11,29 @@
       {
         "$ref": "#/definitions/label"
       }
-    ],
-    "additionalItems": false
+    ]
   },
   "definitions": {
     "label": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "text": {
           "type": "string"
+        },
+        "html": {
+          "type": "string"
         }
-      },
-      "additionalProperties": false
+      }
     },
     "panel": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "tag": {
           "const": "panel"
         },
-        "title": {
+        "article": {
           "$ref": "#/definitions/label"
         },
         "panel": {
@@ -39,26 +44,54 @@
         },
         "charting": {
           "$ref": "#/definitions/charting"
+        },
+        "form": {
+          "$ref": "#/definitions/form"
         }
       },
       "required": [
         "tag"
-      ],
-      "additionalProperties": false
+      ]
+    },
+    "form": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fields": {
+          "type": "array",
+          "additionalItems": false,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "label": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
     },
     "charting": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "l1": {
-          "$ref": "#/definitions/cd-l1"
+        "items": {
+          "type": "array",
+          "additionalItems": false,
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
         }
-      },
-      "additionalProperties": false
+      }
     },
     "cd-l1": {
       "type": "array",
+      "additionalItems": false,
       "items": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "displayName": {
             "type": "string"
@@ -66,14 +99,15 @@
           "l2": {
             "$ref": "#/definitions/cd-l2"
           }
-        },
-        "additionalProperties": false
+        }
       }
     },
     "cd-l2": {
       "type": "array",
+      "additionalItems": false,
       "items": {
         "type": "object",
+        "additionalProperties": false,
         "properties": {
           "displayName": {
             "type": "string"
@@ -81,18 +115,17 @@
           "data": {
             "$ref": "#/definitions/cd-data"
           }
-        },
-        "additionalProperties": false
+        }
       }
     },
     "cd-data": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "displayName": {
           "type": "string"
         }
-      },
-      "additionalProperties": false
+      }
     }
   }
 }
