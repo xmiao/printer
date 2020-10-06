@@ -2,18 +2,51 @@
   {
     "tag": "panel",
     "title": {
-      "text": "111"
+      "text": "护理记录单"
+    }
+  },
+  {
+    "tag": "panel",
+    "form": {
+      "fields": [
+        {
+          "label": "科室/病区",
+          "text": ""
+        },
+        {
+          "label": "床号",
+          "text": ""
+        },
+        {
+          "label": "姓名",
+          "text": ""
+        },
+        {
+          "label": "诊断",
+          "text": ""
+        },
+        {
+          "template": "第${text}页",
+          "text": ""
+        }
+      ]
     }
   },
   {
     "tag": "panel",
     "charting": {
-      "l1": {
-        "l2": {
-          "data": {
-          }
+      "l1": [
+        {
+          "displayName": "aaa",
+          "l2": [
+            {
+              "data": {
+                "displayName": "aaa"
+              }
+            }
+          ]
         }
-      }
+      ]
     }
   }
 ]

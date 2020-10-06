@@ -56,27 +56,40 @@
       "additionalProperties": false
     },
     "cd-l1": {
-      "type": "object",
-      "properties": {
-        "l2": {
-          "$ref": "#/definitions/cd-l2"
-        }
-      },
-      "additionalProperties": false
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "l2": {
+            "$ref": "#/definitions/cd-l2"
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "cd-l2": {
-      "type": "object",
-      "properties": {
-        "data": {
-          "$ref": "#/definitions/cd-data"
-        }
-      },
-      "additionalProperties": false
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/definitions/cd-data"
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "cd-data": {
       "type": "object",
       "properties": {
-        "data": {
+        "displayName": {
+          "type": "string"
         }
       },
       "additionalProperties": false
