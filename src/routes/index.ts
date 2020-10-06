@@ -4,7 +4,6 @@ import moment from "moment";
 import {PDFDocument} from 'pdf-lib';
 import path from "path";
 
-// import {PDFDocument} from 'pdf-lib';
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
 // Puppeteer generate PDF from HTML
 // https://github.com/Hopding/pdf-lib
@@ -64,9 +63,9 @@ router
                         pageMap[pageIndex] = 0;
                     }
                 }
-                for (let n = totalPage - 1; n >= 0; n--) {
-                    if (!pageMap[n])
-                        pdfDoc.removePage(n); //transform to the page index of pdflib
+                for (let pageIndex = totalPage - 1; pageIndex >= 0; pageIndex--) {
+                    if (!pageMap[pageIndex])
+                        pdfDoc.removePage(pageIndex);
                 }
             }
             const pdf64 = await pdfDoc.saveAsBase64();
@@ -108,7 +107,7 @@ router
         // let [{HostingPrintQueue: {QueueStatus = ""} = {}} = {}] = info || {};
         // res.setHeader("Content-Type", "application/json");
         // res.json({defaultPrinterName, QueueStatus});
-        res.json({some: "some"});
+        res.json({some: "test"});
     });
 
 export default router;

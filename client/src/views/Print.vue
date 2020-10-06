@@ -18,8 +18,6 @@
             <el-button @click="printFile">打印</el-button>
           </div>
         </el-card>
-
-        {{ JSON.stringify({pageToPrint}) }}
       </el-aside>
 
       <el-container>
@@ -45,13 +43,10 @@ Vue.use(ElementUI);
   components: {Choice, WnFile}
 })
 export default class Print extends Vue {
-  @Prop() private msg!: string;
-
   format = "";
   orientation = "";
   fileToPrint = {};
   pageToPrint = "";
-
   header = `
 <div style="
     font-size: 12pt;
@@ -72,11 +67,9 @@ export default class Print extends Vue {
     color:black;
     font-family: Arial,serif;
     margin: 0 1cm;">第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span></div>`;
-
   fl = {
     label: "文件"
   };
-
   cd = {
     label: "纸张",
     options: [
@@ -90,7 +83,6 @@ export default class Print extends Vue {
       }
     ]
   };
-
   or = {
     label: "方向",
     options: [
@@ -104,7 +96,6 @@ export default class Print extends Vue {
       }
     ]
   };
-
   pg = {
     label: "页码",
     options: [
@@ -122,6 +113,7 @@ export default class Print extends Vue {
       }
     ]
   };
+  @Prop() private msg!: string;
 
   async printFile(data: any) {
     const {header, footer, format, fileToPrint: {text: htmlFile = ""} = {} as any, orientation, pageToPrint} = this;

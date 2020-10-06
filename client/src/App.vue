@@ -1,13 +1,22 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Print</router-link>
-      |
-      <router-link to="/about">About</router-link>
+      <span v-for="route in routes" :key="route.path">
+      | <router-link :to="route.path">{{ route.name }}</router-link>
+      </span>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script lang="ts">
+import {Vue} from "vue-property-decorator";
+import {routes} from "@/router";
+
+export default class App extends Vue {
+  routes = routes;
+}
+</script>
 
 <style lang="scss">
 #app {
