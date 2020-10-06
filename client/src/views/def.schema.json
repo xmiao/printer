@@ -16,16 +16,10 @@
     "label": {
       "type": "object",
       "properties": {
-        "tag": {
-          "const": "label"
-        },
         "text": {
           "type": "string"
         }
       },
-      "required": [
-        "tag"
-      ],
       "additionalProperties": false
     },
     "panel": {
@@ -42,11 +36,49 @@
         },
         "label": {
           "$ref": "#/definitions/label"
+        },
+        "charting": {
+          "$ref": "#/definitions/charting"
         }
       },
       "required": [
         "tag"
       ],
+      "additionalProperties": false
+    },
+    "charting": {
+      "type": "object",
+      "properties": {
+        "l1": {
+          "$ref": "#/definitions/cd-l1"
+        }
+      },
+      "additionalProperties": false
+    },
+    "cd-l1": {
+      "type": "object",
+      "properties": {
+        "l2": {
+          "$ref": "#/definitions/cd-l2"
+        }
+      },
+      "additionalProperties": false
+    },
+    "cd-l2": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/cd-data"
+        }
+      },
+      "additionalProperties": false
+    },
+    "cd-data": {
+      "type": "object",
+      "properties": {
+        "data": {
+        }
+      },
       "additionalProperties": false
     }
   }

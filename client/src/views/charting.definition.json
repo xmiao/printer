@@ -2,15 +2,18 @@
   {
     "tag": "panel",
     "title": {
-      "tag": "label",
       "text": "111"
-    },
-    "panel": {
-      "tag": "panel"
     }
   },
   {
-    "tag": "label",
-    "text": "1"
+    "tag": "panel",
+    "charting": {
+      "l1": {
+        "l2": {
+          "data": {
+          }
+        }
+      }
+    }
   }
 ]
