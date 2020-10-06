@@ -1,0 +1,53 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "anyOf": [
+      {
+        "$ref": "#/definitions/panel"
+      },
+      {
+        "$ref": "#/definitions/label"
+      }
+    ],
+    "additionalItems": false
+  },
+  "definitions": {
+    "label": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "label"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "tag"
+      ],
+      "additionalProperties": false
+    },
+    "panel": {
+      "type": "object",
+      "properties": {
+        "tag": {
+          "const": "panel"
+        },
+        "title": {
+          "$ref": "#/definitions/label"
+        },
+        "panel": {
+          "$ref": "#/definitions/panel"
+        },
+        "label": {
+          "$ref": "#/definitions/label"
+        }
+      },
+      "required": [
+        "tag"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -3,102 +3,28 @@
   <component name="JsonSchemaMappingsProjectConfiguration">
     <state>
       <map>
-        <entry key="JSON Schema version 7">
+        <entry key="JSConfig">
           <value>
             <SchemaInfo>
-              <option name="name" value="JSON Schema version 7" />
-              <option name="relativePathToSchema" value="http://json-schema.org/draft-07/schema" />
-              <option name="schemaVersion" value="JSON Schema version 7" />
+              <option name="name" value="JSConfig" />
+              <option name="relativePathToSchema" value="client/src/views/def.schema.json" />
               <option name="applicationDefined" value="true" />
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="dist/routes/b.json" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="dist/routes/test.json" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="src/routes/funconfig.schema.json" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="src/routes/funRegister.schema.json" />
-                  </Item>
-                  <Item>
-                    <option name="path" value="src/routes/funRegister.json" />
+                    <option name="path" value="client/src/views/charting.definition.json" />
                   </Item>
                 </list>
               </option>
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="funRegister">
+        <entry key="charting">
           <value>
             <SchemaInfo>
-              <option name="name" value="funRegister" />
-              <option name="relativePathToSchema" value="data/funRegister.json" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="path" value="src/routes/funRegisterData.json" />
-                  </Item>
-                </list>
-              </option>
-            </SchemaInfo>
-          </value>
-        </entry>
-        <entry key="funRegister.schema">
-          <value>
-            <SchemaInfo>
-              <option name="name" value="funRegister.schema" />
-              <option name="relativePathToSchema" value="data/funRegister.schema.json" />
-            </SchemaInfo>
-          </value>
-        </entry>
-        <entry key="funconfig.schema">
-          <value>
-            <SchemaInfo>
-              <option name="name" value="funconfig.schema" />
-              <option name="relativePathToSchema" value="data/funconfig.schema.json" />
+              <option name="name" value="charting" />
+              <option name="relativePathToSchema" value="client/src/views/def.schema.json" />
               <option name="schemaVersion" value="JSON Schema version 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="path" value="src/routes/funconfig.json" />
-                  </Item>
-                </list>
-              </option>
-            </SchemaInfo>
-          </value>
-        </entry>
-        <entry key="hello_json_schema">
-          <value>
-            <SchemaInfo>
-              <option name="name" value="hello_json_schema" />
-              <option name="relativePathToSchema" value="data/hello_json_schema.json" />
-              <option name="schemaVersion" value="JSON Schema version 7" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="path" value="src/hell0_json_data.json" />
-                  </Item>
-                </list>
-              </option>
-            </SchemaInfo>
-          </value>
-        </entry>
-        <entry key="test">
-          <value>
-            <SchemaInfo>
-              <option name="name" value="test" />
-              <option name="relativePathToSchema" value="dist/routes/test_jsonschema.json" />
-              <option name="patterns">
-                <list>
-                  <Item>
-                    <option name="path" value="dist/routes/test-data.json" />
-                  </Item>
-                </list>
-              </option>
             </SchemaInfo>
           </value>
         </entry>
