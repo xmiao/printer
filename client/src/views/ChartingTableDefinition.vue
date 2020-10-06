@@ -40,26 +40,31 @@ class HandleDef {
   }
 
   psLabel(article: any) {
+    if (!article) return "";
     let {text, html} = article;
     if (html) return html;
   }
 
   psPanel(t: any) {
-    let {tag, article, form} = t;
+    if (!t) return "";
+
+    let {tag, article, form, charting} = t;
     if (tag !== "panel") {
       return `<div>should be panel.</div>`
     }
-    if (article) {
-      return this.psLabel(article);
-    }
 
-    if (form) {
-      return this.psForm(form);
-    }
+    if (article || form || charting)
+      return [
+        this.psLabel(article),
+        this.psForm(form),
+        this.psCharting(charting)
+      ].join("");
+
     return `<div style="border: 1px solid red">${JSON.stringify(t)}</div>`;
   }
 
   psForm(form: any) {
+    if (!form) return "";
     let {fields = []} = form;
     return fields
         .map(({label, text, template}: any) => {
@@ -68,8 +73,21 @@ class HandleDef {
         .join("");
   }
 
-  psCharting() {
+  psCharting(charting: any) {
+    if (!charting) return "";
+    let {items = []} = charting;
+    let hd = items
+        .map(({displayName, html, metaData}: any) => {
+          return `<th>${html || displayName}</th>`
+        })
+        .join("");
 
+    return `
+<table>
+  <thead>
+     <tr>${hd}</tr>
+  </thead>
+</table>`
   }
 
   psChartingItems() {
