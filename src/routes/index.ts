@@ -53,13 +53,20 @@ router
             const pdfDoc = await PDFDocument.load(pdf);
 
             if (pageToPrint === "even" || pageToPrint === "odd") {
-                let totalPage = pdfDoc.getPageCount(); //page starts from 0.
-                const t = ({"odd": 1, "even": 0} as any)[pageToPrint]; // parity of page to print
-                if (t === totalPage % 2) { // check if the last page should be deleted.
-                    totalPage--;
+                const totalPage = pdfDoc.getPageCount(); //page starts from 0.
+                const pageMap = Array(totalPage).fill(1);
+                for (let pageIndex = 0; pageIndex < totalPage; pageIndex++) {
+                    const n = pageIndex + 1;
+                    if (pageToPrint === "odd" && n % 2 === 0) {
+                        pageMap[pageIndex] = 0;
+                    }
+                    if (pageToPrint === "even" && n % 2 === 1) {
+                        pageMap[pageIndex] = 0;
+                    }
                 }
-                for (let n = totalPage; n > 0; n -= 2) {
-                    pdfDoc.removePage(n - 1); //transform to the page index of pdflib
+                for (let n = totalPage - 1; n >= 0; n--) {
+                    if (!pageMap[n])
+                        pdfDoc.removePage(n); //transform to the page index of pdflib
                 }
             }
             const pdf64 = await pdfDoc.saveAsBase64();
