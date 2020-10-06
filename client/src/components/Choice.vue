@@ -29,7 +29,11 @@ export default class Choice extends Vue {
   innerValue = "";
 
   input() {
-    this.$emit('input', this.innerValue);
+    const label2val = {} as { [key: string]: string };
+    for (const {label, value} of this.props.options) {
+      label2val[label] = value;
+    }
+    this.$emit('input', label2val[this.innerValue] || "");
   }
 
   label() {

@@ -11,12 +11,15 @@
           <wn-file v-model="fileToPrint" :props="fl"></wn-file>
           <choice v-model="format" :props="cd"></choice>
           <choice v-model="orientation" :props="or"></choice>
+          <choice v-model="pageToPrint" :props="pg"></choice>
 
           <div>
             <el-button @click="printFile">预览</el-button>
             <el-button @click="printFile">打印</el-button>
           </div>
         </el-card>
+
+        {{ JSON.stringify({pageToPrint}) }}
       </el-aside>
 
       <el-container>
@@ -47,6 +50,7 @@ export default class Print extends Vue {
   format = "";
   orientation = "";
   fileToPrint = {};
+  pageToPrint = "";
 
   header = `
 <div style="
@@ -101,15 +105,34 @@ export default class Print extends Vue {
     ]
   };
 
+  pg = {
+    label: "页码",
+    options: [
+      {
+        "label": "奇数",
+        "value": "odd"
+      },
+      {
+        "label": "偶数",
+        "value": "even"
+      },
+      {
+        "label": "全部",
+        "value": "all"
+      }
+    ]
+  };
+
   async printFile(data: any) {
-    const {header, footer, format, fileToPrint: {text: htmlFile = ""} = {}, orientation} = this;
+    const {header, footer, format, fileToPrint: {text: htmlFile = ""} = {} as any, orientation, pageToPrint} = this;
     const data2: any = {
       header,
       footer,
       htmlFile,
       format,
       orientation,
-      doPrint: false
+      doPrint: false,
+      pageToPrint
     };
 
     const response = await fetch("http://localhost:3000/getPDF", {
@@ -126,7 +149,6 @@ export default class Print extends Vue {
     const {pdf, path} = await response.json();
     const elem: any = document.getElementById("pdfviewer");
 
-    debugger;
     elem.src = `data:application/pdf;base64,${pdf}`;
     // elem.src = `http://localhost:3000/${path}`;
   }
