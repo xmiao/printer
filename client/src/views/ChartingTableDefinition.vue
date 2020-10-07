@@ -46,11 +46,12 @@ export default class ChartingTableDefinition extends Vue {
   fl = {
     label: "文件"
   };
-  chartingData: any = {};
+  chartingData: any = [];
 
   async getHTML() {
     const gp = new GenPrint();
-    gp.$props.def = chartingDef;
+    const {chartingData} = this;
+    Object.assign(gp.$props, {def: chartingDef, chartingData});
     const header = `
 <div style="
     font-size: 12pt;
@@ -102,9 +103,9 @@ export default class ChartingTableDefinition extends Vue {
   processXlsx({raw}: any) {
     const {xlsxFile: {text = ""} = {}} = this;
     if (!text) return;
-    const workbook = XLSX.read(text, {type: 'array'});
+    const workbook = XLSX.read(text, {type: 'binary'});
     const name = workbook.SheetNames[0];
-    this.chartingData = XLSX.utils.sheet_to_json(workbook.Sheets[name], {header: "A"});
+    this.chartingData = XLSX.utils.sheet_to_json(workbook.Sheets[name], {raw: false});
   }
 }
 

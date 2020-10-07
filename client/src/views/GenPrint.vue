@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Prop, Vue, Watch} from 'vue-property-decorator';
 import ElementUI from 'element-ui';
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
@@ -15,6 +15,11 @@ Vue.use(ElementUI);
 export default class GenPrint extends Vue {
   @Prop() private def: any;
   @Prop() private data: any;
+
+  @Watch("data")
+  onDataChanged(value: string, oldValue: string) {
+    this.$forceUpdate();
+  }
 
   psLabel(article: any) {
     if (!article) return "";
@@ -71,7 +76,7 @@ export default class GenPrint extends Vue {
     const {width: totalWidth, height: totalHeight} = rc(charting, {});
     const rowData: any[] = [];
 
-    const metaDataIndex = {};
+    const metaDataIndex = {} as any;
 
     function rc2(node: any): any {
       const {items: i1 = [], _info: {width, height, x, y}, displayName, html, metaData: {id} = {} as any} = node || {};
@@ -99,7 +104,7 @@ export default class GenPrint extends Vue {
         .map(x => `<tr>${x}</tr>`)
         .join("");
 
-    const data = Array(100)
+    const data = this.data || Array(0)
         .fill({
           123: "ok"
         });
@@ -108,7 +113,7 @@ export default class GenPrint extends Vue {
     for (const dataItem of data) {
       const cbuf = [];
       for (let c = 0; c < totalWidth; c++) {
-        const {[c]: {id} = {}} = metaDataIndex;
+        const {[c]: {id = ""} = {}} = metaDataIndex;
         const elem = dataItem[id];
         cbuf.push(elem === undefined ? "&nbsp" : elem);
       }

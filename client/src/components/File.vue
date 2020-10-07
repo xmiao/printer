@@ -44,13 +44,14 @@ export default class WnFile extends Vue {
       uploadFiles.shift();
     const [{name, raw}] = uploadFiles;
 
-    this.$emit("input", {
-      text: await raw.text()
-    });
-
-    this.$emit("ready", {
-      raw, name
-    });
+    const reader = new FileReader();
+    const emit = (eventType: string, text: any) => this.$emit(eventType, {text})
+    reader.onload = function (e: any) {
+      const data = e.target.result;
+      emit("input", data);
+      emit("ready", data);
+    }
+    reader.readAsBinaryString(raw);
   }
 }
 </script>
