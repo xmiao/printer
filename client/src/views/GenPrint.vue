@@ -15,9 +15,15 @@ Vue.use(ElementUI);
 export default class GenPrint extends Vue {
   @Prop() private def: any;
   @Prop() private data: any;
+  @Prop() private mode: any;
 
   @Watch("data")
   onDataChanged(value: string, oldValue: string) {
+    this.$forceUpdate();
+  }
+
+  @Watch("mode")
+  onModeChanged(value: string, oldValue: string) {
     this.$forceUpdate();
   }
 
@@ -118,11 +124,11 @@ export default class GenPrint extends Vue {
       rbuf.push(cbuf);
     }
     const textBody = rbuf
-        .map(x => {
+        .map((x, i) => {
           const c = x
               .map(x => `<td>${x}</td>`)
               .join("");
-          return `<tr>${c}</tr>`;
+          return `<tr${i > 5 && this.mode == 1 ? " class=\"show\"" : ""}>${c}</tr>`;
         })
         .join("");
 
@@ -176,9 +182,14 @@ td, th {
 h1 {
     text-align: center;
 }
-.show * {
+
+${this.mode == 1 ? "" : ".ignore-me"} * {
     border-color: transparent !important;
     color: transparent !important;
+}
+
+.show * {
+    color: black !important;
 }
 </style>
 `;

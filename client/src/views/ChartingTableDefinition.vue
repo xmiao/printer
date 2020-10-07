@@ -19,7 +19,7 @@
 
       <el-container>
         <el-main>
-          <gen-print :data="chartingData" :def="chartingDef"></gen-print>
+          <gen-print :data="chartingData" :def="chartingDef" :mode="printMode"></gen-print>
         </el-main>
       </el-container>
     </el-container>
@@ -55,8 +55,8 @@ export default class ChartingTableDefinition extends Vue {
 
   async getHTML() {
     const gp = new GenPrint();
-    const {chartingData} = this;
-    Object.assign(gp.$props, {def: chartingDef, data: chartingData});
+    const {chartingData, printMode} = this;
+    Object.assign(gp.$props, {def: chartingDef, mode: printMode, data: chartingData});
 
     const data2: any = {
       ...print2,
