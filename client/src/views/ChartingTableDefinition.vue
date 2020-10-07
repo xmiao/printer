@@ -8,7 +8,8 @@
             <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
           </div>
 
-          <wn-file v-model="xlsxFile" :props="fl" @ready="processXlsx"></wn-file>
+          <wn-file v-model="xlsxFile" :props="params('fl')" @ready="processXlsx"></wn-file>
+          <wn-choice v-model="printMode" :props="params('pm')"></wn-choice>
 
           <div>
             <el-button @click="getHTML">打印</el-button>
@@ -28,54 +29,37 @@
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import ElementUI from 'element-ui';
-import Choice from "@/components/Choice.vue";
 import WnFile from "@/components/File.vue";
 import chartingDef from "./charting.definition.json";
 import GenPrint from "./GenPrint.vue";
 import * as XLSX from "xlsx";
+import WnChoice from "@/components/Choice.vue";
+import print from "./print.json";
+import print2 from "./print2.json";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
 
 @Component({
-  components: {Choice, WnFile, GenPrint}
+  components: {WnChoice, WnFile, GenPrint}
 })
 export default class ChartingTableDefinition extends Vue {
   chartingDef = chartingDef;
   xlsxFile: any = {};
-  fl = {
-    label: "文件"
-  };
   chartingData: any = [];
+  printMode: any = "";
+
+  params(p: any): any {
+    return (print as any)[p];
+  }
 
   async getHTML() {
     const gp = new GenPrint();
     const {chartingData} = this;
     Object.assign(gp.$props, {def: chartingDef, data: chartingData});
-    const header = `
-<div style="
-    font-size: 12pt;
-    width: 100%;
-    height: 30px;
-    text-align: center;
-    background-color: black;
-    border-bottom: 1px solid black;
-    margin: 0 1cm;">
-    人民医院
-</div>`;
-    const footer = `<div style="
-    font-size: 6pt;
-    text-align: right;
-    width: 100%;
-    height: 20px;
-    border-top: 1px solid black;
-    color:black;
-    font-family: Arial,serif;
-    margin: 0 1cm;">第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span></div>`;
 
     const data2: any = {
-      header,
-      footer,
+      ...print2,
       htmlFile: gp.html(),
       format: "A4",
       orientation: "2",

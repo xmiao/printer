@@ -9,10 +9,9 @@
           </div>
 
           <wn-file v-model="fileToPrint" :props="params('fl')"></wn-file>
-          <choice v-model="format" :props="params('cd')"></choice>
-          <choice v-model="orientation" :props="params('or')"></choice>
-          <choice v-model="pageToPrint" :props="params('pg')"></choice>
-          <choice v-model="printMode" :props="params('pm')"></choice>
+          <wn-choice v-model="format" :props="params('cd')"></wn-choice>
+          <wn-choice v-model="orientation" :props="params('or')"></wn-choice>
+          <wn-choice v-model="pageToPrint" :props="params('pg')"></wn-choice>
 
           <div>
             <el-button @click="printFile">预览</el-button>
@@ -35,7 +34,7 @@
 <script lang="ts">
 import {Component, Vue} from 'vue-property-decorator';
 import ElementUI from 'element-ui';
-import Choice from "@/components/Choice.vue";
+import WnChoice from "@/components/Choice.vue";
 import WnFile from "@/components/File.vue";
 import print from "./print.json";
 import print2 from "./print2.json";
@@ -43,7 +42,7 @@ import print2 from "./print2.json";
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
 @Component({
-  components: {Choice, WnFile}
+  components: {WnChoice, WnFile}
 })
 export default class Print extends Vue {
   format = "";

@@ -22,7 +22,7 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 
 @Component
-export default class Choice extends Vue {
+export default class WnChoice extends Vue {
   @Prop() props !: any;
   @Prop() value !: any;
 
