@@ -42,10 +42,30 @@ export default class Print extends Vue {
   async getHTML() {
     const gp = new GenPrint();
     gp.$props.def = chartingDef;
+    const header = `
+<div style="
+    font-size: 12pt;
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: black;
+    border-bottom: 1px solid black;
+    margin: 0 1cm;">
+    人民医院
+</div>`;
+    const footer = `<div style="
+    font-size: 6pt;
+    text-align: right;
+    width: 100%;
+    height: 20px;
+    border-top: 1px solid black;
+    color:black;
+    font-family: Arial,serif;
+    margin: 0 1cm;">第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span></div>`;
 
     const data2: any = {
-      header: "",
-      footer: "",
+      header,
+      footer,
       htmlFile: gp.html(),
       format: "A4",
       orientation: "2",

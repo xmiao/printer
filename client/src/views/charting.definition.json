@@ -46,7 +46,7 @@
         },
         {
           "displayName": "T",
-          "html": "T C",
+          "html": "T &deg;C",
           "metaData": {
             "id": "123"
           }

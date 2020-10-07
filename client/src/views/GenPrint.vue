@@ -44,7 +44,7 @@ export default class GenPrint extends Vue {
     const {fields = []} = form;
     return fields
         .map(({label, text, template}: any) => {
-          return `<div><div>${label}</div><div>${text}</div></div>`
+          return `<div class="label-text"><div>${label}</div><div>${text}</div></div>`
         })
         .join("");
   }
@@ -98,6 +98,12 @@ export default class GenPrint extends Vue {
 </table>
 </div>
 <style>
+* {
+    font-family: STSong;
+}
+body{
+    padding: 0 1cm;
+}
 table{
     border: 1px solid red;
     width: 100%;
@@ -105,6 +111,29 @@ table{
 }
 td, th {
     border: 1px solid black;
+}
+.label-text {
+    display: inline-block;
+    border: none;
+    margin: 2px;
+}
+.label-text > div{
+    display: inline-block;
+}
+.label-text div:nth-child(1){
+    width: 5rem;
+    text-align: right;
+    border: none;
+}
+.label-text div:nth-child(1):after{
+    content: ": ";
+    white-space: pre;
+}
+.label-text div:nth-child(2){
+    min-width: 5rem;
+    text-align: left;
+    padding: 0 0.2rem;
+    border-bottom: 1px solid black;
 }
 </style>
 `
