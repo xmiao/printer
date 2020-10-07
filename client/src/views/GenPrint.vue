@@ -14,6 +14,7 @@ Vue.use(ElementUI);
 })
 export default class GenPrint extends Vue {
   @Prop() private def: any;
+  @Prop() private data: any;
 
   psLabel(article: any) {
     if (!article) return "";
@@ -175,7 +176,7 @@ h1 {
     text-align: center;
 }
 </style>
-`
+`;
   }
 
   psChartingItems() {

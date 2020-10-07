@@ -7,6 +7,9 @@
             <span>护理记录定义态</span>
             <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
           </div>
+
+          <wn-file v-model="xlsxFile" :props="fl" @input="processXlsx"></wn-file>
+
           <div>
             <el-button @click="getHTML">打印</el-button>
           </div>
@@ -15,7 +18,7 @@
 
       <el-container>
         <el-main>
-          <gen-print :def="chartingDef"></gen-print>
+          <gen-print :data="xlsxFile" :def="chartingDef"></gen-print>
         </el-main>
       </el-container>
     </el-container>
@@ -29,6 +32,7 @@ import Choice from "@/components/Choice.vue";
 import WnFile from "@/components/File.vue";
 import chartingDef from "./charting.definition.json";
 import GenPrint from "./GenPrint.vue";
+import * as XLSX from "xlsx";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
@@ -36,8 +40,12 @@ Vue.use(ElementUI);
 @Component({
   components: {Choice, WnFile, GenPrint}
 })
-export default class Print extends Vue {
+export default class ChartingTableDefinition extends Vue {
   chartingDef = chartingDef;
+  xlsxFile: string;
+  fl = {
+    label: "文件"
+  };
 
   async getHTML() {
     const gp = new GenPrint();
@@ -88,6 +96,14 @@ export default class Print extends Vue {
     const elem: any = document.getElementById("iframe2");
 
     elem.src = `data:application/pdf;base64,${pdf}`;
+  }
+
+  processXlsx() {
+    debugger;
+    const workbook = XLSX.read(this.xlsxFile, {type: 'binary'});
+    const name = workbook.SheetNames[0];
+    const data = XLSX.utils.sheet_to_json(workbook.Sheets[name], {header: 1});
+    debugger;
   }
 }
 
