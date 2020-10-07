@@ -51,7 +51,7 @@ export default class ChartingTableDefinition extends Vue {
   async getHTML() {
     const gp = new GenPrint();
     const {chartingData} = this;
-    Object.assign(gp.$props, {def: chartingDef, chartingData});
+    Object.assign(gp.$props, {def: chartingDef, data: chartingData});
     const header = `
 <div style="
     font-size: 12pt;

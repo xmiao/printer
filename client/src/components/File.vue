@@ -44,14 +44,19 @@ export default class WnFile extends Vue {
       uploadFiles.shift();
     const [{name, raw}] = uploadFiles;
 
-    const reader = new FileReader();
     const emit = (eventType: string, text: any) => this.$emit(eventType, {text})
-    reader.onload = function (e: any) {
-      const data = e.target.result;
-      emit("input", data);
-      emit("ready", data);
+    if (/.xlsx/.test(name)) {
+      const reader = new FileReader();
+      reader.onload = function (e: any) {
+        const data = e.target.result;
+        emit("input", data);
+        emit("ready", data);
+      }
+      reader.readAsBinaryString(raw);
+    } else {
+      emit("input", await raw.text())
     }
-    reader.readAsBinaryString(raw);
+
   }
 }
 </script>
