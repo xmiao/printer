@@ -70,6 +70,46 @@
               }
             }
           ]
+        },
+        {
+          "displayName": "",
+          "html": "吸氧",
+          "items": [
+            {
+              "displayName": "流量",
+              "html": "",
+              "metaData": {
+                "id": "123"
+              }
+            },
+            {
+              "displayName": "方式",
+              "html": "方式",
+              "metaData": {
+                "id": "123"
+              }
+            }
+          ]
+        },
+        {
+          "displayName": "",
+          "html": "吸氧",
+          "items": [
+            {
+              "displayName": "流量",
+              "html": "",
+              "metaData": {
+                "id": "123"
+              }
+            },
+            {
+              "displayName": "方式",
+              "html": "方式",
+              "metaData": {
+                "id": "123"
+              }
+            }
+          ]
         }
       ]
     }

@@ -70,31 +70,59 @@ export default class GenPrint extends Vue {
     const {width: totalWidth, height: totalHeight} = rc(charting, {});
     const rowData: any[] = [];
 
+    const metaDataIndex = {};
+
     function rc2(node: any): any {
-      const {items: i1 = [], _info: {width, height, x, y}, displayName, html, metaData} = node || {};
+      const {items: i1 = [], _info: {width, height, x, y}, displayName, html, metaData: {id} = {} as any} = node || {};
       const rowspan = totalHeight - (y + height) + 1;
       const colspan = width;
       if (!rowData[y]) rowData[y] = [];
       const html2 = `<th${rowspan > 1 && ` rowspan="${rowspan}"` || ""}${colspan > 1 && ` colspan="${colspan}"` || ""}>${html || displayName}</th>`;
       node._info.html = html2;
       rowData[y][x] = html2;
+
+      // metaDataIndex[x] =
+
       for (const i of i1) {
         rc2(i);
       }
     }
 
     rc2(charting);
+
     const hd2 = rowData
+        .filter(x => x.length > 1)
         .map(x => x.join(""))
         .map(x => `<tr>${x}</tr>`)
-        .join("")
+        .join("");
+
+    const data = Array(100).fill({});
+    const rbuf = [];
+    for (const d of data) {
+      const cbuf = [];
+      for (let c = 0; c < totalWidth; c++) {
+        cbuf.push(`a`);
+      }
+      rbuf.push(cbuf);
+    }
+    const textBody = rbuf
+        .map(x => {
+          const c = x
+              .map(x => `<td>${x}aaa</td>`)
+              .join("");
+          return `<tr>${c}</tr>`;
+        })
+        .join("");
 
     return `
 <div>
 <table>
   <thead>
-     <tr>${hd2}</tr>
+     ${hd2}
   </thead>
+  <tbody>
+    ${textBody}
+  </tbody>
 </table>
 </div>
 <style>
@@ -134,6 +162,9 @@ td, th {
     text-align: left;
     padding: 0 0.2rem;
     border-bottom: 1px solid black;
+}
+h1 {
+    text-align: center;
 }
 </style>
 `
