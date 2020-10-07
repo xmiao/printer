@@ -12,6 +12,7 @@
           <choice v-model="format" :props="cd"></choice>
           <choice v-model="orientation" :props="or"></choice>
           <choice v-model="pageToPrint" :props="pg"></choice>
+          <choice v-model="printMode" :props="pm"></choice>
 
           <div>
             <el-button @click="printFile">预览</el-button>
@@ -47,6 +48,8 @@ export default class Print extends Vue {
   orientation = "";
   fileToPrint = {};
   pageToPrint = "";
+  printMode = "";
+
   header = `
 <div style="
     font-size: 12pt;
@@ -113,10 +116,33 @@ export default class Print extends Vue {
       }
     ]
   };
+  pm = {
+    label: "打印模式",
+    options: [
+      {
+        "label": "套打",
+        "value": "1"
+      },
+      {
+        "label": "续打",
+        "value": "2"
+      },
+      {
+        "label": "删除",
+        "value": "3"
+      }
+    ]
+  };
   @Prop() private msg!: string;
 
   async printFile(data: any) {
-    const {header, footer, format, fileToPrint: {text: htmlFile = ""} = {} as any, orientation, pageToPrint} = this;
+    const {
+      header, footer, format,
+      fileToPrint: {text: htmlFile = ""} = {} as any,
+      orientation,
+      pageToPrint,
+      printMode
+    } = this;
     const data2: any = {
       header,
       footer,
@@ -124,7 +150,8 @@ export default class Print extends Vue {
       format,
       orientation,
       doPrint: false,
-      pageToPrint
+      pageToPrint,
+      printMode
     };
 
     const response = await fetch("http://localhost:3000/getPDF", {
