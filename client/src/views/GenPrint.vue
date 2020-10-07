@@ -1,10 +1,11 @@
 <template>
-  <div v-html="html()"/>
+  <iframe :src="html()"></iframe>
 </template>
 
 <script lang="ts">
 import {Component, Prop, Vue} from 'vue-property-decorator';
 import ElementUI from 'element-ui';
+import {Base64} from './base64';
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
@@ -116,7 +117,11 @@ export default class GenPrint extends Vue {
           const {tag, article, panel, charting, form} = t;
           return this.psPanel(t);
         });
-    return `<div>${l.join("")}</div>`;
+
+
+    const b64 = new Base64();
+    return `data:text/html;base64,${b64.encode((`<div>${l.join("")}</div>`))}`;
+    // return "data:text/html;base64,V2VsY29tZSB0byA8Yj5iYXNlNjQuZ3VydTwvYj4h";
   }
 }
 </script>
