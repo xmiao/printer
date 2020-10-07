@@ -15,7 +15,6 @@
 
       <el-container>
         <el-main>
-          some
           <gen-print :def="chartingDef"></gen-print>
         </el-main>
       </el-container>
