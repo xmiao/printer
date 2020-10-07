@@ -8,11 +8,11 @@
             <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
           </div>
 
-          <wn-file v-model="fileToPrint" :props="fl"></wn-file>
-          <choice v-model="format" :props="cd"></choice>
-          <choice v-model="orientation" :props="or"></choice>
-          <choice v-model="pageToPrint" :props="pg"></choice>
-          <choice v-model="printMode" :props="pm"></choice>
+          <wn-file v-model="fileToPrint" :props="params('fl')"></wn-file>
+          <choice v-model="format" :props="params('cd')"></choice>
+          <choice v-model="orientation" :props="params('or')"></choice>
+          <choice v-model="pageToPrint" :props="params('pg')"></choice>
+          <choice v-model="printMode" :props="params('pm')"></choice>
 
           <div>
             <el-button @click="printFile">预览</el-button>
@@ -33,10 +33,12 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Vue} from 'vue-property-decorator';
 import ElementUI from 'element-ui';
 import Choice from "@/components/Choice.vue";
 import WnFile from "@/components/File.vue";
+import print from "./print.json";
+import print2 from "./print2.json";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
@@ -50,102 +52,20 @@ export default class Print extends Vue {
   pageToPrint = "";
   printMode = "";
 
-  header = `
-<div style="
-    font-size: 12pt;
-    width: 100%;
-    height: 30px;
-    text-align: center;
-    background-color: black;
-    border-bottom: 1px solid black;
-    margin: 0 1cm;">
-    人民医院门诊病历
-</div>`;
-  footer = `<div style="
-    font-size: 6pt;
-    text-align: right;
-    width: 100%;
-    height: 20px;
-    border-top: 1px solid black;
-    color:black;
-    font-family: Arial,serif;
-    margin: 0 1cm;">第<span class="pageNumber"></span>页 共<span class="totalPages"></span>页 打印日期<span class="date"></span></div>`;
-  fl = {
-    label: "文件"
-  };
-  cd = {
-    label: "纸张",
-    options: [
-      {
-        "value": "A4",
-        "label": "A4"
-      },
-      {
-        "value": "A5",
-        "label": "A5"
-      }
-    ]
-  };
-  or = {
-    label: "方向",
-    options: [
-      {
-        "label": "横向",
-        "value": "1"
-      },
-      {
-        "label": "纵向",
-        "value": "2"
-      }
-    ]
-  };
-  pg = {
-    label: "页码",
-    options: [
-      {
-        "label": "奇数",
-        "value": "odd"
-      },
-      {
-        "label": "偶数",
-        "value": "even"
-      },
-      {
-        "label": "全部",
-        "value": "all"
-      }
-    ]
-  };
-  pm = {
-    label: "打印模式",
-    options: [
-      {
-        "label": "套打",
-        "value": "1"
-      },
-      {
-        "label": "续打",
-        "value": "2"
-      },
-      {
-        "label": "删除",
-        "value": "3"
-      }
-    ]
-  };
-  @Prop() private msg!: string;
+  params(p: any): any {
+    return (print as any)[p];
+  }
 
   async printFile(data: any) {
     const {
-      header, footer, format,
+      format,
       fileToPrint: {text: htmlFile = ""} = {} as any,
       orientation,
       pageToPrint,
       printMode
     } = this;
     const data2: any = {
-      header,
-      footer,
+      ...print2,
       htmlFile,
       format,
       orientation,

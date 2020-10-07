@@ -1,0 +1,65 @@
+{
+  "fl": {
+    "label": "文件"
+  },
+  "cd": {
+    "label": "纸张",
+    "options": [
+      {
+        "value": "A4",
+        "label": "A4"
+      },
+      {
+        "value": "A5",
+        "label": "A5"
+      }
+    ]
+  },
+  "or": {
+    "label": "方向",
+    "options": [
+      {
+        "label": "横向",
+        "value": "1"
+      },
+      {
+        "label": "纵向",
+        "value": "2"
+      }
+    ]
+  },
+  "pg": {
+    "label": "页码",
+    "options": [
+      {
+        "label": "奇数",
+        "value": "odd"
+      },
+      {
+        "label": "偶数",
+        "value": "even"
+      },
+      {
+        "label": "全部",
+        "value": "all"
+      }
+    ]
+  },
+  "pm": {
+    "label": "打印模式",
+    "options": [
+      {
+        "label": "套打",
+        "value": "1"
+      },
+      {
+        "label": "续打",
+        "value": "2"
+      },
+      {
+        "label": "删除",
+        "value": "3"
+      }
+    ]
+  }
+}
