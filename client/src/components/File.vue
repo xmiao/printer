@@ -48,6 +48,9 @@ export default class WnFile extends Vue {
       text: await raw.text()
     });
 
+    this.$emit("ready", {
+      raw, name
+    });
   }
 }
 </script>

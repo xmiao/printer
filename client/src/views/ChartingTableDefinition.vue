@@ -8,7 +8,7 @@
             <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
           </div>
 
-          <wn-file v-model="xlsxFile" :props="fl" @input="processXlsx"></wn-file>
+          <wn-file v-model="xlsxFile" :props="fl" @ready="processXlsx"></wn-file>
 
           <div>
             <el-button @click="getHTML">打印</el-button>
@@ -18,7 +18,7 @@
 
       <el-container>
         <el-main>
-          <gen-print :data="xlsxFile" :def="chartingDef"></gen-print>
+          <gen-print :data="chartingData" :def="chartingDef"></gen-print>
         </el-main>
       </el-container>
     </el-container>
@@ -42,10 +42,11 @@ Vue.use(ElementUI);
 })
 export default class ChartingTableDefinition extends Vue {
   chartingDef = chartingDef;
-  xlsxFile: string;
+  xlsxFile: any = {};
   fl = {
     label: "文件"
   };
+  chartingData: any = {};
 
   async getHTML() {
     const gp = new GenPrint();
@@ -98,12 +99,12 @@ export default class ChartingTableDefinition extends Vue {
     elem.src = `data:application/pdf;base64,${pdf}`;
   }
 
-  processXlsx() {
-    debugger;
-    const workbook = XLSX.read(this.xlsxFile, {type: 'binary'});
+  processXlsx({raw}: any) {
+    const {xlsxFile: {text = ""} = {}} = this;
+    if (!text) return;
+    const workbook = XLSX.read(text, {type: 'array'});
     const name = workbook.SheetNames[0];
-    const data = XLSX.utils.sheet_to_json(workbook.Sheets[name], {header: 1});
-    debugger;
+    this.chartingData = XLSX.utils.sheet_to_json(workbook.Sheets[name], {header: "A"});
   }
 }
 
