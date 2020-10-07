@@ -81,7 +81,9 @@ export default class GenPrint extends Vue {
       node._info.html = html2;
       rowData[y][x] = html2;
 
-      // metaDataIndex[x] =
+      metaDataIndex[x] = {
+        id
+      }
 
       for (const i of i1) {
         rc2(i);
@@ -96,19 +98,25 @@ export default class GenPrint extends Vue {
         .map(x => `<tr>${x}</tr>`)
         .join("");
 
-    const data = Array(100).fill({});
+    const data = Array(100)
+        .fill({
+          123: "ok"
+        });
+
     const rbuf = [];
-    for (const d of data) {
+    for (const dataItem of data) {
       const cbuf = [];
       for (let c = 0; c < totalWidth; c++) {
-        cbuf.push(`a`);
+        const {[c]: {id} = {}} = metaDataIndex;
+        const elem = dataItem[id];
+        cbuf.push(elem === undefined ? "&nbsp" : elem);
       }
       rbuf.push(cbuf);
     }
     const textBody = rbuf
         .map(x => {
           const c = x
-              .map(x => `<td>${x}aaa</td>`)
+              .map(x => `<td>${x}</td>`)
               .join("");
           return `<tr>${c}</tr>`;
         })
