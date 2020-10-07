@@ -105,9 +105,7 @@ export default class GenPrint extends Vue {
         .join("");
 
     const data = this.data || Array(0)
-        .fill({
-          123: "ok"
-        });
+        .fill({});
 
     const rbuf = [];
     for (const dataItem of data) {
@@ -147,7 +145,6 @@ body{
     padding: 0 1cm;
 }
 table{
-    border: 1px solid red;
     width: 100%;
     border-collapse: collapse;
 }
@@ -156,7 +153,6 @@ td, th {
 }
 .label-text {
     display: inline-block;
-    border: none;
     margin: 2px;
 }
 .label-text > div{
@@ -179,6 +175,10 @@ td, th {
 }
 h1 {
     text-align: center;
+}
+.show * {
+    border-color: transparent !important;
+    color: transparent !important;
 }
 </style>
 `;
