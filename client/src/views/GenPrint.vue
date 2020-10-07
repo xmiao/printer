@@ -1,5 +1,5 @@
 <template>
-  <iframe :src="html()"></iframe>
+  <iframe id="iframe2" :src="htmlEnc()"></iframe>
 </template>
 
 <script lang="ts">
@@ -84,14 +84,10 @@ export default class GenPrint extends Vue {
     }
 
     rc2(charting);
-    console.log(JSON.stringify(charting, null, "  "));
-    console.log(JSON.stringify({totalWidth, totalHeight}, null, "  "));
-
     const hd2 = rowData
         .map(x => x.join(""))
         .map(x => `<tr>${x}</tr>`)
         .join("")
-    console.log(JSON.stringify(rowData));
 
     return `
 <div>
@@ -129,7 +125,11 @@ td, th {
           const {tag, article, panel, charting, form} = t;
           return this.psPanel(t);
         });
-    return `data:text/html;charset=utf-8,${encodeURIComponent(`<div>${l.join("")}</div>`)}`;
+    return `<div>${l.join("")}</div>`;
+  }
+
+  htmlEnc() {
+    return `data:text/html;charset=utf-8,${encodeURIComponent(this.html())}`;
   }
 }
 </script>

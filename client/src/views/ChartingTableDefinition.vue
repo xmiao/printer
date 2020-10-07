@@ -7,8 +7,8 @@
             <span>护理记录定义态</span>
             <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
           </div>
-
           <div>
+            <el-button @click="getHTML">打印</el-button>
           </div>
         </el-card>
       </el-aside>
@@ -38,6 +38,37 @@ Vue.use(ElementUI);
 })
 export default class Print extends Vue {
   chartingDef = chartingDef;
+
+  async getHTML() {
+    const gp = new GenPrint();
+    gp.$props.def = chartingDef;
+
+    const data2: any = {
+      header: "",
+      footer: "",
+      htmlFile: gp.html(),
+      format: "A4",
+      orientation: "2",
+      doPrint: false,
+      pageToPrint: "all"
+    };
+
+    const response = await fetch("http://localhost:3000/getPDF", {
+      body: JSON.stringify(data2), // must match 'Content-Type' header
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    });
+
+    if (!response) return;
+
+    const {pdf, path} = await response.json();
+    const elem: any = document.getElementById("iframe2");
+
+    elem.src = `data:application/pdf;base64,${pdf}`;
+  }
 }
 
 </script>
