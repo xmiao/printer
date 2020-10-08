@@ -41,7 +41,7 @@ router
             };
 
             const curTime = new Date();
-            const pdf64 = await genPDF(htmlFile, options);
+            const pdf64 = await genPDF(htmlFile, options, {pageToPrint});
             const endTime = new Date();
             res
                 .status(200)

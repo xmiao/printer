@@ -21,41 +21,43 @@ const headerOptionDefault = Object.freeze({
 
 export async function genPDF(
     htmlFile: string,
-    pdfOptions: any = {}
+    pdfOptions: any = {},
+    printOptions: any = {}
 ) {
-    try {
-        let pdf = await convertHTMLToPDF(
-            htmlFile,
-            Object.assign({}, headerOptionDefault, pdfOptions)
-        );
+    let pdf = await convertHTMLToPDF(
+        htmlFile,
+        Object.assign({}, headerOptionDefault, pdfOptions)
+    );
 
-        // let fn = `tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
-        // let home = path.join(__dirname, '../public/images');
-        // let tmpFileForPrint = `${home}\\${fn}`;
-        // writeFileSync(tmpFileForPrint, pdf)
+    // let fn = `tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
+    // let home = path.join(__dirname, '../public/images');
+    // let tmpFileForPrint = `${home}\\${fn}`;
+    // writeFileSync(tmpFileForPrint, pdf)
 
-        const pdfDoc = await PDFDocument.load(pdf);
-        const totalPage = pdfDoc.getPageCount(); //page starts from 0.
-        const pageMap = Array(totalPage)
-            .fill(1);
-        for (let pageIndex = totalPage - 1; pageIndex >= 0; pageIndex--) {
-            if (!pageMap[pageIndex])
-                pdfDoc.removePage(pageIndex);
-        }
+    const pdfDoc = await PDFDocument.load(pdf);
+    const totalPage = pdfDoc.getPageCount(); //page starts from 0.
+    const pageMap = Array(totalPage)
+        .fill(1);
+    for (let pageIndex = totalPage - 1; pageIndex >= 0; pageIndex--) {
+        if (!pageMap[pageIndex])
+            pdfDoc.removePage(pageIndex);
+    }
 
-        if (pageToPrint === "even" || pageToPrint === "odd") {
-            for (let pageIndex = 0; pageIndex < totalPage; pageIndex++) {
-                const n = pageIndex + 1;
-                if (pageToPrint === "odd" && n % 2 === 0) {
-                    pageMap[pageIndex] = 0;
-                }
-                if (pageToPrint === "even" && n % 2 === 1) {
-                    pageMap[pageIndex] = 0;
-                }
+    let {pageToPrint} = printOptions;
+    const odd = pageToPrint === "odd", even = pageToPrint === "even";
+    if (odd || even) {
+        for (let pageIndex = 0; pageIndex < totalPage; pageIndex++) {
+            const n = pageIndex + 1;
+            if (odd && n % 2 === 0) {
+                pageMap[pageIndex] = 0;
+            }
+            if (even && n % 2 === 1) {
+                pageMap[pageIndex] = 0;
             }
         }
-        const pdf64 = await pdfDoc.saveAsBase64();
     }
+    return await pdfDoc.saveAsBase64();
+
 }
 
 export async function convertHTMLToPDF(
