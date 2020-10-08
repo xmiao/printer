@@ -1,18 +1,15 @@
 import express from "express";
-import convertHTMLToPDF from "./cH2Pdf";
-import moment from "moment";
-import {PDFDocument} from 'pdf-lib';
-import path from "path";
+import {genPDF} from "./genPdf";
+// import path from "path";
 
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
 // Puppeteer generate PDF from HTML
 // https://github.com/Hopding/pdf-lib
 // https://stackoverflow.com/questions/55470714/trying-to-hide-first-footer-header-on-pdf-generated-with-puppeteer
 // const printer = require('node-native-printer');
-const uuid = require("uuid-v4");
 
 // const edge = require(`edge-js`);
-// let hello = edge.func(`async (input) => {
+// const hello = edge.func(`async (input) => {
 //         return ".NET welcomes " + input.ToString();
 //     }`);
 
@@ -20,66 +17,37 @@ const router = express.Router();
 
 router
     .post('/getPDF', async function (req: any, res: any, next: any) {
-        let {body: {header, footer, htmlFile, format = 'A4', orientation = "", doPrint, pageToPrint} = {} as any} = req || {};
-        let headerOptionDefault = {
-            // path: 'optionally-saved-test-result.pdf',
-            landscape: orientation !== "2",
-            format,
-            displayHeaderFooter: true,
-            margin: {
-                top: '2cm',
-                bottom: '2cm',
-                right: '1in',
-                left: '1in'
-            }
-        };
+        const {
+            body: {
+                header, footer,
+                htmlFile,
+                format = 'A4',
+                orientation = "", doPrint,
+                pageToPrint
+            } = {} as any
+        } = req || {};
 
-        let headerOption = Object.assign(headerOptionDefault, {
-            headerTemplate: header,
-            footerTemplate: footer
-        });
+        if (doPrint) {
+            // await printer.print(tmpFileForPrint, {
+            //     landscape,
+            //     paperSize: format
+            // });
+        }
 
         try {
-            let curTime = new Date();
-            let pdf = await convertHTMLToPDF(htmlFile, headerOption);
-            let endTime = new Date();
+            let options = {
+                headerTemplate: header,
+                footerTemplate: footer
+            };
 
-            let home = path.join(__dirname, '../public/images');
-            let fn = `tmpFileForPrint-${moment().format("YYYYMMDD-HHmmss")}-${uuid()}.pdf`;
-            let tmpFileForPrint = `${home}\\${fn}`;
-            // writeFileSync(tmpFileForPrint, pdf)
-
-            const pdfDoc = await PDFDocument.load(pdf);
-
-            if (pageToPrint === "even" || pageToPrint === "odd") {
-                const totalPage = pdfDoc.getPageCount(); //page starts from 0.
-                const pageMap = Array(totalPage).fill(1);
-                for (let pageIndex = 0; pageIndex < totalPage; pageIndex++) {
-                    const n = pageIndex + 1;
-                    if (pageToPrint === "odd" && n % 2 === 0) {
-                        pageMap[pageIndex] = 0;
-                    }
-                    if (pageToPrint === "even" && n % 2 === 1) {
-                        pageMap[pageIndex] = 0;
-                    }
-                }
-                for (let pageIndex = totalPage - 1; pageIndex >= 0; pageIndex--) {
-                    if (!pageMap[pageIndex])
-                        pdfDoc.removePage(pageIndex);
-                }
-            }
-            const pdf64 = await pdfDoc.saveAsBase64();
-            if (doPrint) {
-                // await printer.print(tmpFileForPrint, {
-                //     landscape,
-                //     paperSize: format
-                // });
-            }
+            const curTime = new Date();
+            const pdf64 = await genPDF(htmlFile, options);
+            const endTime = new Date();
             res
                 .status(200)
                 .setHeader("Content-Type", "application/json");
             res
-                .json({pdf: pdf64, path: `/images/${fn}`, timeSpent: +endTime - +curTime});
+                .json({pdf: pdf64, timeSpent: +endTime - +curTime});
 
             // res.setHeader("Content-Type", "application/pdf");
             // res.send(pdf);
@@ -101,10 +69,10 @@ sample result.
  */
 router
     .get('/status', async function (req: any, res, next: any) {
-        // let printers = await printer.listPrinters();
-        // let defaultPrinterName = await printer.defaultPrinterName();
-        // let info = await printer.printerInfo(defaultPrinterName);
-        // let [{HostingPrintQueue: {QueueStatus = ""} = {}} = {}] = info || {};
+        // const printers = await printer.listPrinters();
+        // const defaultPrinterName = await printer.defaultPrinterName();
+        // const info = await printer.printerInfo(defaultPrinterName);
+        // const [{HostingPrintQueue: {QueueStatus = ""} = {}} = {}] = info || {};
         // res.setHeader("Content-Type", "application/json");
         // res.json({defaultPrinterName, QueueStatus});
         res.json({some: "test"});
