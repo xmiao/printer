@@ -27,10 +27,10 @@ router
             format,
             displayHeaderFooter: true,
             margin: {
-                top: '100px',
-                bottom: '100px',
-                right: '20px',
-                left: '20px'
+                top: '2cm',
+                bottom: '2cm',
+                right: '1in',
+                left: '1in'
             }
         };
 

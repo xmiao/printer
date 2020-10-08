@@ -2,18 +2,11 @@
   <div class="wn-text">
     <label>
       <span>{{ label() }}</span>
-      <el-radio-group
+      <el-input
           v-model="innerValue"
-          @input="input"
-          disable-transitions size="small">
-        <el-radio-button
-            v-for="item in options()"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
-        >
-        </el-radio-button>
-      </el-radio-group>
+          disable-transitions
+          size="small" @input="input">
+      </el-input>
     </label>
   </div>
 </template>
@@ -22,26 +15,18 @@
 import {Component, Prop, Vue} from 'vue-property-decorator';
 
 @Component
-export default class WnChoice extends Vue {
+export default class WnText extends Vue {
   @Prop() props !: any;
   @Prop() value !: any;
 
   innerValue = "";
 
   input() {
-    const label2val = {} as { [key: string]: string };
-    for (const {label, value} of this.props.options) {
-      label2val[label] = value;
-    }
-    this.$emit('input', label2val[this.innerValue] || "");
+    this.$emit('input', this.innerValue);
   }
 
   label() {
     return this.props.label;
-  }
-
-  options() {
-    return this.props.options;
   }
 }
 </script>

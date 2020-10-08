@@ -10,6 +10,7 @@
 
           <wn-file v-model="xlsxFile" :props="params('fl')" @ready="processXlsx"></wn-file>
           <wn-choice v-model="printMode" :props="params('pm')"></wn-choice>
+          <wn-text v-model="printMode" :props="params('pm')"></wn-text>
 
           <div>
             <el-button @click="getHTML">打印</el-button>
@@ -55,8 +56,11 @@ export default class ChartingTableDefinition extends Vue {
 
   async getHTML() {
     const gp = new GenPrint();
-    const {chartingData, printMode} = this;
-    Object.assign(gp.$props, {def: chartingDef, mode: printMode, data: chartingData});
+    Object.assign(gp.$props, {
+      def: this.chartingDef,
+      mode: this.printMode,
+      data: this.chartingData
+    });
 
     const data2: any = {
       ...print2,
