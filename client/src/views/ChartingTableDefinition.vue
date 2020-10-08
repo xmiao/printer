@@ -10,7 +10,7 @@
 
           <wn-file v-model="xlsxFile" :props="params('fl')" @ready="processXlsx"></wn-file>
           <wn-choice v-model="printMode" :props="params('pm')"></wn-choice>
-          <wn-text v-model="printMode" :props="params('pm')"></wn-text>
+          <wn-text v-model="range" :props="params('rg')"></wn-text>
 
           <div>
             <el-button @click="getHTML">打印</el-button>
@@ -37,18 +37,20 @@ import * as XLSX from "xlsx";
 import WnChoice from "@/components/Choice.vue";
 import print from "./print.json";
 import print2 from "./print2.json";
+import WnText from "@/components/Text.vue";
 
 Vue.prototype.$ELEMENT = {size: 'small', zIndex: 3000};
 Vue.use(ElementUI);
 
 @Component({
-  components: {WnChoice, WnFile, GenPrint}
+  components: {WnChoice, WnFile, GenPrint, WnText}
 })
 export default class ChartingTableDefinition extends Vue {
   chartingDef = chartingDef;
   xlsxFile: any = {};
   chartingData: any = [];
   printMode: any = "";
+  range: any = "";
 
   params(p: any): any {
     return (print as any)[p];
@@ -56,11 +58,8 @@ export default class ChartingTableDefinition extends Vue {
 
   async getHTML() {
     const gp = new GenPrint();
-    Object.assign(gp.$props, {
-      def: this.chartingDef,
-      mode: this.printMode,
-      data: this.chartingData
-    });
+    const {chartingDef: def, range, chartingData: data, printMode: mode} = this;
+    Object.assign(gp.$props, {def, mode, data, range});
 
     const data2: any = {
       ...print2,
@@ -68,6 +67,7 @@ export default class ChartingTableDefinition extends Vue {
       format: "A4",
       orientation: "2",
       doPrint: false,
+      range,
       pageToPrint: "all"
     };
 

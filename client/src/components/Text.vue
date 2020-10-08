@@ -47,5 +47,9 @@ export default class WnText extends Vue {
     display: inline-block;
     margin-right: 0.5rem;
   }
+
+  .el-input {
+    width: 15em;
+  }
 }
 </style>
