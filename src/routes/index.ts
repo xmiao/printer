@@ -19,7 +19,7 @@ router
     .post('/getPDF', async function (req: any, res: any, next: any) {
         const {
             body: {
-                header, footer,
+                header: headerTemplate, footer: footerTemplate,
                 htmlFile,
                 format = 'A4',
                 orientation = "", doPrint,
@@ -36,8 +36,9 @@ router
 
         try {
             let options = {
-                headerTemplate: header,
-                footerTemplate: footer
+                headerTemplate,
+                footerTemplate, format,
+                landscape: +orientation === 1, doPrint
             };
 
             const curTime = new Date();

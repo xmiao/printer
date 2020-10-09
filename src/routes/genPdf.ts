@@ -36,15 +36,10 @@ export async function genPDF(
 
     const pdfDoc = await PDFDocument.load(pdf);
     const totalPage = pdfDoc.getPageCount(); //page starts from 0.
-    const pageMap = Array(totalPage)
-        .fill(1);
-    for (let pageIndex = totalPage - 1; pageIndex >= 0; pageIndex--) {
-        if (!pageMap[pageIndex])
-            pdfDoc.removePage(pageIndex);
-    }
+    const pageMap = Array(totalPage).fill({});
 
     let {pageToPrint} = printOptions;
-    const odd = pageToPrint === "odd", even = pageToPrint === "even";
+    const odd = (pageToPrint === "odd"), even = (pageToPrint === "even");
     if (odd || even) {
         for (let pageIndex = 0; pageIndex < totalPage; pageIndex++) {
             const n = pageIndex + 1;
@@ -55,6 +50,10 @@ export async function genPDF(
                 pageMap[pageIndex] = 0;
             }
         }
+    }
+    for (let pageIndex = totalPage - 1; pageIndex >= 0; pageIndex--) {
+        if (!pageMap[pageIndex])
+            pdfDoc.removePage(pageIndex);
     }
     return await pdfDoc.saveAsBase64();
 
