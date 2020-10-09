@@ -81,13 +81,12 @@ export async function convertHTMLToPDF(
     }
 
     if (remoteContent === true) {
-        await page.goto(`data:text/html;charset='utf-8',${html}`, {waitUntil: 'networkidle0'});
+        await page.goto(`data:text/html;charset='utf-8',${html}`, {waitUntil: 'load'}); //'networkidle0'});
     } else {
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36');
         //page.setContent will be faster than page.goto if html is a static
-        await page.setContent(html);
+        await page.setContent(html, {waitUntil: 'load'});
     }
-
     return await page.pdf(options);
 
     // await browser.close();

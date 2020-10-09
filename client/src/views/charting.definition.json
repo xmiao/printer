@@ -46,14 +46,14 @@
         },
         {
           "displayName": "T",
-          "html": "T &deg;C",
+          "html": "T <span style='font-family:sans'>°</span>C",
           "metaData": {
             "id": "130"
           }
         },
         {
           "displayName": "",
-          "html": "吸氧",
+          "html": "<span>吸氧</span><sup style='color:blue'>test</sup>",
           "items": [
             {
               "displayName": "流量",

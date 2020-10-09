@@ -63,7 +63,6 @@ export default class GenPrint extends Vue {
 
   psCharting(charting: any) {
     if (!charting) return "";
-    const {items = []} = charting;
 
     function rc(node: any, pos: any): any {
       const {items: i1 = []} = node || {};
@@ -98,6 +97,10 @@ export default class GenPrint extends Vue {
       }
 
       for (const i of i1) {
+        if (rowspan > 1) {
+          const {_info = {}} = i;
+          _info.y += rowspan - 1;
+        }
         rc2(i);
       }
     }
