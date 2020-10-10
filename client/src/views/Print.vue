@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <el-container style="height: 100%; border: 1px solid #eee">
-      <el-aside style="background-color: rgb(238, 241, 246)" width="400px">
+      <el-aside style="background-color: rgb(238, 241, 246)" width="30em">
         <el-card class="printer" header="打印设置">
           <div slot="header">
             <span>打印设置</span>

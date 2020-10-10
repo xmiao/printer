@@ -1,11 +1,12 @@
 <template>
-  <div class="wn-text">
+  <div class="wn-choice">
     <label>
       <span>{{ label() }}</span>
       <el-radio-group
           v-model="innerValue"
           @input="input"
-          disable-transitions size="small">
+          disable-transitions
+          size="small">
         <el-radio-button
             v-for="item in options()"
             :key="item.value"
@@ -47,7 +48,7 @@ export default class WnChoice extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.wn-text {
+.wn-choice {
   text-align: left;
   margin: 3px 1em;
 
