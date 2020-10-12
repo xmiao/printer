@@ -1,5 +1,5 @@
 import express from "express";
-import {genPDF} from "./genPdf";
+import {genPDF2} from "./genPdf";
 // import path from "path";
 
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
@@ -20,7 +20,7 @@ router
         const {
             body: {
                 header: headerTemplate, footer: footerTemplate,
-                htmlFile,
+                htmlFile, f2,
                 format = 'A4',
                 orientation = "", doPrint,
                 pageToPrint
@@ -42,16 +42,13 @@ router
             };
 
             const curTime = new Date();
-            const pdf64 = await genPDF(htmlFile, options, {pageToPrint});
+            const pdf64 = await genPDF2(htmlFile, f2, options, {pageToPrint});
             const endTime = new Date();
             res
                 .status(200)
                 .setHeader("Content-Type", "application/json");
             res
                 .json({pdf: pdf64, timeSpent: +endTime - +curTime});
-
-            // res.setHeader("Content-Type", "application/pdf");
-            // res.send(pdf);
         } catch (e) {
             res
                 .status(500)

@@ -84,7 +84,10 @@ export default class GenPrint extends Vue {
     const metaDataIndex = {} as any;
 
     function rc2(node: any): any {
-      const {items: i1 = [], _info: {width, height, x, y}, displayName, html, metaData: {id} = {} as any} = node || {};
+      const {
+        items: i1 = [], _info: {width, height, x, y}, displayName, html,
+        metaData: {id} = {} as any
+      } = node || {};
       const rowspan = totalHeight - (y + height) + 1;
       const colspan = width;
       if (!rowData[y]) rowData[y] = [];
@@ -94,13 +97,12 @@ export default class GenPrint extends Vue {
 
       metaDataIndex[x] = {
         id
-      }
+      };
 
       for (const i of i1) {
-        if (rowspan > 1) {
-          const {_info = {}} = i;
-          _info.y += rowspan - 1;
-        }
+        if (!rowspan || rowspan < 1) continue;
+        const {_info = {}} = i;
+        _info.y += rowspan - 1;
         rc2(i);
       }
     }
@@ -109,9 +111,8 @@ export default class GenPrint extends Vue {
 
     const hd2 = rowData
         .filter(x => x.length > 1)
-        .map(x => x.join(""))
-        .map(x => `<tr>${x}</tr>`)
-        .join("");
+        .map(x => `<tr>${x.join(" ")}</tr>`)
+        .join("\n");
 
     const data = this.data || Array(0)
         .fill({});

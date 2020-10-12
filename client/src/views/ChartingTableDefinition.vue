@@ -59,11 +59,16 @@ export default class ChartingTableDefinition extends Vue {
   async getHTML() {
     const gp = new GenPrint();
     const {chartingDef: def, range, chartingData: data, printMode: mode} = this;
-    Object.assign(gp.$props, {def, mode, data, range});
+    Object.assign(gp.$props, {def, mode: 0, data, range});
+    const f1 = gp.html();
+
+    Object.assign(gp.$props, {mode: 1});
+    const f2 = gp.html();
 
     const data2: any = {
       ...print2,
-      htmlFile: gp.html(),
+      htmlFile: f1,
+      f2,
       format: "A4",
       orientation: "2",
       doPrint: false,
