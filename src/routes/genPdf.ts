@@ -47,19 +47,17 @@ export async function genPDF2(
     const {pageToPrint} = printOptions;
     const odd = (pageToPrint === "odd"), even = (pageToPrint === "even");
     for (let pageIndex = 0; pageIndex < totalPage; pageIndex++) {
-        let {} = pageMap;
         const n = pageIndex + 1;
         if (odd && n % 2 === 0 || even && n % 2 === 1) {
             Object.assign(pageMap[pageIndex], {
                 action: ACTION.DELETE
             });
         }
-
     }
     for (let pageIndex = totalPage - 1; pageIndex >= 0; pageIndex--) {
-        if (pageMap[pageIndex] === -1)
+        let {[pageIndex]: {action}} = pageMap;
+        if (action === ACTION.DELETE)
             pdfDoc.removePage(pageIndex);
-
     }
     return await pdfDoc.saveAsBase64();
 }
