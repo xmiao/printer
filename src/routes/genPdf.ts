@@ -35,17 +35,6 @@ export async function genPDF2(
         right: 39px;
     }
     </style>`;
-    const f21 = f2
-        .replace(/body/g, "bb")
-        .replace(/<style forprint><\/style>/, noTableStyle);
-    const pdfNoTable = await convertHTMLToPDF(
-        f21,
-        Object.assign({},
-            headerOptionDefault,
-            pdfOptions,
-            {displayHeaderFooter: false})
-    );
-    const pdfDocNT = await PDFDocument.load(pdfNoTable);
 
     const pdfTable = await convertHTMLToPDF(
         htmlFile,
@@ -53,10 +42,24 @@ export async function genPDF2(
     );
     const pdfDoc = await PDFDocument.load(pdfTable);
 
-    let p1 = await pdfDoc.getPage(0);
-    let p2 = await pdfDocNT.getPage(0);
-    let pe = await pdfDoc.embedPage(p2);
-    p1.drawPage(pe);
+    if (f2) {
+        const f21 = f2
+            .replace(/<style forprint><\/style>/, noTableStyle);
+        const pdfNoTable = await convertHTMLToPDF(
+            f21,
+            Object.assign({},
+                headerOptionDefault,
+                pdfOptions,
+                {displayHeaderFooter: false})
+        );
+        const pdfDocNT = await PDFDocument.load(pdfNoTable);
+
+        let p1 = await pdfDoc.getPage(0);
+        let p2 = await pdfDocNT.getPage(0);
+        let pe = await pdfDoc.embedPage(p2);
+        p1.drawPage(pe);
+    }
+
 
     const totalPage = pdfDoc.getPageCount(); //page starts from 0.
     const pageMap = Array(totalPage).fill({source: 0});

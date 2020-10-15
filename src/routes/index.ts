@@ -1,5 +1,5 @@
 import express from "express";
-import {genPDF2} from "./genPdf";
+import {genPDF, genPDF2} from "./genPdf";
 // import path from "path";
 
 // 文档在 https://pocketadmin.tech/en/puppeteer-generate-pdf
@@ -42,7 +42,10 @@ router
             };
 
             const curTime = new Date();
-            const pdf64 = await genPDF2(htmlFile, f2, options, {pageToPrint});
+            const pdf64 = f2 ?
+                await genPDF2(htmlFile, f2, options, {pageToPrint}) :
+                await genPDF(htmlFile, options, {pageToPrint})
+            ;
             const endTime = new Date();
             res
                 .status(200)
