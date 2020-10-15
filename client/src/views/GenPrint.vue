@@ -95,9 +95,7 @@ export default class GenPrint extends Vue {
       node._info.html = html2;
       rowData[y][x] = html2;
 
-      metaDataIndex[x] = {
-        id
-      };
+      metaDataIndex[x] = {id};
 
       for (const i of i1) {
         if (!rowspan || rowspan < 1) continue;
@@ -196,6 +194,7 @@ ${this.mode == 1 ? "" : ".ignore-me"} * {
     color: black !important;
 }
 </style>
+<style forprint></style>
 `;
   }
 

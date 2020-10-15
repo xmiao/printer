@@ -3,6 +3,8 @@ import {PDFDocument} from "pdf-lib";
 // const uuid = require("uuid-v4");
 // import moment from "moment";
 
+export enum ACTION {DELETE = 1}
+
 let browser: any = null;
 let page: any = null;
 
@@ -25,24 +27,39 @@ export async function genPDF2(
     pdfOptions: any = {},
     printOptions: any = {}
 ) {
+    const noTableStyle = `<style>
+    body {
+        position: absolute;
+        top: 0;
+        left: 39px;
+        right: 39px;
+    }
+    </style>`;
+    const f21 = f2
+        .replace(/body/g, "bb")
+        .replace(/<style forprint><\/style>/, noTableStyle);
     const pdfNoTable = await convertHTMLToPDF(
-        f2,
-        Object.assign({}, headerOptionDefault, pdfOptions, {
-            headerTemplate: "",
-            footerTemplate: "",
-        })
+        f21,
+        Object.assign({},
+            headerOptionDefault,
+            pdfOptions,
+            {displayHeaderFooter: false})
     );
     const pdfDocNT = await PDFDocument.load(pdfNoTable);
+
     const pdfTable = await convertHTMLToPDF(
         htmlFile,
         Object.assign({}, headerOptionDefault, pdfOptions)
     );
     const pdfDoc = await PDFDocument.load(pdfTable);
 
+    let p1 = await pdfDoc.getPage(0);
+    let p2 = await pdfDocNT.getPage(0);
+    let pe = await pdfDoc.embedPage(p2);
+    p1.drawPage(pe);
+
     const totalPage = pdfDoc.getPageCount(); //page starts from 0.
     const pageMap = Array(totalPage).fill({source: 0});
-
-    enum ACTION {DELETE = 1}
 
     const {pageToPrint} = printOptions;
     const odd = (pageToPrint === "odd"), even = (pageToPrint === "even");
@@ -129,6 +146,12 @@ export async function convertHTMLToPDF(
         //page.setContent will be faster than page.goto if html is a static
         await page.setContent(html, {waitUntil: 'load'});
     }
+
+    // await page.emulateMedia('screen');
+    await page._emulationManager._client.send(
+        'Emulation.setDefaultBackgroundColorOverride',
+        {color: {r: 0, g: 0, b: 0, a: 0}}
+    );
     return await page.pdf(options);
 
     // await browser.close();
