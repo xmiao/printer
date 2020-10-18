@@ -1,5 +1,6 @@
 import puppeteer from "puppeteer";
 import {PDFDocument} from "pdf-lib";
+import * as fs from "fs";
 // const uuid = require("uuid-v4");
 // import moment from "moment";
 
@@ -23,7 +24,6 @@ const headerOptionDefault = Object.freeze({
 
 export async function genPDF2(
     htmlFile: string,
-    f2: string,
     pdfOptions: any = {},
     printOptions: any = {}
 ) {
@@ -31,35 +31,49 @@ export async function genPDF2(
     body {
         position: absolute;
         top: 0;
-        left: 39px;
-        right: 39px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: none;
+    }
+    td, tr, th {
+        border: 1px solid transparent;
+    }
+    * {
+        color: transparent;
+    }
+    .business-content {
+        color: black;
     }
     </style>`;
+    const tableStyle = `<style>
+        .business-content {
+            color: transparent;
+        }
+    </style>`;
 
-    const pdfTable = await convertHTMLToPDF(
-        htmlFile,
-        Object.assign({}, headerOptionDefault, pdfOptions)
-    );
+    const f1 = htmlFile
+        .replace(/<style forprint><\/style>/, tableStyle);
+    console.log(__dirname);
+    fs.writeFileSync(__dirname + "/a.html", f1);
+    const pdfTable = await convertHTMLToPDF(f1, Object.assign({}, headerOptionDefault, pdfOptions));
     const pdfDoc = await PDFDocument.load(pdfTable);
 
-    if (f2) {
-        const f21 = f2
-            .replace(/<style forprint><\/style>/, noTableStyle);
-        const pdfNoTable = await convertHTMLToPDF(
-            f21,
-            Object.assign({},
-                headerOptionDefault,
-                pdfOptions,
-                {displayHeaderFooter: false})
-        );
-        const pdfDocNT = await PDFDocument.load(pdfNoTable);
+    const f2 = htmlFile
+        .replace(/<style forprint><\/style>/, noTableStyle);
+    const pdfNoTable = await convertHTMLToPDF(
+        f2,
+        Object.assign({},
+            headerOptionDefault,
+            pdfOptions,
+            {displayHeaderFooter: false})
+    );
+    const pdfDocNT = await PDFDocument.load(pdfNoTable);
 
-        let p1 = await pdfDoc.getPage(0);
-        let p2 = await pdfDocNT.getPage(0);
-        let pe = await pdfDoc.embedPage(p2);
-        p1.drawPage(pe);
-    }
-
+    let p1 = await pdfDoc.getPage(0);
+    let p2 = await pdfDocNT.getPage(0);
+    let pe = await pdfDoc.embedPage(p2);
+    p1.drawPage(pe);
 
     const totalPage = pdfDoc.getPageCount(); //page starts from 0.
     const pageMap = Array(totalPage).fill({source: 0});

@@ -48,7 +48,7 @@ export default class GenPrint extends Vue {
         this.psCharting(charting)
       ].join("");
 
-    return `<div style="border: 1px solid red">${JSON.stringify(t)}</div>`;
+    return `<div style="border: 1px solid red">Not handled:${JSON.stringify(t)}</div>`;
   }
 
   psForm(form: any) {
@@ -56,7 +56,10 @@ export default class GenPrint extends Vue {
     const {fields = []} = form;
     return fields
         .map(({label, text, template}: any) => {
-          return `<div class="label-text"><div>${label}</div><div>${text}</div></div>`
+          return `<div class="label-text">
+                <div>${label}</div>
+                <div>${text}</div>
+            </div>`
         })
         .join("");
   }
@@ -80,7 +83,6 @@ export default class GenPrint extends Vue {
 
     const {width: totalWidth, height: totalHeight} = rc(charting, {});
     const rowData: any[] = [];
-
     const metaDataIndex = {} as any;
 
     function rc2(node: any): any {
@@ -104,7 +106,6 @@ export default class GenPrint extends Vue {
         rc2(i);
       }
     }
-
     rc2(charting);
 
     const hd2 = rowData
@@ -121,30 +122,20 @@ export default class GenPrint extends Vue {
       for (let c = 0; c < totalWidth; c++) {
         const {[c]: {id = ""} = {}} = metaDataIndex;
         const elem = dataItem[id];
-        cbuf.push(elem === undefined ? "&nbsp" : elem);
+        cbuf.push(elem === undefined ? "&nbsp;" : elem);
       }
       rbuf.push(cbuf);
     }
     const textBody = rbuf
         .map((x, i) => {
           const c = x
-              .map(x => `<td>${x}</td>`)
+              .map(x => `<td><span class="business-content">${x}</span></td>`)
               .join("");
-          return `<tr${i > 5 && this.mode == 1 ? " class=\"show\"" : ""}>${c}</tr>`;
+          return `<tr>${c}</tr>`;
         })
         .join("");
 
     return `
-<div>
-<table>
-  <thead>
-     ${hd2}
-  </thead>
-  <tbody>
-    ${textBody}
-  </tbody>
-</table>
-</div>
 <style>
 * {
     font-family: STSong;
@@ -185,16 +176,18 @@ h1 {
     text-align: center;
 }
 
-${this.mode == 1 ? "" : ".ignore-me"} * {
-    border-color: transparent !important;
-    color: transparent !important;
-}
-
-.show * {
-    color: black !important;
-}
 </style>
 <style forprint></style>
+<div>
+<table>
+  <thead>
+     ${hd2}
+  </thead>
+  <tbody>
+    ${textBody}
+  </tbody>
+</table>
+</div>
 `;
   }
 

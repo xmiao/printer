@@ -23,7 +23,8 @@ router
                 htmlFile, f2,
                 format = 'A4',
                 orientation = "", doPrint,
-                pageToPrint
+                pageToPrint,
+                gen2
             } = {} as any
         } = req || {};
 
@@ -42,8 +43,8 @@ router
             };
 
             const curTime = new Date();
-            const pdf64 = f2 ?
-                await genPDF2(htmlFile, f2, options, {pageToPrint}) :
+            const pdf64 = gen2 ?
+                await genPDF2(htmlFile, options, {pageToPrint}) :
                 await genPDF(htmlFile, options, {pageToPrint})
             ;
             const endTime = new Date();
